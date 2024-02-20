@@ -9,28 +9,36 @@ div, p {
     list-style: none;
 }
 
+span{
+  color: blueviolet;
+  font-size: 40px;
+  font-weight: bold;
+  background-color: beige;
+}
 
 .first{
   color: #a52a2a;
+  font-size: 20px;
 }
 
 .secon{
   color: #38a52a;
+  font-size: 10px;
 }
 
 .third{
   color: #006ea1;
+  font-size: 5px;
 }
 
 .last{
   color: #830abb;
+  font-size: 25 px;
 }
 
 div{
   background-color: antiquewhite;
 }
 
-span{
-  color: blueviolet;
-}
+
 
