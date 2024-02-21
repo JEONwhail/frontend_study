@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <!-- 웹페이지의 문서를 어떤 언어로 해석할지 정하는 것 -->
+    <!-- en으로 표시 된 페이지는 번역여부 확인됨 -->
+<head>
+    <!-- 문서의 정보를 담는 영역 -->
+    <!-- 예시로 css, 자바스크립트, 폰트정보 등등 -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/main.css">
+    <!-- 외부스크립트 -->
+    <script src="./js/main.js"></script>
+    <!-- 내부스크립트 -->
+    <script>
+        console.log('내부스크립트');
+    </script>
+    <!-- 외부스타일시트 -->
+    <!-- 내부스타일시트 -->
+    <!-- <style>내부 스타일 시트 입력 방법</style> -->
+    <style>
+        div{
+            text-decoration: underline;
+            /* 내부스타일시트로 밑줄넣기 */
+        }
+    </style>
+    <title>테스트TEST</title>
+    <!-- 문서의 제목 -->
+</head>
+<body>
+  <!-- 사용자 눈에 보이는 구조를 작성하는 영역 -->
+  <div>
+    안녕 세상아!!!!
+  </div>
+
+  <!-- 화면에 이미지 출력하기 -->
+  <!-- alt : 이미지가 출력되지 못하는경우 대신 출력할 텍스트 = 대체 텍스트 -->
+  <!-- 이미지경로가 잘못된 경우 / 네트워크가 불안정해서 등 이미지가 안나오는 경우가 있음 -->
+  <!-- 웹접근성과 관련이 있음. 스크린 리더(시각장애인분들을 위해 화면을 읽어주는)가 이미지를 읽음 -->
+  <img src="./images/logo.png" alt="상대경로 로고이미지입니당">  
+  <img src="images/logo.png" alt="로고이미지입니당">  
+  <img src="/02_test/images/logo.png" alt="절대경로 이미지 입니다">  
+  <img src="https://heropy.blog/css/images/logo.png" alt="외부사이트에서 가져온 이미지">
+  <!--  css로 배경 이미지 넣기 -->
+  <div class="logo" alt="백그라운드 css이미지로 놓기">
+    
+  </div>
+
+  <!-- 페이지를 나누고 연결(링크)하기 -->
+  <!-- "href"라는 속성은 다른 페이지로 이동할 수 있는 경로를 입력 -->
+  <a href="https://www.naver.com/" target="_blank">NAVER</a>
+  <a href="./about/about.html" target="_blank">page 이동</a>
+  <!-- index.html로 만들면 생략이 가능하다
+    생략가능한 이유 : 브라우저가 해당 이름을 가진 파일을 우선적으로 찾아서 실행함
+    주소창에서도 index.html 지워도 같은 url로 이동함
+        ex)http://127.0.0.1:5500/02_test/index.html
+        ex)http://127.0.0.1:5500/02_test -->
+  <a href="./about" target="_blank">about 이동</a>
+</body>
+</html>
+
+<!-- 개발자 도구 이용하기 -->
+<!-- 
+    브라우저마다 제공하는 개발자 도구를 이용해서 엡사이트를 분석하고 테스트하는방법
+    개발자 도구 여는법 : 단축키 - F12 / 마우스 우클릭 하고 검사 누르기.
+
+    검사 해야할 요소 선택 법 : 개발자도구 창에서 좌측 상단의 셀렉트 기능 누르기
+    셀렉트 기능 단축키 : 컨트롤+쉬프트 + c
+
+    1)Elements 탭 : HTML에 대한 정보 확인 가능
+
+    2)하단 Styles 탭 : 특정 HTML 요소에 어떤 스타일이 적용되었는지 CSS에 대한 정보를 확인
+    임시로 스타일 요소를 확인할 수 있음. -> 그대로 복사 후 파일에 적용할 수 있음.
+    ※여기서 임의로 적용한 스타일은 새로고침하면 다시 리셋됨
+    다른 사람이 만든 웹 사이트에도 내가 원하는 스타일을 적용해 볼 수 있음
+
+    3)하단 Computed 탭 : CSS 박스 모델과 함께 실제로 적용한 스타일 값만 모아서 볼 수 있음.
+                        **우선순위가 높은 애들이 적용**
+
+    4)Console 탭 : 자바스크립트 다룰 때 가장 많이 사용하는 툴
+                   자바스크립트 기능을 만들었을 때, 기능을 안하는 경우에는 콘솔창을 제일 먼저 열어서 확인해야함.
+
+    Layout 탭
+    Even Listeners 탭
+    DOM Breakpoints 탭
+    Properties 탭
+    Accessibilty 탭
+
+    )Sources 탭
+    )Network 탭 : 백엔드 배울 때 서버랑 네트워크랑 여녈 할때
+    )Perfotmance 탭
+    )Memory 탭
+    )Application 탭 : 브라우저 안에 저장소 - 리액트배울때
+    )Security 탭
+    )Lighthouse 탭
+    )Recorder 탭
+    )Performance insights 탭
+
+
+ -->
