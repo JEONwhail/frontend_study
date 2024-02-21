@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>블럭태그 정리</title>
+</head>
+<body>
+
+<!-- 블록 요소는 본질적으로 아무것도 나타내지 않는, 콘텐츠 영역을 설정하는 용도. -->
+
+  <!-- 블록(Block) 요소 : 상자(레이아웃)를 만들기 위한 요소들.
+        - 보통 수직으로 쌓임. 
+        - 가로는 부모 요소 크기만큼 100% 늘어나고, 세로는 콘텐츠 크기만큼 줄어듬.
+        ex) p,div
+        div ->> 레이아웃(요소) 나누기에 많이 쓰임. 
+  -->
+
+<div>Hello</div><div>World</div>
+<div>Hello</div>
+<div>World</div>
+<br>
+<!-- ★★부모 요소의 크기만큼 자동으로 늘어남!★★
+     포함한 콘텐츠 크기만큼 자동으로 줄어듬! 
+    ★★부모에 맞게 100% 꽉찬다★★
+-->
+
+<!-- 가로, 세로 크기 지정이 가능함. -->
+<div style="width: 100px; background-color: aquamarine;">Hello</div>
+<div style="height: 40px; background-color: aquamarine">World</div>
+<br>
+
+<!-- 상하좌우여백 지정 가능 -->
+<div style="margin: 10px; background-color: blueviolet;">Hello</div>
+<div style="padding: 10px; background-color: blueviolet">World</div>
+<br>
+<br>
+
+
+<!-- <div><div></div></div> -블록안에 블록 가능 -->
+<!-- <div><span></span></div>-블록안에 인라인 가능 -->
+<div><div>div in div</div></div>
+<div><span>span in div</span></div>
+<br>
+<br>
+<p>이대로 잠들게 해주세요</p>
+
+<!-- 제약 사항이 별로 없음 -->
+<!-- 글자에 스타일을 주는 경우 외에 시각적인 구조(레이아웃)를 잡을 때는 주로 블록요소 사용 -->
+</body>
+</html>
