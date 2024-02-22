@@ -81,8 +81,6 @@
 
     <label> <input type="checkbox" checked />라벨-이미눌렸당 </label>
 
-    
-
     <label for="check">
       <input id="check" type="checkbox" />라벨-눌러보시지
     </label>
@@ -94,65 +92,97 @@
     - 사용자가 요소 내의 텍스트를 클릭하면 <label>입력이 토글되기 때문(히트 영역이 증가함)
   -->
 
-  <!-- 예제는 편의를 위해 label을 매번 사용하지 않겠지만 실제 개발시 input 요소에 label을 같이 사용해 줄 것! -->
+    <!-- 예제는 편의를 위해 label을 매번 사용하지 않겠지만 실제 개발시 input 요소에 label을 같이 사용해 줄 것! -->
 
-  <hr />
+    <hr />
 
-  <!-- 라디오버튼 -->
-  <label>
-    <input type="radio"> APPLE
-  </label>
+    <!-- 라디오버튼 -->
+    <label> <input type="radio" /> APPLE </label>
 
-  <label>
-    <input type="radio"> BANANA
-  </label>
+    <label> <input type="radio" /> BANANA </label>
 
-  <br>
-  <!-- name속성으로 그룹화 -->
-  <!-- 그룹이 안되어있을 경우에는 중복선택과 해제가 되지 않음. -->
-  <!-- 네임 속성은 같은 값으로 넣어야지마 그룹화 진행 -->
-  <!-- 라디오 속성도 동일하게 체크드 속성도 있음 -->
-  <label>
-    <input type="radio" name="fruit" checked> APPLE
-  </label>
+    <br />
+    <!-- name속성으로 그룹화 -->
+    <!-- 그룹이 안되어있을 경우에는 중복선택과 해제가 되지 않음. -->
+    <!-- 네임 속성은 같은 값으로 넣어야지마 그룹화 진행 -->
+    <!-- 라디오 속성도 동일하게 체크드 속성도 있음 -->
+    <label> <input type="radio" name="fruit" checked /> APPLE </label>
 
-  <label>
-    <input type="radio" name="fruit"> BANANA
-  </label>
+    <label> <input type="radio" name="fruit" /> BANANA </label>
 
-  <br>
-  <hr>
-  <!-- 그 밖에 다른 입력 양식들 -->
-  <!-- value="닫기" <<<그냥 글씨만 닫기로 보이게 함 진짜 동작은 자바스크립트로 이용 -->
-  <!-- 버튼 만드는 방식은 2가지. 버튼 태그를 많이 씀 -->
-  <input type="button" value="닫기">
-  <button type="button">닫기</button>
-  <!-- 버튼 태그의 장접 -->
-  <!-- 요소 내부에 텍스트 뿐만 아니라 다른 태그를 넣을 수 있음. -->
-  <!-- b태그는 볼드체 -->
-  <button type="button"><b>닫기</b><br>test</button>
-  <!-- A태그도 버튼으로 많이 이용함
+    <br />
+    <hr />
+    <!-- 그 밖에 다른 입력 양식들 -->
+    <!-- value="닫기" <<<그냥 글씨만 닫기로 보이게 함 진짜 동작은 자바스크립트로 이용 -->
+    <!-- 버튼 만드는 방식은 2가지. 버튼 태그를 많이 씀 -->
+    <input type="button" value="닫기" />
+    <button type="button">닫기</button>
+    <!-- 버튼 태그의 장접 -->
+    <!-- 요소 내부에 텍스트 뿐만 아니라 다른 태그를 넣을 수 있음. -->
+    <!-- b태그는 볼드체 -->
+    <button type="button"><b>닫기</b><br />test</button>
+    <!-- A태그도 버튼으로 많이 이용함
       인라인요소이기 때문에 인라인블록으로 만들어서 디자인요소 추가 -->
 
-      <!-- ★★★type 속성을 항상 지정하여 브라우저에 버튼 유형을 알려주는게 좋음★★★ -->
-             <!-- (브라우저마다 또는 사용 위치에 따라 다른 기본값을 가질 수도 있음) -->
-   <hr>
-  <!-- 색상 선택도구 (color picker) -->
-  <label for="favorite">좋아하는 색상 선택 :
-    <input type="color" id="favorite" value="#ff0000">
-    <!-- value 속성으로 디폴트 색상도 정하 수 있음 -->
-  </label>
+    <!-- ★★★type 속성을 항상 지정하여 브라우저에 버튼 유형을 알려주는게 좋음★★★ -->
+    <!-- (브라우저마다 또는 사용 위치에 따라 다른 기본값을 가질 수도 있음) -->
+    <hr />
+    <!-- 색상 선택도구 (color picker) -->
+    <label for="favorite"
+      >좋아하는 색상 선택 :
+      <input type="color" id="favorite" value="#ff0000" />
+      <!-- value 속성으로 디폴트 색상도 정하 수 있음 -->
+    </label>
 
-  <hr>
+    <hr />
 
-  <!-- 사용자에게 날짜.시간입력받기 -->
-  <!-- 날짜 -->
-  <label for="birthday">생년월일 입력</label>
-  <input type="date" id="birthday">
-  <br>
-  <!-- 시간입력 -->
-  <label for="birthday_time">생년월일 시간 입력</label>
-  <input type="datetime-local" name="" id="birthday_time">
+    <!-- 사용자에게 날짜.시간입력받기 -->
+    <!-- 날짜 -->
+    <label for="birthday">생년월일 입력</label>
+    <input type="date" id="birthday" />
+    <br />
+    <!-- 날짜시간입력 -->
+    <label for="birthday_time">생년월일 시간 입력</label>
+    <input type="datetime-local" name="" id="birthday_time" />
+    <br />
+    <!-- 시간입력 -->
+    <label for="time">시간 입력</label>
+    <input type="time" name="" id="time" />
+
+    <hr />
+    <!-- submit - 서버에 데이터를 날리는 이벤트 -->
+    <!-- 이메일입력 양식을 썼을 때 특수한 동장 : submit 시에만 자동으로 이메일 형식 유효성 검사를 해줌 -->
+    <!-- dddd@ddd 이라는 양식이 나올 때 까지 전송안해줌 -->
+
+    <!-- 액션에는 서버의 주소를 입력 -->
+    <form action="/signup">
+      <label for="email"
+        >이메일입력
+        <input type="email" id="email" />
+        <button type="submit">전송</button>
+        <!-- 일반 버튼으로 만들시에는 서버에 전송이 안댐. 타입은 무조건 submit -->
+      </label>
+    </form>
+
+    <hr />
+    <!-- 파일선택 -->
+    <label for="myfile">
+      <input type="file" id="myfile" />
+    </label>
+    <hr />
+    <!-- 아중파일선택 -->
+    <label for="myfile">
+      <input type="file" id="myfile" multiple />
+      <!-- 컨트롤누르고 다중 선택하면 됨 -->
+    </label>
+
+    <hr />    
+    <!-- 범위선택 -->
+    <label for="volume">음량(0~10)
+      <input type="range" id="volume">
+    </label>
+
+
 
   </body>
 </html>
