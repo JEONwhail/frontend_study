@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./CSS/main.css">
     <title>Document</title>
 </head>
 <body>
@@ -73,7 +74,36 @@
         </ul>
     </div>
 
+    <!-- ancher(인라인태그) : 닺,페이지를 이동ㅎ는 하이퍼 링크를 지정할 수 있음. -->
+    <!-- 인라인요소 특성상 수평 배열 -->
+    <a href="#Intro">Intro</a>
+    <!-- 해당 #id 영역으로 이동 -->
+    <a href="#">링크값xx 임시값 새로고침됨</a>
+    <!-- 새로고침 -> 밑에 있는 요소라면 스크롤 올라감... -->
+    <a href="#none">링크값xx 임시값 새로고침안됨</a>
+    <!-- 트래픽 : 데이터를 전송하는 양이지만 조회수라고 생각하면 조금 더 편함 -->
+    <!-- 새로고침이 될 경우에 트랙픽이 지속해서 차감됨 <<<나중에 개인 홈페이지 만들때 트래픽 다쓰면 돈내거나 다음날 작업해야함. -->
+    <a href="https://www.naver.com/">네이버이동</a>
+    <!-- target="_blank" 새탭에서 열기 -->
+    <a href="https://www.google.com/" target="_blank" >구글이동</a>
+
+
+    <a href="#">링크값xx 임시값 새로고침됨</a>
+    <!-- 해당 #id 영역으로 이동 -->
+    <a href="#Intro">Intro</a>
+    <a href="#Guide">Guide</a>
+
+    <!-- 임시 태그 이동 테스트 -->
+    <hr>
+    <h2 id="Intro">Intro</h2>
+    <p style="height: 200px;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloribus eos quisquam veniam mollitia sed? A minima rem deserunt magni? Velit debitis ipsa cupiditate aperiam minima iure voluptatem numquam harum quam?</p>
+    <p style="height: 200px;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus, quas nobis at quidem qui odit consequuntur placeat tempore sequi, vero harum. Consectetur corporis dolor enim! Perferendis magni quisquam ipsam velit.</p>
+    <p style="height: 200px;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque inventore possimus in, omnis minus aperiam quos magnam a placeat explicabo sunt fuga non, molestiae iste. Fugit dolorem hic nostrum ex.</p>
     
-    
+    <h2 id="Guide">Guide</h2>
+    <p style="height: 200px;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloribus eos quisquam veniam mollitia sed? A minima rem deserunt magni? Velit debitis ipsa cupiditate aperiam minima iure voluptatem numquam harum quam?</p>
+    <p style="height: 200px;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus, quas nobis at quidem qui odit consequuntur placeat tempore sequi, vero harum. Consectetur corporis dolor enim! Perferendis magni quisquam ipsam velit.</p>
+    <p style="height: 200px;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque inventore possimus in, omnis minus aperiam quos magnam a placeat explicabo sunt fuga non, molestiae iste. Fugit dolorem hic nostrum ex.</p>
+
 </body>
 </html>
