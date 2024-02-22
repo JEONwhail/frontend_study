@@ -1,21 +1,29 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
-        input::placeholder{
-            color: blueviolet;
-        }
-        .place{
-            color: blueviolet;
-            background-color: black;
-            border: 3px yellow solid;
-        }
+      input::placeholder {
+        color: blueviolet;
+      }
+      .place {
+        color: blueviolet;
+        background-color: black;
+        border: 3px yellow solid;
+      }
+      .placeholder-hidden:focus::placeholder {
+        color: transparent;
+        /*투명색 입력 */
+      }
+      .placeholder-hidden02:hover::placeholder {
+        color: transparent;
+        /*투명색 입력 */
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <!-- input(인라인-블록) : 데이터를 입력받는 요소 -->
     <!-- 
         인라인블록 요소 :
@@ -23,20 +31,128 @@
         + 블록 요소처럼 가로,세로 길이와 상하,좌우 여백을 모두 지정 가능
      -->
 
-     <!-- type 속성 : 입력받을 데잍 타입을 지정 -->
-     <!-- 일반 텍스트 -->
-     <input type="text">
+    <!-- type 속성 : 입력받을 데잍 타입을 지정 -->
+    <!-- 일반 텍스트 -->
+    <input type="text" />
 
-     <!-- 값을 미리 입력 -->
-     <input type="text" value="값 미리 입력">
+    <!-- 값을 미리 입력 -->
+    <input type="text" value="값 미리 입력" />
 
-     <!-- 힌트 -->
-     <input class="place" type="text" placeholder="힌트입니당">
-     /
-     <!-- 비활성화 - 수정불가,선택(탭키-포커스)이 불가, submit 불가 -->
-     <input type="text" value="disabled 테스트" disabled>
-      <!-- (참고)읽기 전용 - 수정불가,선택(탭키-포커스)은가능함, submit 가능 -->
-      <input type="text" value="readonly 테스트" readonly>
+    <!-- 힌트 -->
+    <input class="place" type="text" placeholder="힌트입니당" />
+    <!-- Tip !! : 포커스 시 사라지는 힌트 -->
+    <input
+      class="placeholder-hidden"
+      type="text"
+      placeholder="선택시 사라지는힌트입니당"
+    />
+    <!-- Tip !! : 마우스 올릴 시 사라지는 힌트 -->
+    <input
+      class="placeholder-hidden02"
+      type="text"
+      placeholder="마우스하버시 사라지는힌트입니당"
+    />
 
-</body>
+    <!-- 비활성화 - 수정불가,선택(탭키-포커스)이 불가, submit 불가 -->
+    <input type="text" value="disabled 테스트" disabled />
+    <!-- (참고)읽기 전용 - 수정불가,선택(탭키-포커스)은가능함, submit 가능 -->
+    <input type="text" value="readonly 테스트" readonly />
+
+    <hr />
+
+    <input type="checkbox" />눌러보시지
+    <input type="checkbox" checked />이미눌렸당
+
+    <br />
+
+    <!-- 라벨 입력시에는 체크박스뿐 아니라 묶여있는 텍스트 선택시에도 체크가능 -->
+    <!-- label 바인딩 조건 2가지(2개중 1개만 충족시키면 가능) -->
+    <!-- 01. label 요소 내부에 input 배치하여 바인딩하기
+        <label>
+            <input type="checkbox">라벨-눌러보시지
+        </label> 
+    -->
+    <!-- 02. label for 속성이 input ID속성과 같아야 함.
+        <label for="check">
+            <input id="check" type="checkbox">라벨-눌러보시지
+        </label>
+    -->
+    <label> <input type="checkbox" />라벨-눌러보시지 </label>
+
+    <label> <input type="checkbox" checked />라벨-이미눌렸당 </label>
+
+    
+
+    <label for="check">
+      <input id="check" type="checkbox" />라벨-눌러보시지
+    </label>
+
+    <!-- 
+    label 사용 이점(웹 접근성과 관련):
+    1. 스크린 리더 사용자(사용자가 요소에 초점을 맞추면 레이블을 소리내어 읽음)
+    2. 매우 작은 영역(예: 확인란)을 클릭하는 데 어려움이 있는 사용자
+    - 사용자가 요소 내의 텍스트를 클릭하면 <label>입력이 토글되기 때문(히트 영역이 증가함)
+  -->
+
+  <!-- 예제는 편의를 위해 label을 매번 사용하지 않겠지만 실제 개발시 input 요소에 label을 같이 사용해 줄 것! -->
+
+  <hr />
+
+  <!-- 라디오버튼 -->
+  <label>
+    <input type="radio"> APPLE
+  </label>
+
+  <label>
+    <input type="radio"> BANANA
+  </label>
+
+  <br>
+  <!-- name속성으로 그룹화 -->
+  <!-- 그룹이 안되어있을 경우에는 중복선택과 해제가 되지 않음. -->
+  <!-- 네임 속성은 같은 값으로 넣어야지마 그룹화 진행 -->
+  <!-- 라디오 속성도 동일하게 체크드 속성도 있음 -->
+  <label>
+    <input type="radio" name="fruit" checked> APPLE
+  </label>
+
+  <label>
+    <input type="radio" name="fruit"> BANANA
+  </label>
+
+  <br>
+  <hr>
+  <!-- 그 밖에 다른 입력 양식들 -->
+  <!-- value="닫기" <<<그냥 글씨만 닫기로 보이게 함 진짜 동작은 자바스크립트로 이용 -->
+  <!-- 버튼 만드는 방식은 2가지. 버튼 태그를 많이 씀 -->
+  <input type="button" value="닫기">
+  <button type="button">닫기</button>
+  <!-- 버튼 태그의 장접 -->
+  <!-- 요소 내부에 텍스트 뿐만 아니라 다른 태그를 넣을 수 있음. -->
+  <!-- b태그는 볼드체 -->
+  <button type="button"><b>닫기</b><br>test</button>
+  <!-- A태그도 버튼으로 많이 이용함
+      인라인요소이기 때문에 인라인블록으로 만들어서 디자인요소 추가 -->
+
+      <!-- ★★★type 속성을 항상 지정하여 브라우저에 버튼 유형을 알려주는게 좋음★★★ -->
+             <!-- (브라우저마다 또는 사용 위치에 따라 다른 기본값을 가질 수도 있음) -->
+   <hr>
+  <!-- 색상 선택도구 (color picker) -->
+  <label for="favorite">좋아하는 색상 선택 :
+    <input type="color" id="favorite" value="#ff0000">
+    <!-- value 속성으로 디폴트 색상도 정하 수 있음 -->
+  </label>
+
+  <hr>
+
+  <!-- 사용자에게 날짜.시간입력받기 -->
+  <!-- 날짜 -->
+  <label for="birthday">생년월일 입력</label>
+  <input type="date" id="birthday">
+  <br>
+  <!-- 시간입력 -->
+  <label for="birthday_time">생년월일 시간 입력</label>
+  <input type="datetime-local" name="" id="birthday_time">
+
+  </body>
 </html>
