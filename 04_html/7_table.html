@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <!-- 중요!! HTML은 구조를 만드는 역할을 하므로.
+    각 태그(요소)가 어떤 역할을 하는지, 어떤 속성을 사용되는지 정도만 기억해두면 충분함
+    눈에 보이는 예쁘게 만드는 작업은 모두 CSS가 담당한다
+      -->
+
+    <style>
+      table{
+        border-collapse: collapse;
+        /* 셀간의 기본적으로 여백이 존재할때는 상단의  border-collapse: collapse 추가하기*/
+        /* 정 반대로는 border-collapse: separate; 입력 */
+      }
+      /* 여러개의 태그의 디자인을 한번에 주고 싶을땐 쉽표로 추가 */
+      th,td{
+        border: 1px solid black;
+        /* 선 : 선의 두께 실선 색상 */
+        padding: 10px;
+        /* 안쪽여백 / 바깥여백 = margin */
+      }
+     
+    </style>
+</head>
+<body>
+  <!-- 속성 종류 : 인라인, 블록 , 인라인블록, 테이블(안중요함) -->
+    <!-- <table> = 보통 게시판,장바구니 등에서 많이 쓰이는 요소
+      <tr>행입력(table row)
+        <td>열입력(table data)</td>
+        <td>열입력02</td>
+      </tr>
+    </table> 
+    이렇게만 입력하게 되면 표에서 나오는 선같은 건 없음(선은 css에서 만들기)-->
+
+    <!-- table : 표, 행(row), 열(column)로 구성 -->
+    <!-- 주로 게시판, 리스트행 목록 또는 장바구니 같은 것을 만들때 사용함
+      또는 실제 엑셀이나 구글 시트 같은 '표'가 필요한 경우에만 사용하고
+      ※주의사항※ 테이블 태그로 레이아웃 작업을 하면안됨(css기능으로 레이아웃 작업을 해야함.)
+    -->
+
+
+    <table>
+      <tr>
+        <td>A</td>
+        <td>B</td>
+      </tr>
+
+      <tr>
+        <td>C</td>
+        <td>D</td>
+      </tr>
+    </table>
+
+    <hr>
+
+    <!-- ★thead, tbody, th★ -->
+    <!-- 보통 하단처럼 구구절절은 안씀 -->
+    <!-- 상단처럼 가볍게 써도 댐 -->
+    <!-- 아 근데 CSS할 때 자식선택자를 쓸땐 하단처럼 입력해야함 -->
+    <!-- 아님 후손선택자하면 할아버지>(아빠생략)>나 띄고 선택가능 -->
+
+
+    <table>
+      <!-- table head : 제목행은 이 안에 입력하면 됨(잘 안씀) -->
+    <thead>
+      <tbody>
+        <!-- table body : 일반행은 이 안에 -->
+        <tr>
+          <!-- table header : 타이틀(제목) -->
+          <td>PERSON1</td>
+          <td>PERSON2</td>
+          <td>PERSON3</td>
+        </tr>
+
+        <tr>
+          <td>지나</td>
+          <td>수연</td>
+          <td>수빈</td>
+        </tr>
+
+        <tr>
+          <td>30</td>
+          <td>25</td>
+          <td>2</td>
+        </tr>
+      </tbody>
+    </thead>
+  </table> 
+
+  <hr>
+
+  <!-- colspan(열), rowspan(행) : 셀 병합(merge) -->
+  <table>
+    <tr>
+      <!-- 열,행을 합치려면 시작하는 곳에서 합쳐야함 -->
+      <!-- 1,2를 합쳐서 이미 써놨던 2를 삭제해야함 -->
+      <td colspan="2">1</td>
+      <!-- <td>2</td> -->
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>5</td>
+      <td rowspan="2">6</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>8</td>
+      <!-- <td>9</td> -->
+    </tr>
+  </table>
+
+<hr>
+
+  <!-- Quiz -->
+  <table>
+    <tr>
+      <td>1</td>
+      <td colspan="2">2</td>
+      <!-- <td>3</td> -->
+      <td>4</td>
+    </tr>
+    <tr>
+      <td rowspan="3">5</td>
+      <td>6</td>
+      <td>7</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <!-- <td>9</td> -->
+      <td>10</td>
+      <td colspan="2" rowspan="2">11</td>
+      <!-- <td>12</td> -->
+    </tr>
+    <tr>
+      <!-- <td>13</td> -->
+      <td>14</td>
+      <!-- <td colspan="2">15</td> -->
+      <!-- <td>16</td> -->
+    </tr>
+  </table>
+
+
+
+
+</body>
+</html>
