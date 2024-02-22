@@ -5,6 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./CSS/main.css">
     <title>Document</title>
+    <style>
+        .blue{
+            color: blue;
+            font-weight: bold;
+        }
+        .mountain{
+            color: aquamarine;
+            font-weight: 600;
+        }
+        div{
+            color: brown;
+        }
+        .woori{
+            background-color: black;
+            color: yellow;
+        }
+    </style>
 </head>
 <body>
 
@@ -93,7 +110,74 @@
     <a href="#Intro">Intro</a>
     <a href="#Guide">Guide</a>
 
+    <hr>
+
+    <!-- span(인라인태그) : 사용하는 목적은 텍스트를 구분하기 위해 시용함. 주로 글자에 스타일을 적용할 때 -->
+    <!--  -->
+    <p>
+        <span class="blue">동해물</span>과 <span class="mountain">백두산</span>이 마르고 닳도록
+    </p>
+
+    <hr>
+
+    <!-- span태그 div태그로 변경 -->
+    <p>
+        <div>동해물</div>과 <div>백두산</div>이 마르고 닳도록
+    </p>
+
+
+    <!-- break(인라인태그) : 줄바꿈 -->
+    <!-- 태그 하나당 라인 1개 -->
+    <p>
+        동해물과 백두산이 <br>마르고 닳도록
+    </p>
+
+
+    <!-- br안쓰고 엔터키로 쓰는 경우 -->
+    <!-- 엔터키로 줄바꿈 하는 것은 공백 1개로 처림됨 -->
+    <p>
+        동해물과 백두산이 
+        
+        
+        
+        
+        
+        마르고 닳도록
+    </p>
+
+    <!-- HTML 특수문자(HTML Entities) -->
+    <!-- 대표적으로 많이 쓰이는것 -->
+    <!-- 
+    < (less than) = &lt;
+    > (greather than) = &gt;
+    공백 = 	&nbsp;
+    ©	copyright = &copy; -->
+
+    <!-- 사용예01  HTML 공백 여러개 추가 -->
+    <p>
+        동해물과 백두산이 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;마르고 닳도록
+    </p>
+
+    <!-- 사용예02  div를 태그가 아닌 그냥 출력하고 싶다면 -->
+    &lt;div&gt;
+    &copy;
+
+    <!-- horizontal rule(블럭태그) : 수평줄 -->
+    <hr>
+    <hr>
+    <hr>
+    <hr>
+
+
+    <!-- Quiz -->
+    <h3>Quiz: p태그, br태그, span태그 사용해서 출력하기</h3>
+    <p>
+        동해물과 백두산이 마르고 닳도록 <br>하느님이 보우하사 <span class="woori">우리나라</span> 만세
+    </p>
+
+
     <!-- 임시 태그 이동 테스트 -->
+
     <hr>
     <h2 id="Intro">Intro</h2>
     <p style="height: 200px;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloribus eos quisquam veniam mollitia sed? A minima rem deserunt magni? Velit debitis ipsa cupiditate aperiam minima iure voluptatem numquam harum quam?</p>
