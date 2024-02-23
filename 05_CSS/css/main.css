@@ -1,0 +1,11 @@
+/* 4. import(수입하다 뜻 존재)방식 : CSS내에서 다른 CSS파일을 가져와 연결 */
+/* main.css 파일의 해석이 끝나고 가져옴(해석속도 느림, 일반저긴 경우 권장안함) */
+@import url('./box.css');
+/* 직렬방식 */
+
+div{
+  font-size: 100px;
+  color: blanchedalmond;
+  background-color: black;
+  text-align: center;
+}
