@@ -6,25 +6,108 @@
   <title>Document</title>
 
   <style>
+    /* 인라인스타일에는 행동태그 불가 */
     /* 1. (어떠한 행동을 했을 때, 동작하는) 가상 클래스 선택자 */
     /* :hover : 마우스커서가 올라가 있는 동안 선택 */
 
-    a:hover{
+    /* a:hover{
       color: red;
-    }
+    } */
 
     .box{
       width: 100px;
       height: 100px;
       background-color: orange;
-      transition: 1s;
+      transition: 0.3s;
       /* 전환효과 */
     }
-    .box:hover{
+    /* .box:hover{
       width: 300px;
       height: 300px;
       background-color: #208bc5;
+    } */
+
+
+    /* active : 마우스를 클릭하고 있는 동안 선택 */
+    /* 자주 쓸일은 없음 */
+    /* 모바일에서 :hover 대신 꼼수로 사용 */
+    a:active{
+      color: blueviolet;
     }
+    /* .box:active{
+      width: 300px;
+      height: 300px;
+      background-color: #208bc5;
+    } */
+
+    /* :focus ( 요소가 포커스(활성화)되면 선택 ) */
+    /* html 대화형(interactive-상호작용) 요소에 사용 가능
+    ex)input , a, button, label, select, textarea등등
+    구글에 html 대화형 콘텐츠 mdn
+    https://developer.mozilla.org/ko/docs/Web/HTML/Content_categories
+    */
+
+    /* Tab 키로 확인 가능 */
+    /* 강제로 tab index로 가능하지만 스킵 */
+    input:focus{
+      background-color: orange;
+    }
+
+    .box:focus{
+      width: 300px;
+      background-color: blueviolet;
+    }
+
+    /* 02. (특정한 요소를 선택하는) 가상 클래스 선택자 */
+    /* 
+    first-child : 첫번째 자식요소
+    last-child : 마지막 자식요소
+    */
+
+    /* .fruits span:first-child{
+      color: blue;
+    } */
+
+    /* div가 3번째 자식이라 안됨 */
+    /* .fruits div:first-child{
+      color: blue;
+    } */
+
+    /* .fruits h3:last-child{
+      color: blue;
+    } */
+
+    /* :nth-child(n) : n번째 자식요소 */
+    /* .fruits *:nth-child(2){
+      color: blue;
+    } */
+
+    /* :nth-child(2n) : 짝수 자식요소 */
+    /* :nth-child(even) : 짝수란 뜻도 가능*/
+    /* .fruits *:nth-child(2n){
+      color: blue;
+    } */
+
+    /* :nth-child(2n+1) : 홀수를 의미 */
+    /* nth-child(odd) : 홀수 */
+    /* .fruits *:nth-child(2n+1){
+      color: blue;
+    } */
+
+    /* .fruits *:nth-child(n+2){
+      color: blue;
+    } */
+
+    /* n이 먼저 나와야 동작가능 */
+    /* .fruits *:nth-child(-n+3){
+      color: blue;
+    } */
+
+    /*  :not(s) - (선택자 s를 제외)  */
+    .fruits *:not(span){
+      color: blue;
+    }
+
 
   </style>
 
@@ -33,5 +116,29 @@
   <a href="https://www.naver.com">NAVER</a>
 
   <div class="box"></div>
+  
+  <hr>
+
+  <input type="text">
+
+  <hr>
+  <!-- tabindex 속성을 통해 focus 될 수 있는 요소를 만들 수 있음. -->
+  <!-- <div class="box" tabindex="1"></div> -->
+
+  <hr>
+
+  <div class="fruits">
+    <span>딸기</span>
+    <span>수박</span>
+    <div>오렌지</div>
+    <p>망고</p>
+    <h3>사과</h3>
+
+  <hr>
+
+  
+
+  </div>
+
 </body>
 </html>
