@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    .parent{
+      width: 200px;
+      height: 150px;
+      background-color: #F74E2D;
+      margin: 20px;
+      padding: 20px;
+      border: 10px dotted #000000;
+      position: relative;
+      display: block;
+
+      /* 내용이 넘친 요소(부모)에 사용 */
+      /* 기본값 */
+      /* overflow: visible; */
+
+      /* 넘친 내용을 잘라냄 */
+      overflow: hidden;
+
+      /* 많이 사용 하지 않음 */
+      /* 기본적으로 넘치지도 않은 부분에 스크롤 표시가 생김 >> UI적으로 보기 안좋음 */
+      /* overflow: scroll; */
+
+      /* 넘핀 내용이 있을때만 스ㅡ롤바생성 */
+      /* overflow: auto; */
+
+      /* x,y축 개별지정 */
+      /* overflow: hidden scroll; */
+      /* overflow-x : ; 
+        overflow-y : ;*/
+    }
+
+    .child{
+      width: 300px;
+      height: 100px;
+      background-color: #32BB85;
+      border: 5px dotted #000000;
+      margin-top: 30px;
+      transition: 0.5s;
+
+      }
+
+  </style>
+</head>
+<body>
+  <div class="parent">
+    <div class="child"></div>
+  </div>
+
+
+
+  <!--
+    Quiz
+  요소 넘침을 잘라낼 때 사용하는 속성과 값은?
+  >overflow: hidden
+
+  overflow 속성의 기본값은?
+  > visible
+-->
+</body>
+</html>
