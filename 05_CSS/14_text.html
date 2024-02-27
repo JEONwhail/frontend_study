@@ -99,6 +99,41 @@
       word-break: break-all;
     }
 
+    div.box{
+      width: 150px;
+      border: 1px solid #000;
+
+      /* 말 줄임표 만드는 CSS패턴 */
+      /* 아래 3개 속성이 세트로 같이 필요 */
+
+      white-space: nowrap; /* 줄바꿈 안함 */
+      overflow: hidden; /* 넘친부분을 숨긴다 */
+      text-overflow: ellipsis; /* ...표시 */
+      
+    }
+
+    .box-multiline{
+      width: 300px;
+      border: 1px solid #000;
+
+      display: -webkit-box; /* 2줄이상 말줄임표 만들때만 쓰며, 잘 안씀 */
+      /* 해당 영역을  box형태로 관리 */
+      -webkit-box-orient: vertical; /* 영역 박스 안의 내용을 세로로 배치 */
+      -webkit-line-clamp: 2; /* 영역 라인의 최대 라인수 */
+      overflow: hidden;
+    }
+
+    /* (참고) can i use? 웹프론트(html,css,js) 기술의 브라우저 지원을 알 수 있다 */
+    /* (참고) 벤더 프리픽스: 
+      CSS 표준으로 확정되기 이전 또는 브라우저 개발사가 실험적으로 제공하는 기능을 사용하기 위해 붙임
+      또는 표준으로 확정 후 이전 버전의 브라우저까지 지원하려면 벤더 프리픽스를 붙여야 함
+      -webkit- = 크롬, 사파리
+      -moz- = 모질라 파이어폭스
+      -o- = 오페라
+      -ms- = 익스플로러
+      
+      참고: https://uxkm.io/publishing/css/03-cssMiddleclass/04-css_vendor#gsc.tab=0
+    */
   </style>
 
 </head>
@@ -179,5 +214,29 @@
   <h2>break-all: 문자 단위 줄바꿈</h2>
   <p class="wrapper word-break-break-all">Thisissomeveryveryverylong word. This text will break at any character.</p>
   <p class="wrapper word-break-break-all">이것은매우매우매우매우매우긴 단어입니다. 이 텍스트는 문자 단위로 줄바꿈 됩니다.</p>
+
+
+  <!-- tip! 넘치는 텍스트에 말 줄임표 만들기(...) -->
+
+  <h1>text-overflow:오버플로우(넘친) 내용으 ㄹ어떻게 뵐지 지정</h1>
+  <h2>ellipsis : 생략(...)</h2>
+  <div class="box">이것으 매우 긴 제목입니다~~~~~</div>
+  
+  <hr>
+
+  <h2>2줄 이상일 때</h2>
+  <div class="box-multiline">이것으 매우 긴 제목입니다~~~~제목입니다
+    제목입니다~~~~~~~~~제목입니다~~~~~~~~~~</div>
 </body>
 </html>
+
+<!-- 
+문자를 수평 정렬하는 속성
+text-align
+
+문자를 들여쓰는 속성
+text-indent
+
+text-decoration 속성의 기본값
+underline.
+-->
