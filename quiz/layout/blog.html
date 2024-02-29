@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    *{
+      text-decoration: none;
+      list-style: none;
+    }
+
+    header{
+      margin: 0;
+      padding: 0;
+    }
+
+    nav{
+      height: 40px;
+      padding: 10px;
+      margin-bottom: 30px;
+      display: flex;
+      }
+
+    nav>ul{
+      display: flex;
+      column-gap: 10px;
+      justify-content:flex-start;  
+      align-items: flex-start;
+      padding: 0;
+    }
+
+    nav>ul>li{
+      background-color: #dedede;
+      width: auto;
+      padding: 10px;
+      font-weight: 900;
+      border-radius: 10px;
+    }
+
+    .container{
+      display: flex;
+      width: 800px;
+      margin: 0 auto;
+    }
+
+    .content-header{
+      display: flex;
+    }
+
+      .blog-contact{
+      width: 80%;
+      height: 200px;
+      justify-content: center;
+    }
+
+    .blog-img{
+      width: 20%;
+      height: 200px;
+    }
+
+
+    .profile{
+      width: 50px;
+      height: 50px;
+      background-color: aqua;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+
+    .blog_name{
+      color: #000000;
+      font-weight: bold;
+      margin: 0;
+    }
+
+    .blog_time{
+      color: #7b7a7a;
+      margin: 0;
+    }
+
+    .content-body > h3{
+      margin: 10px 0;
+      font-size: 20px;
+      font-weight: bold;
+      
+    }
+
+    .content-body > p{
+
+    }
+
+  </style>
+
+</head>
+<body>
+  <!-- 
+    Tip 레이아웃을 만드는 기본
+    무엇을 만들든 레이아웃은 항상 수평(행)으로 자른 후 박스부터 만들기
+    그리고 이 박스들을 전부 div태그로 구현해 놓으면 됨(물론 시멘틱 태그도 최대한 활용)
+    그리고 안에 글 넣고 그림넣고 하면 끝
+
+    블록요소가 쓰였다면 위아래인 배치를 좌우 배치로 변경하려면 float xx / inlone-block ㄱㅊ / Flexbox 최고 
+
+    https://dummyimage.com/200x200
+  -->
+
+  <header>
+    <!-- 네비 -->
+    <nav>
+      <ul>
+        <li>영화</li>
+        <li>맛집</li>
+        <li>아이티</li>
+        <li>컴퓨터</li>
+      </ul>
+    </nav>
+  </header>
+
+<!-- 블로그 리스트 -->
+  <div class="container">
+    <div class="blog-contact">
+      <div class="content-header">
+        <div class="profile"></div> <!-- 프로필이미지 -->
+        <div class="profile_letter">
+          <p class="blog_name">JEON</p> <!-- 작성자 -->
+          <p class="blog_time">30분 전</p> <!-- 시간  -->  
+        </div>  
+      </div>
+      <div class="content-body">
+        <h3>세상댑악</h3><!-- 글제목 -->
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut, beatae earum! Consequuntur, asperiores? Provident itaque voluptates delectus non dolorem nemo a dignissimos? Dignissimos architecto eligendi corporis mollitia molestiae, necessitatibus commodi.</p><!-- 글 내용 -->
+        
+      </div>
+    </div>
+    <div class="blog-img">
+      <img src="https://dummyimage.com/150x200" alt="">
+    </div>
+
+  </div>
+    
+  <!-- <section>
+  <div class="left">
+    <div class="profile">
+      <img src="" alt="">
+      <h3></h3>
+      <p></p>
+    </div>
+    <div>
+      <p></p>
+    </div>
+  </div>
+
+  <div class="right">
+    <img src="" alt="">
+  </div>
+
+  </section> -->
+  
+  
+</body>
+</html>
