@@ -1,0 +1,126 @@
+@font-face {
+  font-family: 'CookieRun-Regular';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/CookieRun-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+*{
+  font-family: 'CookieRun-Regular';
+}
+
+section{
+  margin: 0;
+  padding: 0;
+}
+
+p{
+  margin: 0;
+}
+
+input, textarea{
+  border-radius: 10px;
+}
+
+/* 뒷배경 정리 */
+.background{
+  background-color: #5c5c5c;
+  width: 100%;
+  padding: 3% 0;
+}
+
+
+/* 콘텐츠 영역 */
+.content-box{
+  background-color: #fff;
+  width: 50%;
+  margin: 0 auto;
+  padding: 25px 20px;
+}
+
+
+/* 인풋요소 */
+.giveme-email > input {
+  width: 100%;
+  padding: 10px 0;
+}
+
+.ms-box > textarea {
+  resize: none;
+  width: 100%;
+}
+
+/* 텍스트 마진 간격 영역 정리 */
+.giveme-email > p{
+  margin: 3% 0;
+}
+
+.giveme-name  p{
+  margin: 3% 0;
+}
+
+.ms-box > p{
+  margin: 3% 0;
+}
+
+.placeholder-hidden:focus{
+  color: transparent;
+  /* transform: scale(0.75); */
+  border: 1px solid transparent;
+  background-image: linear-gradient(#fff, #fff), linear-gradient(to right, #231557 0%, #44107A 29%, #FF1361 67%, #FFF800 100%);
+  /* background-origin: border-box; */
+  background-clip: content-box, border-box;
+}
+
+
+.placeholder-hidden:focus::placeholder {
+  color: transparent;
+}
+
+
+.giveme-name{
+  display: flex;
+  width: 100%;
+}
+
+.First-name{
+  width: 50%;
+}
+
+.First-name > input{
+  padding: 10px 0;
+  width: 98%;
+}
+
+.First-name input:focus{
+  transform: scale(0.75);
+}
+
+.Last-name{
+  width: 50%;
+}
+
+.Last-name > input{
+  padding: 10px 0;
+  width: 100%;
+}
+
+.Last-name input:focus{
+  transform: rotate(70deg);
+  
+  }
+
+
+.ch-se{
+  display: flex;
+  justify-content: space-between;
+}
+
+.ft_send{
+  padding: 8px 30px;
+  font-weight: 900;
+  color: beige;
+  background-color: #ff0000;
+  border-radius: 5px;
+  border: 1px solid #ff0000;
+}
