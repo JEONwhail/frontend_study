@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+
+    *{
+      font-weight: bold;
+    }
+    body{
+      padding: 0 40px;
+    }
+
+    div{
+      width: 100px;
+      height: 100px;
+      background-color: #c3bef3;
+    }
+
+    .container-1 .item-1{
+      width: 100px;
+      height: 100px;
+      background-color: darkseagreen;
+
+      /* 요소를 변환시키는 속성 : 변환 함수(); */
+      transform: rotate(45deg);  /* deg(Degree) : 각도 */
+      transform: rotate(45deg) scale(1.3); /* 회전하기 + 크기 키우기(1.3배) */
+    }
+
+    .translate{
+      /* transform: translate(20px, 20px); */
+      /* transform: translateX(20px); */
+      transform: translateY(20px);
+    }
+
+    .scale{
+      /* transform: scale(1.5); */
+      /* transform: scale(0.7); */
+      transform: scaleX(5);
+      transform: scaleY(1.2);
+    }
+    /* Quiz : 요소가 서서히 확대되는효과 */
+
+    .scale{
+      transition: 5s;
+    }
+
+    .scale:hover{
+      transform: scale(5);
+    }
+    /* Quiz 끗!!! */
+
+    .rotate{
+      /* 2D */
+      /* transform: rotate(45deg); */
+      /* 3D */
+      /* transform: rotateX(45deg); */
+      /* 원근법 추가(제일 앞에 작성해야 함) */
+      transform: perspective(300px) rotateY(45deg)
+    }
+
+    .skew{
+      /* transform: skewX(20deg); */
+      /* transform: skewX(-20deg); */
+      /* transform: skewY(40deg); */
+      transform: skewY(-40deg);
+    }
+
+    .container-2{
+      width: 400px;
+      height: 400px;
+      background-color: chartreuse;
+
+      /* 원근법 추기 02 - 변환 속성 사용 (관찰 대상의 부모에 적용) */
+      perspective: 550px;
+
+
+      /* 보노보노... */
+      background-image: url('./images/image.png');
+      background-size: cover;
+    }
+
+    .container-2 .item-2{
+      width: 400px;
+      height: 400px;
+      background-color: bisque;
+      font-size: 60px;
+      text-align: center;
+      line-height : 400px;
+      transition: 2s;
+      /* transform:  rotateY(45deg); */
+      /* backface-visibility: hidden; */
+      /* Quix 정중안 정렬 2가지 방법 */
+    /* 01.글자 속성 : 
+      text-align: center; - 수평정렬
+      line-height : 100px; - 수직정렬 */
+
+    /* 02. 플렉스 속성 
+      display: flex;
+      align-items: center;
+      justify-content: center; */
+
+
+    /* 원근법 추가 01 : 변환함수 사용 (관할 대상에 적용) */
+    /* transform: perspective(250px) rotateY(45deg); */
+    
+    }
+
+  .container-2 .item-2:hover{
+    transform: rotateY(380deg);
+  }
+
+
+  </style>
+
+</head>
+<body>
+  <h1>transform - 변환</h1>
+  <div class="container-1">
+    <div class="item-1">안녕하세요 세계야</div>
+  </div>
+
+  <br>
+  <hr>
+  <br>
+
+  <h2>translate : </h2>
+  <div class="translate">안녕하세요 세계야</div>
+
+  <br>
+  <hr>
+  <br>
+
+  <h2>scale : </h2>
+  <div class="scale">안녕하세요 세계야</div>
+
+  <br>
+  <hr>
+  <br>
+
+  <h2>rotate : </h2>
+  <div class="rotate">오늘밤은</div>
+
+  <br>
+  <hr>
+  <br>
+
+  <h2>skew : </h2>
+  <div class="skew">안녕하세요 세계야</div>
+
+  <br>
+  <hr>
+  <br>
+
+  <h2>perspective&backface-visibility</h2>
+  <div class="container-2">
+    <div class="item-2">A</div>
+  </div>
+
+  
+</body>
+</html>
+
+<!-- (정리) Quiz
+  Q1: transform 속성의 2D 회전을 지정하는 변환 함수는?
+  A1: rotate
+
+  Q2: 관찰 대상의 부모 요소에 원근법을 지정하는 속성은?
+  A2: perspective
+
+  Q3: skewX 변환 함수에서 값으로 사용하는 단위는?
+  A3: deg
+
+  Q4: perspective 함수에서 원근 거리가 적용되는 대상은?
+  A4: 관찰 대상
+
+  Q5: 요소의 뒷면을 숨기는 속성과 값은?
+  A5: backface-visibility : hidden;
+-->

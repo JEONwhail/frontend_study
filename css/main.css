@@ -42,7 +42,7 @@ input, textarea{
 /* 인풋요소 */
 .giveme-email > input {
   width: 100%;
-  padding: 10px 0;
+  padding: 10px;
 }
 
 .ms-box > textarea {
@@ -72,7 +72,6 @@ input, textarea{
   background-clip: content-box, border-box;
 }
 
-
 .placeholder-hidden:focus::placeholder {
   color: transparent;
 }
@@ -94,6 +93,7 @@ input, textarea{
 
 .First-name input:focus{
   transform: scale(0.75);
+  transition: 2s;
 }
 
 .Last-name{
@@ -107,7 +107,8 @@ input, textarea{
 
 .Last-name input:focus{
   transform: rotate(70deg);
-  
+  transition: 2s;
+
   }
 
 

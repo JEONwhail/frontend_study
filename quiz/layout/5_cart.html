@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>장바구니</title>
+
+
+  <style>
+    @font-face {
+    font-family: 'Ownglyph_Dailyokja-Rg';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2403@1.0/Ownglyph_Dailyokja-Rg.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    }
+
+    /* 공통스타일 */
+
+    *{
+      box-sizing: border-box;
+      /* text-align: center; */
+      font-family: 'Ownglyph_Dailyokja-Rg';
+    }
+
+    table{
+      border-collapse: collapse;
+      /* 테두리 합치기 */
+    }
+    
+    th,td{
+        border-bottom : 2px solid #c9f9dc;
+        padding: 10px;
+    }
+
+    .cart-background{
+      width: 100%;
+      background-color: #007822;
+      padding: 30px;
+    }
+
+    .inner{
+      width: 100%;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .inner > h2{
+      text-align: left;
+      padding: 20px 0;
+      margin: 0 0 0 38px;
+    }
+
+    .cart-list{
+      background-color: #ffffff;
+      width: 90%;
+      margin: 0 auto;
+      border-radius: 20px;
+    }
+
+    .first_menu{
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .item-list{
+      width: 400px;
+    }
+
+    .img_se{
+      width: 100px;
+    }
+
+    img{
+      width:100%;
+    }
+
+    .last_price{
+      text-align: right;
+      border-bottom: transparent;
+    }
+
+
+    .btn-group{
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 20px;
+    }
+
+    .btn-group>a{
+    margin: 0 0 0 34px;
+    /* font-weight: bold; */
+    color: #f0c176;
+    }
+
+    .btn-group>button{
+      margin: 0 -29px 0 0;
+      padding: 10px 15px;
+      font-size: 15px;
+      font-weight: bold;
+      background-color: bisque;
+      border: none;
+      border-radius: 5px;
+    }
+
+    .btn:hover{
+      background-color: #2dff53;
+    }
+  </style>
+
+</head>
+<body>
+
+  <div class="cart-background">
+    <div class="inner">
+      <h2>장바구니</h2>
+      <table class="cart-list">
+        <tr class="first_menu">
+          <td></td>
+          <td class="item-list">ITEM</td>
+          <td>AMOUNT</td>
+          <td>PRICE</td>
+          <td>TOTAL</td>
+        </tr>
+        <tr>
+          <td class="img_se"> <img src="./images/item1.png" alt="" > </td>
+          <td>카메라</td>
+          <td style="text-align: center;">1</td>
+          <td style="text-align: center;">100,000</td>
+          <td style="text-align: center;">100,000</td>
+        </tr>
+        <tr>
+          <td class="img_se"> <img src="./images/item2.png" alt="" > </td>
+          <td>신발신발신발</td>
+          <td style="text-align: center;">2</td>
+          <td style="text-align: center;">59,500</td>
+          <td style="text-align: center;">118,000</td>
+        </tr>
+        <tr>
+          <td class="last_price" colspan="5">주문금액218,000원</td>
+        </tr>
+      </table>
+      <div class="btn-group">
+        <a href="#none">계속 쇼핑하기</a>
+        <button type="button" class="btn">구매하기</button>
+      </div>
+    </div>
+  </div>
+  
+</body>
+</html>
