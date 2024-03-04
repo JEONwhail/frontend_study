@@ -1,5 +1,14 @@
-.container {
+body{
+  background-image: url('../images/bg.jpg');
+  /* height: 100%; */
+  height: 100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
 
+.container {
+  padding: 50px 0;
 }
 
 .container .heroes {
@@ -8,7 +17,6 @@
     기본적으로 줄바꿈되지 않고 (flex-wrap : nowrap)
      한 줄에 모든 요소가 줄어들어 표시됨 */
   flex-wrap: wrap;
-  background-color: orange;
   justify-content: center;
   /* width: 700px; */
   max-width: 700px;
@@ -94,6 +102,14 @@
 .container .heroes .hero:nth-child(31) .image { background-image: url("../images/hero31.png"); }
 .container .heroes .hero:nth-child(32) .image { background-image: url("../images/hero32.png"); }
 
+.container .logo{
+  max-width: 300px;
+  margin: 0 auto;
+  padding: 0 20px;
 
+}
 
-/* Quiz : .hero에 마우스를 올렸을 ㄸ 배경색 변경 및 힉데 */
+.container .logo img{
+  width: 100%;
+}
+/* Quiz : .hero에 마우스를 올렸을 ㄸㅐ 배경색 변경 및 힉데 */
