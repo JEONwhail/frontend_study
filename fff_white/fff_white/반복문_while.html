@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>반복문 while</title>
+</head>
+<body>
+
+  <script>
+
+  //기본형
+
+  // while(조건자리){
+  //   반복될 실행문;
+  // }
+  //while문 주의사항 조건을 거짓으로 만들 수 있는 내용이 반드시 while문 안에 포함되어야 함.
+
+
+  var i = 1; //초기값 셋팅 / 여기서는 초기값을 1로 셋팅
+
+  while(i <= 10){
+    document.write("hello world"+i+"<br/>");
+    i++; //증가식이 없으면 무한반복함, ---> 계속 10보다 작은 조건에 대하여 참이 되어버림
+    //반복문에서는 후치연산자를 쓰는 경향이 있음.
+    //전치연산을 하게 되면 이미 i가 2가되면 뒤에 올 애들이 문제가 생길 수 있음.
+    //전치연산을 쓰면 실행문에서 이미 2가 되어버림
+    //후치를 쓰면 조건 확인할 때 호출당함
+
+    //일번 초기값을 받아 조건 확인.
+    //이번. 조건이 맞다면 실행문 뱉음
+    //삼번. 다시 조건확인
+    //사번. 조건이 맞다면 실행문 뱉음
+    //오번. 조건에 부합하지 않을 경우 문장 탈출
+  }
+
+
+  </script>
+
+
+</body>
+</html>

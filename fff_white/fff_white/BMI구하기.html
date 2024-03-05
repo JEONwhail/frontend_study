@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>BMI 구하기</title>
+</head>
+<body>
+  <script>
+
+  //BMI(적정체중) 구하는 공식 bmi = (키 - 100) * 0.9
+  //유저에게 키와 몸무게 입력받기
+  //유저의 몸무게가 적정체중보다 이상일 경우 "적정 BMI 수치 초과" 출력
+  //미만일경우 "적정 BMI 수치 미만"
+
+  var a = prompt("키 입력");
+  var b = prompt("몸무게 입력");
+
+  var c = (a - 100 ) * 0.9;
+
+
+  var result = b > c ? "적정 BMI 수치 초과" : "적정 BMI 수치 미만"
+
+  document.write(result);
+
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>논리연산자_02</title>
+</head>
+<body>
+
+  <script>
+
+  var num1 = 1;
+  var num2 = 1;
+
+  document.write( (num1 >= num2)||(num1==num2) ,"<br/>");
+  //num1이 num2보다 크거나 같 ( (num1 >= num2) ,"<br/>");
+  // || = or 이라는 뜻 ~이거나 ~나.또는 or연산자
+  // 두 식중 하나라도 맞으면 맞는거임. true~~~~~
+  // (num1 >= num2)||(num1==num2) 앞의 식이나 뒤의 식이나 둘 중 하나라도 맞으면 반환되는 값은 트루임
+
+  document.write( (num1 > num2)&&(num1==num2) ,"<br/>");
+  //&&=and연산자
+  //이거랑 이거가 맞으면 트루고 틀리면 폴스다.
+  // document.write( (num1 >= num2)&&(num1==num2) ,"<br/>"); ---> 이렇게 두개 다 ㅁ자아야 트루나옴...뷁..
+  //and가 or보다 엄격함
+
+  document.write(!(num1==num2),"<br/>");
+  // !=not연산자 , 부정연산
+  //값을 반대로 말해줌...양얼취....
+
+  </script>
+
+</body>
+</html>

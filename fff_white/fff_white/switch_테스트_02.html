@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>조건문 switch</title>
+</head>
+<body>
+
+  <script>
+
+//유저한테 포털 사이트를 입력받아서 해당 포탈로 이동하는 문장을 만들기
+//다은사이트로 이동 시 location.href="https://www.naver.com"
+// location.href 브라우저 갖고있는 내장함수(태그에도 사용가능)
+//  구글 다음 네이버 전부다 아닐 때 총 4가지
+
+    var urll = prompt("주소를 입력해주세요")
+
+    switch(urll){
+      case"네이버":
+                  location.href="https://www.naver.com";
+      break;
+      case"다음":
+                location.href="https://www.daum.net/";
+      break;
+      case"구글":
+                location.href="https://www.google.co.kr/";
+      break;
+      default:
+              alert("아니라고");
+    }
+
+
+  </script>
+
+
+</body>
+</html>

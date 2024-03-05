@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <script>
+
+    //데이터 타입(자료형)
+
+    // String(문자 데이터)
+    // 따옴표를 사용합니다.
+    //표현하는 방법 3가지
+    //큰따옴표(""), 작은따옴표(''), 백틱(``)
+    const myName = "JYEON"; //큰따옴표
+    const email = 'niallji789@gmail.com'; //작은따옴표 >> 자주 쓰임
+    const hello = `Hello ${myName}?!` //백틱 숫자1 왼쪽에 위치한 기호
+    //템플릿 리터럴(ES6차)
+
+    //백틱 미사용 시 데이터 끼워넣기
+    const concat = 'Hello '+ myName + '?!?';
+    console.log(myName); 
+    console.log(email); 
+    console.log(hello); 
+    console.log(concat); 
+
+
+
+    // Number(숫자 데이터)
+    // 정수 및 부동소수점(실수) 숫자를 나타냅니다.
+    let number = 123;
+    let opacity = 1.57;
+    console.log(number); // 123
+    console.log(opacity); // 1.57
+
+
+    // Boolean(불린 데이터/논리데이터)
+    //상태를 나타내야할때 쓰임
+    //조건문 if랑 같이 쓰임
+    // true, false 두 가지 값밖에 없는 논리 데이터입니다.
+    //이분법적으로 구분해야 하는 상황에서 사용 -> 조건문/반복문에서 조건을 판단할때
+    let checked = true;
+    let isShow = false;
+    console.log(checked); // true
+    console.log(isShow); // false
+
+    
+    // Undefined
+    //아무것도 정의되지 않은(값이 할당되지 않은) 상태를 의미
+    //변수의 초기화를 하지 않으면 자동으로 Undefined가 할당
+    // 초기화 : 변수를 선언하고 처음으로 값을 저장하는 것
+    let undef;
+    let obj = { abc: 123 };
+    console.log(undef); // undefined
+    console.log(obj.abc); // 123
+    console.log(obj.xyz); // undefined
+
+
+    // Null
+    // 어떤 값이 의도적으로 비어있음을 의미합니다.
+    let empty = null;
+    console.log(empty); // null
+
+
+    //★★★★중요★★★★
+    // Object(객체 데이터)
+    //관련있는 여러 데이터를 Key:Value 1쌍의 형태로 저장
+    //표기법은 주로 {중괄호}를 사용함
+    let user = {
+    //속성 : (property)
+    // Key: Value,
+    name: 'JEON',
+    age: 27,
+    isMarried: false,
+    isValid: true
+    };
+
+    console.log(user);
+    //객체 내부에 특정 데이터만 출력하고 싶다?
+
+    console.log(user.name); // JEON - 문자
+    console.log(user.age); // 27 - 숫자
+    console.log(user.isMarried); // false - 논리
+    console.log(user.isValid); // true - 논리
+
+
+    //★★★★중요★★★★
+    // Array(배열 데이터)
+    // 여러 데이터를 순차적으로 저장합니다.
+    //표기법은 [ 대괄호 ]를 주요 사용함
+    let fruits = ['Apple', 'Banana', 'Cherry'];
+    // 배열의  index는 0부터 시작해야함
+    //              0         1         2
+    console.log(fruits); 
+    //배열의 특정 데이터만 출력
+    console.log(fruits[0]); // 'Apple'
+    console.log(fruits[1]); // 'Banana'
+    console.log(fruits[2]); // 'Cherry
+
+    //똑같은 데이터 타입만 넣을 수 있는 거 아님
+    //대부분 같은 종류의 데이터를 나열
+    const arr = ['JEON', 99, false];
+    console.log(arr[0]);
+    console.log(arr[1]);
+    console.log(arr[2]);
+
+    // (활용 예시)  상품 리스트, 사용자 리스트
+    const productList = [
+      {
+        productId:1,
+        productName:'고려은단 비타민 c',
+        price:32900,
+        productImg:'https://shop-phinf.pstatic.net/20230405_170/16806799581861uGJn_JPEG/81815741902594620_1099000415.jpg?type=m510',
+        brand:'고려은단'
+      }
+    ];
+
+    console.log(productList[0].productImg);
+
+
+    const userList = [
+      {
+        userId:'JEON',
+        name:'김지연',
+        age:'27',
+        email:'niallji789@gmail.com',
+        hobby:['누워있기', '잠자기', '강아지만지기']
+      },
+      {
+        userId:'JEONYY',
+        name:'연지김',
+        age:'72',
+        email:'enter7627@gmail.com',
+        hobby:['가만히있기', '잠만자기', '강아지발냄새맡기']
+      }
+    ];
+
+    console.log(userList[0].hobby[2]);
+    //(참고) JS는 매우 유연한 언어
+    //데이터 타입이 값을 넣는 순간에 결정되고 여러 데이터 타입을 넣을 수 있음
+    // => 동적 타입 언어
+    let e = 1;
+    console.log(typeof e); //typeof : 데이터 타입을 체크가능
+    e = 'abc';
+    console.log(typeof e);
+
+
+  </script>
+  
+</body>
+</html>

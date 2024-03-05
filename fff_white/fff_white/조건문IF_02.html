@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>조건문IF_02</title>
+</head>
+<body>
+  <script>
+
+    //유저한테 **이름을 입력 받았을 때만** 이름을 브라우저 뿌리기
+    //if문 사용 할 것(단, 유저가 무엇인가를 반드시 입력했다는 조건 아래.)
+    //힝트 0(false , 0, null , undefinded, NaN, ""(비어있다는 뜻) )이 아닌 모든 것들은 사실 TRUE값
+
+    var name = prompt("이름이 무엇인가요?");
+
+// ( false , 0, null , undefinded, NaN, "" )
+// 변수를 자체로 써도 됨.(뭐라도 써져있고 비어있지 않기 때문에 가능함)
+    if(name != ""){
+      document.write(name + "안녕하세요");
+    };
+
+
+  </script>
+
+</body>
+</html>

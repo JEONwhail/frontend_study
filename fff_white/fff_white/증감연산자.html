@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>논리연산자</title>
+</head>
+<body>
+
+  <script>
+
+
+  var num1 = 10;
+  var num2 = 20;
+  var result;
+
+  --num1; //여기서 1이 감소함.
+  document.write(num1 + "<br/>");
+  //--마이너스 마이너스를 마마로 말하는데 1 감소함...
+  //뱉어내기전에 앞에 붙는 걸 전치연산자, 전위연산자라고 말함.
+
+  ++num1; //10 1이 증가함.
+  //1증가하고 시작
+  document.write(num1 + "<br/>");
+
+  result = num2++; //후치연산자, 후위연산자.
+  //호출 당할 때 나중에 1을 증가시킴
+  //지금은 20의 값을 가짐
+  document.write(result + "<br/>");
+  //아직 20임.
+
+  result = ++num2; //22
+  document.write(result + "<br/>");
+  //전에 했던 후치연산 때문에 21이 된 다음에 ++num2 == 22
+
+  </script>
+
+</body>
+</html>

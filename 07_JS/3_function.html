@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //함수
+      //기능(동작)을 수행하는 코드의 집합
+      //변수와 마찬가지로 한번 선언해두고 재사용이 가능
+
+      //함수의 선언과 호출
+      // function 함수이름(매개변수) {
+      //   실행코드들
+      // }
+
+      //매개변수(옵셔널-써도되고안써도되고) : 외부로부터 받을 값(데이터)를 저장
+      //중괄호 블록({}) : 불록 안에 실행할 코드를 작성
+      //선언이 끝나면 필요한 곳에서 호출에서 사용한당 => 함수이름();
+      //블록 안에 여러 코드들이 한번에 실행됨
+
+      //함수 선언
+      function printNumber() {
+        console.log(123);
+      }
+
+      //함수 호출(실행)
+      printNumber();
+      printNumber();
+      printNumber();
+
+      //함수의 데이터 반환
+      //내부에서 return 키워드를 사용하면 데이터를 반환하고 함수 종료
+      //예) 계산기(덧셈 가능) <<사칙연산 다 가능
+      function returnFunc() {
+        return 12345;
+      }
+
+      const a = returnFunc(); //실행 결과 반환되는 값을 변수 a에 할당
+      //const a = 12345;
+      console.log(a);
+
+      //매개변수가 있는 경우
+      //유효한 범위(scope)내에서 사용 가능!
+      //선택적 옵션
+
+      function sum(num1, num2) {
+        //num1, num2는 매개변수
+        //매개변수를 사용하여 함수 외부로부터 값을 받을 수 있음
+        return num1 + num2;
+      }
+
+      //선언된 함수 재사용!
+      const result1 = sum(1, 2); //전달하는 데이터 1, 2를 인수(인자값, Arguments)라 부름
+      const result2 = sum(10, 12);
+      const result3 = sum(2, 9);
+
+      console.log(result1, result2, result3);
+    </script>
+  </body>
+</html>

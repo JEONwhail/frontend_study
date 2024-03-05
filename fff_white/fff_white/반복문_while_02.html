@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>반복문 while</title>
+</head>
+<body>
+
+  <script>
+
+  // while문을 사용하여 1부터 30까지의 숫자 중
+  // 2의 배수이면서, 6의 배수인 숫자만 출력하세요. 6 12 18 24 30
+  //어떤 조건에 부합할 때까지만 반복을 하긴하는데
+  //또 다른 조건에 맞아야 실행을 해주ㅠ냐 왜.....
+
+  var i = 1;
+
+  while(i <= 30){
+    if(i % 2==0 && i % 6==0){
+      document.write(i +"<br/>");  //<---여기 증가식이 들어가면 계속 증가해야하는디 안됨.
+    }
+    i++;
+  }
+
+//30보다 작거나 같을 때 까지 반복을 할 건데
+//2.6의 배수가 되어야하는 조건이 있음.
+//i %(나누기) 2 ==0(나머지 0) && i % 6== 0
+//이 조건을 뿌리면 끝.
+//이지만 문장을 나가줘야하고
+//이프문 밖에 빠져 나와서 증가ㅏ해야지 알맞은 식이됨.
+
+
+  </script>
+
+
+</body>
+</html>
