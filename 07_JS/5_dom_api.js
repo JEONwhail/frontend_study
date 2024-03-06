@@ -1,7 +1,8 @@
 //querySelector('css선택자')
 //HTNL에서 ㅎ패당 요소를 검샥하며 찾ㅇㄴ 첫버ㅉ 요소 하나만 바환
 // 요소를 찾지 ㅁㅎㅅ허묜 null울 ㅂㅏㄴ환한다
-const boxEl = document.querySelector('.box'); 
+// const boxEl = document.querySelector('.box');
+
 console.log(boxEl);
 
 //요소에 이벤트 리스너 등록하기
