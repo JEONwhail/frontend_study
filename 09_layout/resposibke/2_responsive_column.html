@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    *{
+      box-sizing: border-box;
+    }
+
+    .product-container{
+      display: flex;
+    }
+
+    .product{
+      width: 25%;
+      padding: 20px;
+    }
+
+    /* Quiz 1200px이하에선ㄴ  2열 768px이하에서는 1열 수직 구조로 만들기
+      (단, flex 방향은 건드리지 말 것) */
+
+      @media screen and (max-width : 1200px) {
+        .product-container{
+          flex-wrap: wrap;
+        }
+        .product{
+          width: 50%;
+        }
+      }
+
+      @media screen and (max-width : 768px) {
+        .product{
+          width: 100%;
+        }
+      }
+
+  </style>
+
+
+
+</head>
+<body>
+
+  <div class="product-container">
+    <div class="product" style="background-color: #fce5e5;">
+      <h4>상품1</h4>
+      <p>상품정보</p>
+    </div>
+
+    <div class="product" style="background-color: #daa7a7;">
+      <h4>상품2</h4>
+      <p>상품정보</p>
+    </div>
+
+    <div class="product" style="background-color: #dd7878;">
+      <h4>상품3</h4>
+      <p>상품정보</p>
+    </div>
+
+    <div class="product" style="background-color: #f76363;">
+      <h4>상품4</h4>
+      <p>상품정보</p>
+    </div>
+
+  </div>
+  
+</body>
+</html>
