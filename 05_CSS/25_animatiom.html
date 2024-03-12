@@ -5,7 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 
+  <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+  <link rel="stylesheet" href="../magic-master/dist/magic.min.css">
+
   <style>
+
     .btn-shake{
       padding: 15px 20px;
       font-size: 20px;
@@ -63,6 +72,25 @@
       100% { transform: translate(1px, -2px) rotate(-1deg); }
     }
 
+    .material-icons{
+      font-size: 70px;
+      cursor: pointer;
+    }
+
+    .material-icons:hover {
+      animation: turn 1s forwards;
+      /* animation-name: turn; */
+      /* animation-duration: 1s; */
+      /* animation-fill-mode : forwards; */
+      /* 애니메이션이 끝났을 때 상태 유지 */
+    }
+
+    @keyframes turn {
+      0% { transform: rotate(0deg); }
+      25% { transform: rotate(-15deg); }
+      100% { transform: rotate(45deg); }
+    }
+
   </style>
 
 
@@ -71,20 +99,49 @@
   <h2> shake 애니메이션 만들기 </h2>
   <button type="button" class="btn-shake">흔드ㄹ흔들ㄹ</button>
 
+  <hr>
+
   <h2>Tip! 애니메이션을 이용한 창 흔들기</h2>
   <div id="modal">
     <label for="age">나이 : </label>
     <input type="text" id="age">
     <button type="button" onclick="shakeModal()">등록</button>
-
   </div>
+
+  <hr>
+
+  <h2>turn 애니메이션 만들기</h2>  
+  <span class="material-icons">add</span>
+
+  <hr>
+  <!-- Animate.css 라이브러리 -->
+  <h1 class="animate__animated animate__bounce">An animated element</h1>
+  <div class="animate__animated animate__bounce animate__delay-2s">Example</div>
+  <div class="animate__animated animate__bounce animate__faster">Example</div>
+  <div class="animate__animated animate__bounce animate__repeat-2">Example</div>
+
+  <hr>
+
+  <h1 class="magictime swashIn">킹받는 애니메이션 연습</h1>
 
   <script>
     const modalEl = document.getElementById('modal');
+    const ageInputEl = document.getElementById('age');
+    
 
     function shakeModal() {
-      modalEl.classList.add('shake-hard');
+      // 유효성 검사
+      console.log(ageInputEl.value);
+      if (ageInputEl.value === ''  ) // (ageInputEl.value == ''  )
+      {
+        modalEl.classList.add('shake-hard');
 
+        // setTimeout(함수,시간); 내가 적은 시간이 지나고 함수를 살행해~~(콜백함수임)
+        // setTimeout(함수,500); //0.5초 뒤에 콜백함수를 실행해라
+        setTimeout(function () {
+          modalEl.classList.remove('shake-hard');
+        },500); 
+      }
     }
 
   </script>
