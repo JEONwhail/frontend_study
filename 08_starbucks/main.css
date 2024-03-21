@@ -328,7 +328,7 @@ header .main-menu .item .item__contents > ul >li  ul li:hover{
 /* 전역 배지(고정 배너) */
 
 header .badges{
-  /* 선생님 방법 */
+  /*  방법 */
   position: fixed; 
   /*요소가 붕 뜨고, 기준값이 뷰포트로 바뀜*/
   top: 132px;
