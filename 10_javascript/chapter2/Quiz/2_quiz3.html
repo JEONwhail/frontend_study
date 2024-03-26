@@ -25,15 +25,13 @@
   
   
   // 3번 
-  
-  const first = 1200;
-  const secon = 1300;
-  const third = 1000;
-
-  const avgSales = Number(first + secon + third); // 평균 판매량
+   const avgSales = (1200 + 1300 + 1000) / 3; // 평균 판매량
   const fourth = prompt('4분기 판매량은?', '0');
 
-  const result = 
+  const result = fourth >= avgSales ? '판매량이 평균 이상입니다' : '판매량 평균 미달 노력하세요';
+
+  document.write('1~3분기 평균 판매량 :' + avgSales,'<br>');
+  document.write(result);
 
   
   
