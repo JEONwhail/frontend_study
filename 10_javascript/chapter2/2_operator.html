@@ -254,10 +254,15 @@
   result = score >= 90 ? 'A' : ( score >= 80 ? 'B' : 'C');
   document.write(result, '<br>');
 
+
   // 홀짝 판별기
   // window.prompt('사용자에게 나타날 메시지', '기본값' ); 입력을 요청하는 대화상자
   // 확인을 누르면 입력갑이, 취소를 누르면 null을 반환
-  const number = prompt('숫자를 입력하세요' , '0');
+  const number = Number(prompt('숫자를 입력하세요' , '0'));
+  document.write(number, typeof number, '<br>');
+  // 퍼센트 계산할 때 문자가 숫자로 자동변환됨
+  // 근데 프로프트 이용 시 덧셈할 때는 문자 결합으로 이루이짐 '4'+'2'=42
+
 
   result = number % 2 === 0 ? '짝수' : '홀수';
   document.write(result, '<br>');
