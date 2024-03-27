@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    // 문제3
+    // 초등학교에서 1학년부터 6학년까지 중간고사 시험을 보았습니다. 
+    // 학년과 점수를 입력 받은 후,
+    // 1~3학년은 60점 이상이면 합격, 그 외의 학년은 70점 이상이면 합격 처리 후 
+    // 각각 "합격"과 "불합격"을 브라우저에 출력하세요.
+    // (점수가 0미만 100초과이면 "에러입니다." 라는 alert창을 띄우세요.)
+
+    // 풀이3
+    const grade = prompt('몇 학년이신가여');
+    const jumsu = prompt('몇점이신가여');
+
+    if (grade == '1' || jumsu < 60) {
+      document.write('불합')
+    } else if(grade == '2' || jumsu < 60) {
+      document.write('불합')      
+    }else if(grade == '3' || jumsu < 60) {
+      document.write('불합')      
+    }else if(grade == '4' || jumsu < 70) {
+      document.write('불합')      
+    }else if(grade == '5' || jumsu < 70) {
+      document.write('불합')      
+    }else if(grade == '6' || jumsu < 70) {
+      document.write('불합')      
+    }
+    
+    else if(grade == '1' || jumsu > 60) {
+      document.write('합')      
+    } else if(grade == '2' || jumsu > 60) {
+      document.write('합')      
+    }else if(grade == '3' || jumsu > 60) {
+      document.write('합')      
+    }else if(grade == '4' || jumsu > 70) {
+      document.write('합')      
+    }else if(grade == '5' || jumsu > 70) {
+      document.write('합')      
+    }else if(grade == '6' || jumsu > 70) {
+      document.write('합')      
+    }else{
+      document.write('땡')
+    }
+
+
+
+
+    // if (grade == 1 && grade == 2 && grade == 3) {
+    //   if (jumsu < 60) {
+    //     document.write('합격입니다');
+    //   }else{
+    //     document.write('불합격입니다');
+    //   }
+    // }
+
+    // if (grade == 4 && grade == 5 && grade == 6) {
+    //   if (jumsu < 70) {
+    //     document.write('합격입니다');
+    //   }else{
+    //     document.write('불합격입니다');
+    //   }
+    // }
+
+
+    
+  </script>
+</head>
+<body>
+  
+</body>
+</html>
