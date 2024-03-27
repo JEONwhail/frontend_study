@@ -20,17 +20,16 @@
 
     const height = prompt('키를 입력해주세요');
 
-    if(height > 150){
-      document.write('놀이기구 사용 가능')
-    }if(height < 150)
-    {
-    confirm('부모님과 같이 왔나요?')
-    if(confirm){
-      document.write('좋은 시간 보내!')
+    if (height > 150) {
+    document.write('놀이기구 사용 가능');
+    } else if (height < 150) {
+    const parents = confirm('부모님과 같이 왔나요?');
+    if (parents) {
+        document.write('좋은 시간 보내세요!');
+    } else {
+        document.write('애들은 돌아가!');
     }
-    }else{
-      document.write('애들은 돌아가!')
-    }
+    } 
       
     
     
