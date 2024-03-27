@@ -17,37 +17,54 @@
     const grade = prompt('몇 학년이신가여');
     const jumsu = prompt('몇점이신가여');
 
-    if (grade == '1' || jumsu < 60) {
-      document.write('불합')
-    } else if(grade == '2' || jumsu < 60) {
-      document.write('불합')      
-    }else if(grade == '3' || jumsu < 60) {
-      document.write('불합')      
-    }else if(grade == '4' || jumsu < 70) {
-      document.write('불합')      
-    }else if(grade == '5' || jumsu < 70) {
-      document.write('불합')      
-    }else if(grade == '6' || jumsu < 70) {
-      document.write('불합')      
-    }
-    
-    else if(grade == '1' || jumsu > 60) {
-      document.write('합')      
-    } else if(grade == '2' || jumsu > 60) {
-      document.write('합')      
-    }else if(grade == '3' || jumsu > 60) {
-      document.write('합')      
-    }else if(grade == '4' || jumsu > 70) {
-      document.write('합')      
-    }else if(grade == '5' || jumsu > 70) {
-      document.write('합')      
-    }else if(grade == '6' || jumsu > 70) {
-      document.write('합')      
-    }else{
-      document.write('땡')
+    // 점수가 유효한 범위인지 확인
+    if (jumsu < 0 || jumsu > 100) {
+        alert("에러입니다.");
+    } else {
+        // 각 학년에 따른 조건에 따라 합격 여부 판단 후 출력
+        if (grade >= 1 && grade <= 3) {
+            if (jumsu >= 60) {
+              document.write('합');
+            } else {
+              document.write('불합');
+            }
+        } else {
+            if (jumsu >= 70) {
+              document.write('합');
+            } else {
+              document.write('불합');
+            }
+        }
     }
 
-
+    // if (grade == '1' || jumsu < 60) {
+    //   document.write('불합')
+    // } else if(grade == '2' || jumsu < 60) {
+    //   document.write('불합')      
+    // }else if(grade == '3' || jumsu < 60) {
+    //   document.write('불합')      
+    // }else if(grade == '4' || jumsu < 70) {
+    //   document.write('불합')      
+    // }else if(grade == '5' || jumsu < 70) {
+    //   document.write('불합')      
+    // }else if(grade == '6' || jumsu < 70) {
+    //   document.write('불합')      
+    // }
+    // else if(grade == '1' || jumsu > 60) {
+    //   document.write('합')      
+    // } else if(grade == '2' || jumsu > 60) {
+    //   document.write('합')      
+    // }else if(grade == '3' || jumsu > 60) {
+    //   document.write('합')      
+    // }else if(grade == '4' || jumsu > 70) {
+    //   document.write('합')      
+    // }else if(grade == '5' || jumsu > 70) {
+    //   document.write('합')      
+    // }else if(grade == '6' || jumsu > 70) {
+    //   document.write('합')      
+    // }else{
+    //   document.write('땡')
+    // }
 
 
     // if (grade == 1 && grade == 2 && grade == 3) {
