@@ -18,6 +18,39 @@
     const num2 = Number(prompt('정수2 입력', '0'));
     const num3 = Number(prompt('정수3 입력', '0'));
 
+
+    let max = num1;
+    if (num2 > max) {
+        max = num2;
+    }
+    if (num3 > max) {
+        max = num3;
+    }
+
+    // 최소값 구하기
+    let min = num1;
+    if (num2 < min) {
+        min = num2;
+    }
+    if (num3 < min) {
+        min = num3;
+    }
+
+    const sum = num1 + num2 + num3;
+
+    const average = sum / 3;
+
+
+    document.write('정수 1 :' + num1, '<br>');
+    document.write('정수 2 :' + num2, '<br>');
+    document.write('정수 3 :' + num3, '<br>');
+
+    document.write('최대값: ' + max, '<br>');
+    document.write('최소값: '  + min, '<br>');
+    document.write('합계: ' + sum, '<br>');
+    document.write('평균: ' + average, '<br>');
+
+
     
   </script>
 </head>
