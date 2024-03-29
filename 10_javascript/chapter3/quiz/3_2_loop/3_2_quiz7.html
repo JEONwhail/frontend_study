@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    // 문제7
+    // 이중 for문을 이용해 
+    // 5행 5열의 표(table 태그 사용)를 만들고, 변수 num을 이용하여 1부터 25까지 출력하세요.
+
+    // 하드 코딩 시 아래와 같음
+    let table = '<table border="1">';
+    table    += '  <tr>';
+    table    += '    <td>1</td><td>2</td><td>3</td><td>4</td><td>5</td>';
+    table    += '  </tr>';
+    table    += '  <tr>';
+    table    += '    <td>6</td><td>7</td><td>8</td><td>9</td><td>10</td>';
+    table    += '  </tr>';
+    table    += '  <tr>';
+    table    += '    <td>11</td><td>12</td><td>13</td><td>14</td><td>15</td>';
+    table    += '  </tr>';
+    table    += '  <tr>';
+    table    += '    <td>16</td><td>17</td><td>18</td><td>19</td><td>20</td>';
+    table    += '  </tr>';
+    table    += '  <tr>';
+    table    += '    <td>21</td><td>22</td><td>23</td><td>24</td><td>25</td>';
+    table    += '  </tr>';
+    table    += '</table>';
+    document.write(table);
+
+    document.write('======================================================<br>');
+    document.write('<p style="color: green; font-size: 15px; ">' + '💚💚💚💚💚💚💚I LIKE GREENNNNNN COLOR💚💚💚💚💚💚💚' + '</p><br>');
+ 
+
+    
+    // 풀이7
+    // 이중 for문 이용
+
+
+    // tr이랑 td넣어야 할 거 같음
+    // 으흠~~
+    // 대가리 대괄호에 갇혀버렸다
+
+    let html = '<table style="color: green; font-weight : bold; margin: 0 auto; font-size: 30px; text-align : center" border="1">';
+
+    let num = 1;
+
+    for (let i = 0; i < 5; i++) {
+    html += '<tr>';
+    for (let j = 0; j < 5; j++) {
+        html += `<td>${num}</td>`;
+        num++;
+    }
+    html += '</tr>';
+}
+
+
+    html += '</table>';
+    document.write(html);
+
+    document.write('<p style="color: green; font-size: 15px; ">' + '💚💚💚💚💚💚💚I LIKE GREENNNNNN COLOR💚💚💚💚💚💚💚' + '</p><br>');
+
+
+  </script>
+</head>
+<body>
+  
+</body>
+</html>
