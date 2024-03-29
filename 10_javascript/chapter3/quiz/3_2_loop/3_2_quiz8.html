@@ -51,12 +51,12 @@
 
 
         for(i=0;i<=count;i++){
-          console.log(" ".repeat(count-i)+'*'.repeat(i*2+1))
+          document.write('&nbsp;'.repeat(count-i)+'*'.repeat(i*2+1),'<br>')
 
           
             if(i===count){
                 for(a=0;a<=count;a++){
-                  console.log(" ".repeat(a)+'*'.repeat(((count*2+1)-(a*2-1))))
+                  document.write('&nbsp;'.repeat(a)+'*'.repeat(((count*2+1)-(a*2-1))),'<br>')
                 }
 
                 // for(i=0;i<(count);i++){
