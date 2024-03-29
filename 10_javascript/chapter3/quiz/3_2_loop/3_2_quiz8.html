@@ -16,24 +16,108 @@
     // *****
 
     // 풀이8
-    
-    // 3행 2열 구조의 데이터 출력
-    // for(let i = 1; i <=3; i++) { //행 반복
-    //   for(let j = 1; j <=2; j++) { //열 반복
-    //     document.write(i + '행' + j + '열','<br>')
-    //   }
-    // }
 
     for (let i = 1; i <= 5; i++) {
-    let row = '';
-    for (let j = 1; j <= i; j++) {
-        row += '*','&nbsp';
-    }
-    document.write(row,'<br>')
-}
+      let row = '';
+      // 공백 추가
+      for (let k = 5 - i; k >= 1; k--) {
+          row += '&nbsp;';
+      }
+      // 별표 추가
+      for (let j = 1; j <= i; j++) {
+          row += '*&nbsp;';
+      }
+      document.write(row, '<br>');
+        }  
+
+      document.write('=========================================================================<br>');
+
+
+      // 중간부분 비우는 방법 오른쪽 상단 사라지는 코드임 주의하셈
+      // let count = 9;
+      //   for(i=0;i<=count;i++){
+      //     console.log(" ".repeat(count-i)+'*'.repeat(i*1+1))
+
+
+    let count = 11;
+
+    //마름모 반만 나옴....근데 세로로 쪼개진....ㄴ
+    // for (let i = 0; i < count; i++) {
+    //   document.write(" ".repeat(count - i - 1) + "*".repeat(2 * i + 1),'<br>');
+    // }
+    // for (let i = count - 2; i >= 0; i--) {
+    //   document.write(" ".repeat(count - i - 1) + "*".repeat(2 * i + 1),'<br>');
+    // }
+
+
+        for(i=0;i<=count;i++){
+          console.log(" ".repeat(count-i)+'*'.repeat(i*2+1))
+
+          
+            if(i===count){
+                for(a=0;a<=count;a++){
+                  console.log(" ".repeat(a)+'*'.repeat(((count*2+1)-(a*2-1))))
+                }
+
+                // for(i=0;i<(count);i++){
+                //   document.write(" ".repeat(Math.abs(5-(i+1)))+'*'.repeat(count-Math.abs((i-4)*2)), '<br>')
+                // }
+            }
+        }
+
+        
+
+        //마름모
+        // for(i=1;i<=count;i++){
+        //   document.write(' '.repeat(count-i)+'*'.repeat(i*2-1), '<br>')
+        // }
+
+        for (let i = 1; i <= count; i++) {
+        let row = ' '.repeat(Math.abs(count - i)) + '*'.repeat(i * 2 - 1);
+        // document.write(row, '<br>');
+        console.log(row);
+        }
+
+        //피라미드
+        for(r=1;r<=count;r++){
+          console.log(' '.repeat(count-r)+'*'.repeat(r))
+        }
+        //반피라미드 1
+        for(r=1;r<=count;r++){
+          console.log('*'.repeat(r))
+        }
+
+
+      
+
+  //   for (let i = 1; i <= 5; i++) {
+  //   let row = '';
+  //   // 공백 추가
+  //   for (let k = 5 - i; k >= 1; k--) {
+  //       row += '&nbsp;';
+  //   }
+  //   // 별표 추가
+  //   for (let j = 1; j <= i; j++) {
+  //       row += '*&nbsp;';
+  //   }
     
+    
+  //   for (let n = 1; n <= 5; n--) {
+  //       let now = '';
+  //       // 공백 추가
+  //       for (let k = 5 - n; k >= 1; k++) {
+  //           now -= '&nbsp;';
+  //       }
+  //       // 별표 추가
+  //       for (let m = 1; m <= n; m--) {
+  //           now -= '*&nbsp;';
+  //       }
 
-
+  //   document.write(now, '<br>');
+  //   
+  //   }
+  // }
+    
     
   </script>
 </head>
