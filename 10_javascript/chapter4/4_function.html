@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="data:,">
   <title>Document</title>
 </head>
 <body>
@@ -18,11 +19,11 @@
   <!-- 앞뒤 -->
   <div>
     <p>
-      <button type="button" onclick="gallery(0)" >이전</button>
-      <button type="button" onclick="gallery(1)" >다음</button>
+      <button type="button" id="prevButton" >이전</button>
+      <button type="button" id="nextButton" >다음</button>
     </p>
     <p>
-      <img src="images/pic_1.jpg" alt="photo" class="photo">
+      <img src="images/pic_1.jpg" alt="photo" id="galleryImg" class="photo">
     </p>
   </div>
 
@@ -222,29 +223,103 @@
     // let currentIndex = 0;
     // const imageTag = document.querySelector('.photo');
 
-    const images = ["pic_1.jpg", "pic_2.jpg", "pic_3.jpg", "pic_4.jpg"];
-    let currentIndex = 0;
-    const imageTag = document.getElementById('mainImage');
 
 
+    // 아!! !!!! 8번 이미지에서 1번으로 감!!!!!!!!!!!!!!!!!왜???
+    // function gallery(direction) {
+    //         // 현재 이미지의 src 속성값 가져오기
+    //         let currentImgSrc = document.getElementById("galleryImg").getAttribute("src");
+
+    //         // 현재 이미지의 숫자 부분 추출 
+    //         let currentImgNumber = parseInt(currentImgSrc.match(/\d+/)[0]);
+
+    //         // 이미지 순환 기능 추가
+    //         let totalImages = 8; // 전체 이미지 개수
+    //         let nextImgNumber = (currentImgNumber + direction - 1) % totalImages + 1;
+
+    //         // 다음 이미지로 이동
+    //         document.getElementById("galleryImg").setAttribute("src", "images/pic_" + nextImgNumber + ".jpg");
+    //     }
+
+        // <div>
+        //   <p>
+        //     <button type="button" onclick="gallery(-1)" >이전</button>
+        //     <button type="button" onclick="gallery(1)" >다음</button>
+        //   </p>
+        //   <p>
+        //     <img src="images/pic_1.jpg" alt="photo" id="galleryImg" class="photo">
+        //   </p>
+        // </div>
+
+
+    
     function gallery(direction) {
-    if (direction === 'prev') {
-      currentIndex = (currentIndex - 1 + images.length) % images.length;
-    } else {
-      currentIndex = (currentIndex + 1) % images.length;
-    }
-    imageTag.setAttribute('src', "images/" + images[currentIndex]);
-  }
 
-    document.querySelector('#prevButton').addEventListener('click', function() {
-      gallery('prev');
-    });
+            // // 현재 이미지의 src 속성값 가져오기
+            // let currentImgSrc = document.getElementById("galleryImg").getAttribute("src");
 
-    document.querySelector('#nextButton').addEventListener('click', function() {
-      gallery('next');
-    });
+            // // 현재 이미지의 숫자 부분 추출 
+            // let currentImgNumber = parseInt(currentImgSrc.match(/\d+/)[0]);
 
-    imageTag.setAttribute('src', "images/" + images[currentIndex]);
+            // // 이미지 순환 기능 추가
+            // let totalImages = 8; // 전체 이미지 개수
+
+            // // 다음 이미지 번호 계산
+            // let nextImgNumber = currentImgNumber + direction;
+
+            // 이미지가 1에서 8까지 순환하도록 함
+            // if (nextImgNumber < 1) {
+            //     nextImgNumber = totalImages;
+            // } else if (nextImgNumber > totalImages) {
+            //     nextImgNumber = 1;
+            // }
+
+             // 이미지가 1에서 8까지 순환하도록 함 (for문으로 사용함)
+            // for (let i = 1; i <= totalImages; i++){
+            //   if(nextImgNumber < 1){
+            //     nextImgNumber = totalImages;
+            //   }else if (nextImgNumber > totalImages){
+            //     nextImgNumber = 1;
+            //   }
+            // }
+
+
+            //   // 현재 이미지의 src 속성값 가져오기
+            //   let currentImg = document.getElementById("galleryImg");
+            //   let currentImgSrc = currentImg.getAttribute("src");
+
+            //   // 현재 이미지의 숫자 부분 추출
+            //   let currentImgNumber = 0;
+            //   for (let i = currentImgSrc.length - 5; i >= 0; i--) {
+            //       if (!isNaN(parseInt(currentImgSrc[i]))) {
+            //         // isNaN(): 주어진 값이 NaN인지 확인하는 JavaScript 함수임. NaN이면 true를 반환하고, 아니면 false를 반환.
+            //           currentImgNumber = parseInt(currentImgSrc[i]) + currentImgNumber * 10;
+            //       } else {
+            //           break;
+            //       }
+            //   }
+
+            //   // 전체 이미지 개수
+            //   let totalImages = 8;
+
+            //   // 다음 이미지 번호 계산
+            //   let nextImgNumber = currentImgNumber + direction;
+
+            //   // 이미지가 1에서 8까지 순환하도록 함
+            //   if (nextImgNumber < 1) {
+            //       nextImgNumber = totalImages;
+            //   } else if (nextImgNumber > totalImages) {
+            //       nextImgNumber = 1;
+            //   }
+
+            // 이미지가 8번일 때 다음 버튼을 클릭했을 때 이미지가 변경되지 않도록 함
+            if (currentImgNumber === 8 && direction === 1) {
+                return;
+            }
+
+            // // 이미지 갱신
+            // document.getElementById("galleryImg").setAttribute("src", "images/pic_" + nextImgNumber + ".jpg");
+
 
 
   </script>
