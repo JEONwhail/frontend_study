@@ -7,40 +7,56 @@
 </head>
 <body>
 
-  <div>
-    <p>
-        <button id="prevButton" type="button">이전</button>
-        <button id="nextButton" type="button">다음</button>
-    </p>
-    <p>
-        <img src="images/pic_1.jpg" alt="photo" id="galleryImg" class="photo">
-    </p>
-</div>
+    <div>
+        <p>
+            <button type="button" onclick="gallery('prevButton')">이전</button>
+            <button type="button" onclick="gallery('nextButton')">다음</button>
+        </p>
+        <p>
+            <img src="images/pic_1.jpg" alt="photo" id="galleryImg" class="photo">
+        </p>
+    </div>
 
 
 <script>
-  const galleryImg = document.getElementById('galleryImg');
-  let currentImgIndex = 1;
+//   const galleryImg = document.getElementById('galleryImg');
+//   let currentImgIndex = 1;
 
-  document.getElementById("nextButton").addEventListener("click", function() {
-      gallery(1);
-  });
+//   document.getElementById("nextButton").addEventListener("click", function() {
+//       gallery(1);
+//   });
 
-  document.getElementById("prevButton").addEventListener("click", function() {
-      gallery(-1);
-  });
+//   document.getElementById("prevButton").addEventListener("click", function() {
+//       gallery(-1);
+//   });
 
-  function gallery(direction) {
-    currentImgIndex += direction;
-    if (currentImgIndex > 8) {
-        currentImgIndex = 8; 
-    } else if (currentImgIndex < 1) {
-        currentImgIndex = 1;
+//   function gallery(direction) {
+//     currentImgIndex += direction;
+//     if (currentImgIndex > 8) {
+//         currentImgIndex = 8; 
+//     } else if (currentImgIndex < 1) {
+//         currentImgIndex = 1;
+//     }
+//     galleryImg.setAttribute('src', `images/pic_${currentImgIndex}.jpg`);
+// }
+
+    const imgNumber = document.querySelector('.photo');
+    let i = 1;
+    function gallery(button) {
+    if (button === 'nextButton') {
+        i++;
+    } else if (button === 'prevButton') {
+        i--;
+    } 
+    if (i <= 0) {
+        i++;
+    } else if (i >= 9) {
+        i--;
     }
-    galleryImg.setAttribute('src', `images/pic_${currentImgIndex}.jpg`);
-}
+    imgNumber.setAttribute('src', `./images/pic_${i}.jpg`);
+    }
 
 </script>
-  
+
 </body>
 </html>
