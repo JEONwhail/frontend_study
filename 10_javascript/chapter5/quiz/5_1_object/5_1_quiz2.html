@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    // 문제2
+    // 나 자신의 정보로 사람(person) 객체 만들기(리터럴 방식 이용)
+
+    // 속성 - firstName(문자), lastName(문자), age(숫자), gender('남자' or '여자'), hobby(배열 [])
+
+    // 메소드 - firstName과 lastName 두 문자열을 연결하여 반환하는 getFullName() 작성,
+
+    // 이외에도 speak(), walk(), eat() 등 자유롭게 한가지 이상 작성
+
+    // (메소드 내 실행 코드는 return문을 사용하여 간단한 문자열 반환)
+
+    // 객체 완성 후 모든 속성 및 메소드 결과를 출력해보세요.
+    // 단, 객체의 속성 값을 얻기 위해 점 표기법(.)과 대괄호 표기법([])을 골고루 사용해 볼 것!
+
+
+    // 풀이2
+
+    // 나 자신의 정보로 사람(person) 객체 만들기(리터럴 방식 이용)
+    let person = {
+    // 속성 - firstName(문자), lastName(문자), age(숫자), gender('남자' or '여자'), hobby(배열 [])
+    firstName: 'JiYeon',
+    lastName: 'KIM',
+    age: 27,
+    gender: '여자',
+    'my hobby': ['잠자기', '강아지만지기'],
+    getFullName: function() {
+      // 메소드 - firstName과 lastName 두 문자열을 연결하여 반환하는 getFullName() 작성,
+      // (메소드 내 실행 코드는 return문을 사용하여 간단한 문자열 반환)
+        return this.firstName + ' ' + this.lastName;
+    },
+    speak: function() {
+        return '안녕하세요!';
+    },
+    walk: function() {
+        return '걷는거 싫어합니다!.';
+    },
+    eat: function() {
+        return '속 안좋아서 밥 먹기 싫어요!.';
+    },
+    // 이외에도 speak(), walk(), eat() 등 자유롭게 한가지 이상 작성
+    favorite: function() {
+        return '강아지';
+    }
+};
+
+    // 객체 완성 후 모든 속성 및 메소드 결과를 출력해보세요.
+    // 단, 객체의 속성 값을 얻기 위해 점 표기법(.)과 대괄호 표기법([])을 골고루 사용해 볼 것!    console.log("이름: " + person.firstName + " " + person['lastName']);
+    document.write("나이: " + person.age,'<br>');
+    console.log("나이: " + person.age);
+
+    document.write(`hobby : ${person['my hobby']}<br>`);
+    console.log(`hobby : ${person['my hobby']}`);
+
+    document.write("이름: " + person.firstName + " " + person['lastName']);
+    console.log("이름: " + person.firstName + " " + person['lastName']);
+    
+  </script>
+</head>
+<body>
+  
+</body>
+</html>
