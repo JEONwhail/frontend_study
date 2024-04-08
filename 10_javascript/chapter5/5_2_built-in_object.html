@@ -459,7 +459,226 @@ console.log(fruits);
 
 
 // 12) indexOf(), lastIndexDf()
-// 배열 안에 특정 요소가 존재하는 지를 찾고
+// 배열 안에 특정 요소가 존재하는지를 찾고,
+  // 찾으면 첫번째 인덱스(위치)를 반환
+  // 찾을 수 없는 경우 -1을 반환
+  fruits = ['Banana', 'Orange', 'Apple', 'Mango', 'Apple'];
+  let index = fruits.indexOf('Apple');
+  console.log(index); // 2
+  index = fruits.indexOf('Apple', 3); // 검색 시작 위치 지정
+  console.log(index); // 4
+  index = fruits.lastIndexOf("Apple");
+  console.log(index); // 4
+
+  // (ES7차) includes()
+  // 지정된 값이 포함된 경우 true를 반환
+  // 포함되지 않은 경우 false를 반환
+  index = fruits.includes('Mango');
+  console.log(index); // true
+  index = fruits.includes('Banana', 3); // 검색 시작 위치 지정
+  console.log(index); // false
+
+  // 3. Math 객체
+  // 수학적인 상수와 함수를 가진 객체로 수학 관련 속성과 함수를 제공
+  // 다른 객체와 달리 Math 생성자가 아님. 즉, 객체 생성을 하지 않고 사용 가능 => 정적(Static)
+  // Math 속성명;
+  // Math 함수명();
+  document.write('<h4>Math 객체</h4>');
+
+  //속성
+  document.write('<h4>원주율 PI</h4>');
+  document.write( Math.PI,'<br>');
+
+  // 1) MAth.round()
+  // 숫자에 대한 반올림 처리(소수점 첫째 자리 반올림)
+  document.write('<h4>round</h4>');
+  document.write(Math.round(4.9), '<br>');
+  document.write(Math.round(4.7), '<br>');
+  document.write(Math.round(4.4), '<br>');
+  document.write(Math.round(4.2), '<br>');
+  document.write(Math.round(-4.2), '<br>');
+
+document.write('============================<br>');
+
+
+   // 2) MAth.ceil()
+  // 숫자에 대한 무조건 올림 처리(소수점 첫째 자리 올림)
+  document.write('<h4>ceil</h4>');
+  document.write(Math.ceil(4.9), '<br>');
+  document.write(Math.ceil(4.7), '<br>');
+  document.write(Math.ceil(4.4), '<br>');
+  document.write(Math.ceil(4.2), '<br>');
+  document.write(Math.ceil(-4.2), '<br>');
+
+  // 예 : 
+  // 50 / 15 = 3.33333333333333, Math.ceil(50 / 15) = 4
+  // 총 페이지 수 = Math.ceil(총 아이템 수 / 한 페이지당 보이는 아이템 수)
+
+document.write('============================<br>');
+
+
+  // 3) MAth.floor()
+  // 숫자에 대한 무조건 내림 처리(소수점 첫째 자리 내림)
+  document.write('<h4>floor</h4>');
+  document.write(Math.floor(4.9), '<br>');
+  document.write(Math.floor(4.7), '<br>');
+  document.write(Math.floor(4.4), '<br>');
+  document.write(Math.floor(4.2), '<br>');
+  document.write(Math.floor(-4.2), '<br>');
+
+  document.write('============================<br>');
+
+  // 4) MAth.trunc()
+  // 소수 부분은 무조건 버리고 함수 부분만 바놘
+  document.write('<h4>trunc</h4>');
+  document.write(Math.trunc(4.9), '<br>');
+  document.write(Math.trunc(4.7), '<br>');
+  document.write(Math.trunc(4.4), '<br>');
+  document.write(Math.trunc(4.2), '<br>');
+  document.write(Math.trunc(-4.2), '<br>');
+
+  document.write('============================<br>');
+
+  // 5) Math.sign()
+  // 숫자가 양수인지 음수인지 화긴하는 용도로 사용
+  // 양수이면1, 음수이면 -1, 0이면 0을 반환
+  document.write('<h4>sign</h4>');
+  document.write(Math.sign(-4), '<br>');
+  document.write(Math.sign(0), '<br>');
+  document.write(Math.sign(4), '<br>');
+
+  document.write('============================<br>');
+
+  // 6) Math.pow()
+  // 거듭제곱(power)한 값을 반환
+  document.write('<h4>pow</h4>');
+  document.write(Math.pow(8,2), '<br>');
+                    // 8의 2제곱
+
+  // (ES7차)지수 연산자
+  // ** 은 지수를 뜻함
+  document.write(8 ** 2, '<br>');
+
+  //거듭제곱 연산을 여러번 결합할 때 유용
+  document.write(Math.pow(Math.pow(2,2),2), '<br>');
+  document.write (2 ** 2 ** 2 , '<br>');
+
+  document.write('============================<br>');
+
+
+ // 7) Math.sqrt()
+ // 제곱근(square root) 값을 반환
+  document.write('<h4>sqrt</h4>');
+  document.write(Math.sqrt(64), '<br>');
+
+  document.write('============================<br>');
+
+
+// 7) Math.abs()
+ // 절대값(absolute)을 반환. 즉, 무조건 양수로 반환
+document.write('<h4>abs</h4>');
+document.write(Math.abs(-4.7), '<br>');
+
+document.write('============================<br>');
+
+
+// 7) Math.min(), Math.max()
+ // min()은 가장 작은 값을 반환하고, max()는 가장 큰 값을 반환
+document.write('<h4>min / max</h4>');
+document.write(Math.min(0, 150, 30, 20, -8, -200), '<br>');
+document.write(Math.max(0, 150, 30, 20, -8, -200), '<br>');
+
+document.write('============================<br>');
+
+
+// 8) Math.random()
+ // 0보다 크거나 작고 1보다 작은 범위에서 숫자형 값을 반환
+ // 0.0 이상 1.0 미만의 부동 소수점 난수를 반환
+document.write('<h4>random</h4>');
+document.write(Math.random(), '<br>');
+
+//(응용) 1에서 10 사이의 랜덤한 정수 생성
+document.write('<h4>1에서 10 사이의 랜덤함 정수</h4>');
+const randomNum = Math.random();
+// 0.0 <= Math.random() > 1.0
+document.write(randomNum, '<br>');
+// 0.0 <= Math.random() * 10 > 10.0
+document.write(randomNum * 10, '<br>');
+// 0 <= Math.floor(Math.random * 10) > 10.0
+document.write(Math.floor(randomNum * 10), '<br>');
+// 0 <= Math.floor(Math.random * 10) + 1 > 11
+document.write(Math.floor(randomNum * 10) + 1, '<br>');
+
+// 실제 실무에서 특정 범위의 랜덤 종슈겂울 샹송허눈 굥유거 먼훔
+// 공식화 : Math.floor(Math.random() * (최대값 - 최소값) + 1)) + 최소값;
+document.write('<h4>최소값과 최대값 사이의 정수를 반환하는 함수</h4>');
+function getRandomInteger(min,max) {
+  return Math.floor(Math.random()*(max - min + 1)) + min;
+}
+document.write(getRandomInteger(30, 50), '<br>')
+
+
+// 실습 : 가위, 바위, 보 맞추기
+document.write('<h4>가위, 바위, 보 맞추기</h4>');
+const selectRps = prompt('가위, 바위, 보 중 하나를 선택하세요','가위');
+let user;
+
+switch (selectRps) {
+  case '가위':
+    user = 1;
+    break;
+
+    case '바위':
+    user = 2;
+    break;
+
+    case '보':
+    user = 3;
+    break;
+
+  default:
+    alert('땡땡떙땡떙!!!!땡떙@@@!!!!!!!!')
+    location.reload(); // 잘못 입력했을 때 새로고침 되게끔 만들어줄거임
+    break;
+}
+
+// 1~3사이의 랜덤한 정수 생성
+const com = Math.floor(Math.random()*3) + 1;
+document.write(`<img src = "images/math_img_${com}.jpg">`);
+
+if (com === user) {
+  document.write(`<img src = "images/game_1.jpg">`);
+} else {
+  document.write(`<img src = "images/game_2.jpg">`);
+}
+document.write('<br>');
+
+// ======================================================================
+
+// Quiz 가위 바위 보 게임 만들기
+document.write('<h4>가위, 바위, 보 게임하기</h4>');
+
+//컴퓨터가 낸 이미지 출력
+document.write('<h4>컴퓨터가 낸 것</h4>');
+document.write(`<img src = "images/math_img_${com}.jpg">`);
+
+// 내가 낸 이미지 출력
+document.write('<h4>내가 낸 것</h4>');
+document.write(`<img src = "images/math_img_${user}.jpg">`);
+
+//누가 이겼는지 출력하기
+if (user === com) {
+  document.write('무승부');
+} else if ((user === 1 && com === 3) || (user === 2 && com === 1) || (user === 3 && com === 2)) {
+  document.write('님 승리');
+} else {
+  document.write('컴터한테 짐 ㅜ');
+}
+
+
+
+
+
 
 
 
