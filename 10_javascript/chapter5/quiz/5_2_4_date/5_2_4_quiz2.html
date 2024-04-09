@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+
+    // needs
+    // 특정 날짜 객체를 생성하면 'SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT' 형식으로 요일
+    // 1) 조건문(if 또는 switch)을 이용한 방법
+    // 2) 배열을 이용한 방법
+
+    // 문제2
+    // 요일 보여주기
+
+    // 특정 날짜 객체를 생성하면 'SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT' 형식으로 요일을 보여주도록 만들어보세요.
+    // 2가지 방법으로 각각 구현해 볼 것!
+    // 1) 조건문(if 또는 switch)을 이용한 방법
+    // 2) 배열을 이용한 방법
+
+    // 예시:
+    // let date = new Date(2023, 0, 5);  // 2023년 1월 5일
+    // "THU"가 출력되어야 합니다.
+
+    let date = new Date(2023, 0, 5);  // 2023년 1월 5일
+    
+    // 풀이2-1
+    // 1) 조건문(if 또는 switch)을 이용한 방법
+    let dayNumber = date.getDay();
+
+    let dayName;
+    switch (dayNumber) {
+        case 0:
+            dayName = 'SUN🤎';
+            break;
+        case 1:
+            dayName = 'MON🖤';
+            break;
+        case 2:
+            dayName = 'TUE💚';
+            break;
+        case 3:
+            dayName = 'WED💙';
+            break;
+        case 4:
+            dayName = 'THU💛';
+            break;
+        case 5:
+            dayName = 'FRI💜';
+            break;
+        case 6:
+            dayName = 'SAT💖';
+            break;
+        default:
+            dayName = 'Unknown';
+    }
+    document.write(dayName,'<br>'); // "THU"가 출력됩니다.
+    
+    // 풀이2-2
+    // 2) 배열을 이용한 방법
+
+    const daysOfWeek = ['SUN🤎', 'MON🖤', 'TUE💚', 'WED💙', 'THU💛', 'FRI💜', 'SAT💖'];
+
+    let dayNumber2 = date.getDay();
+
+    let dayName2 = daysOfWeek[dayNumber2];
+
+    document.write(dayName2); 
+    
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

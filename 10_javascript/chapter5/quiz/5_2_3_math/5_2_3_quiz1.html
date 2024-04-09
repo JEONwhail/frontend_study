@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    // 문제1
+    // 로또 번호 추첨기(미완성)
+    // 1~45까지의 랜덤한 정수값 6개 출력
+    // 여기서는 중복된 숫자가 나와도 걸러낼 필요 없음
+
+    // 풀이1
+    //  중복이 없는 로또 번호 생성
+    while (lottoArr.length < 6) {
+     // lottoArr 배열의 길이가 6 미만인 동안 반복문이 실행할거임
+     // 중복 안되는 숫자 6개 생성할 때 까지
+    const randomNumber = Math.floor(Math.random() * 45) + 1;
+    // 45를 곱하여 0 이상 45 미만  
+    //1을 더하여 최종적으로 1 이상 최종 46 미만
+      if (!lottoArr.includes(randomNumber)) {
+        // 중복 검사할거임
+        // !lottoArr 포함이 "안되어"있는 경우 확인
+        // includes() 메소드는 배열에 특정 요소가 포함되어 있는지를 확인함
+
+        lottoArr.push(randomNumber);
+        //중복 안됬을때만 나오게 할거임
+      }
+    }    
+
+    // 번호 오름차순으로 정렬
+    lottoArr.sort((a, b) => a - b);
+    // a,b를 a-b결과에 따라서
+    // 음수면 a가 b보다 앞으로
+    // 양수면 그 반대임
+
+    document.write('로또 번호 : ', lottoArr);
+
+
+
+    // for문으로 바꿔보기
+    const lottoArr = [];
+
+    for (let i = 0; lottoArr.length < 6; i++) {
+        const randomNumber = Math.floor(Math.random() * 45) + 1;
+        if (!lottoArr.includes(randomNumber)) {
+            lottoArr.push(randomNumber);
+        }
+    }
+
+    lottoArr.sort((a, b) => a - b);
+
+    document.write('로또 번호 : ', lottoArr);
+  </script>
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

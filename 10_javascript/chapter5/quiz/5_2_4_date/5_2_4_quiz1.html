@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    // 문제1
+    // 날짜 생성하기
+
+    // 2023년 2월 20일, 오전 3시 12분을 나타내는 Date 객체를 만들어보세요.
+    // 그리고 생성한 날짜 객체 정보를 예쁘게 출력하세요.
+
+    // 💕💕💛💚🧡💛💚🧡💖💗💓💞❤🧡💛💙💚🤎💜🖤
+
+
+    // 풀이1
+    const customDate = new Date(2023, 1, 20, 3, 12);
+
+    const year = customDate.getFullYear();
+    const month = customDate.getMonth() + 1; 
+    const date = customDate.getDate();
+    const hours = customDate.getHours();
+    const minutes = customDate.getMinutes();
+
+    const formattedDate = `💕💕💛💚🧡${year}년💗 ${month}월 💗${date}일 💗${hours}시💗 ${minutes}분💕💕💛💚🧡`;
+
+    document.write(formattedDate);
+
+    
+  </script>
+</head>
+<body>
+  
+</body>
+</html>
