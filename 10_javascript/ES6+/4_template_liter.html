@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 템블릿 리터럴
+    // 백틱(``) 기호를 사용하여 문자열 삽입
+
+    // 1. 문자열 삽입
+    // ES5
+    var name = 'goni'
+    var greeting = 'Hello my name is' + name;
+    console.log(greeting);
+
+    //ES6
+    const name2 = 'goni'
+    const greeting2 = `Hello my name is ${name}`
+    console.log(greeting2);
+
+
+    // // 선언문
+    // function a() {
+      
+    // }
+
+    // // 표현식
+    // const b = function () {
+      
+    // }
+
+
+    // 2. 표현식 삽입
+    // ES5
+    var exp1 = 1;
+    var exp2 = 10;
+    console.log('1 * 10 = ' + (exp1 * exp2));
+
+    // ES6
+    const exp3 = 1;
+    const exp4 = 10;
+    console.log(`1 * 10 = ${exp1 * exp2}`);
+
+    // 3. 여러 줄 문자열 생성
+    // ES5 : 각 행마다 백슬래시를 삽입해야 함
+    // var text1 = 'hello. mr. my yesterday 타임머신을 타고~'
+    var text1 = 'hello.\
+     mr. my yesterday \
+     타임머신을 타고~'
+
+    console.log(text1);
+
+    // 이스케이프 문자로 줄바꿈 넣기
+    // 콘솔창에서도 줄바꿈 확인 가능ㄴ
+    var text2 = 'hello.\nmr. my yesterday \n타임머신을 타고~'
+    console.log(text2);
+  </script>
+</body>
+</html>
