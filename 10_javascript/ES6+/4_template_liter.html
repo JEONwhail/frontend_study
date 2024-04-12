@@ -48,8 +48,8 @@
     // ES5 : 각 행마다 백슬래시를 삽입해야 함
     // var text1 = 'hello. mr. my yesterday 타임머신을 타고~'
     var text1 = 'hello.\
-     mr. my yesterday \
-     타임머신을 타고~'
+    mr. my yesterday \
+    타임머신을 타고~'
 
     console.log(text1);
 
@@ -57,6 +57,14 @@
     // 콘솔창에서도 줄바꿈 확인 가능ㄴ
     var text2 = 'hello.\nmr. my yesterday \n타임머신을 타고~'
     console.log(text2);
+
+    // ES6 : 전체를 백틱으로 감싸기만 하면됨
+    const content = `hello.
+mr. my yesterday 
+타임머신을 타고~`
+    console.log(content);
+
+
   </script>
 </body>
 </html>
