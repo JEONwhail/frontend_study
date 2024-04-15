@@ -102,11 +102,21 @@
     const formatDay = `${theDay.getFullYear()}-${String(theDay.getMonth()).padStart(2, '0')}-${String(theDay.getDate()).padStart(2, '0')}`;
     console.log(formatDay);
 
-    
+
 
     const theDay2 = new Date(2024, 2, 1);
     const formatDay2 = `${theDay2.getFullYear()}-${String(theDay2.getMonth()+1).padStart(2, '0')}-${String(theDay2.getDate()).padStart(2, '0')}`;
     console.log(formatDay2);
+
+    //샘코드
+    // const month = theDay.getMonth() + 1;
+    // const formatMonth = (month + '').padStart(2, '0');
+    // const formatMonth = String(month).padStart(2, '0');
+    // const formatMonth = month.toString().padStart(2, '0');
+    // const formatDate = theDay.getDate().toString().padStart(2, '0');
+    // const formatDay = `${theDay.getFullYear()}-${formatMonth}-${formatDate}`;
+    // console.log(formatDay);
+    // 예상 결과: 2024-03-01
 
 
     // const formatDay = ``;
