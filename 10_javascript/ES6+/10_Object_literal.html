@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 객체 리터럴 표기법의 변화(업그레이드)
+
+    // 1. 변수를 키와 값으로 갖는 객체 만들기
+    const firstName = 'JEON';
+    const lastName = 'Kim';
+    const age = 27;
+    const nationality = 'Korea';
+
+    // ES5의 일반적인 방법
+    // 변수명이 객체 내의 속성명과 동일할 경우 생략 가능
+    // const person1 = {
+    //   firstName : firstName,
+    //   lastName : lastName,
+    //   age : age,
+    //   nationality : nationality
+    // };
+
+    const person2 = {
+      firstName,
+      lastName,
+      age,
+      nationality
+    };
+
+    console.log(person2);
+
+    // 2. 객체에 함수 추가하기
+    // ES5
+    const person3 = {
+      name : 'JEON',
+      greet : function () { // 키값 + 익명함수
+        console.log('HELLO~');
+      }
+    };
+    person3.greet();
+
+    // ES6
+    const person4 = {
+      name : 'JEON',
+      greet() { // function 키워드 삭제 + 기명함수
+        console.log('HELLO~');
+      }
+    };
+    person4.greet();
+
+    // 화살표 함수
+    // 기본적으로 익명 함수이기에 greet 넣어야함
+    const person5 = {
+      name : 'JEON',
+      greet : () =>  console.log('HELLO~')
+    };
+    person5.greet();
+
+
+    // 3. 객체의 속성을 동적으로 정의하기
+    const nm = 'myname';
+
+    //ES5 
+    // 빈 객체 생성
+    const person6 = {};
+    // 객ㅍ체를 업데이트
+    person6[nm] = 'JEON';
+    console.log(person6);
+    // 객체를 먼저 생성 -> 수정
+
+    // ES6
+    // 객체 생성과 동시에 동족으로 속성 정의 가능
+    // 예 : 키 값을 동적으로 받아와서 새로운 객체를 생성할 때 유용
+    const person7 = {
+      [nm] : 'JEON'
+    };
+    console.log(person7);
+
+
+    // Quiz 
+    // 1. 다음 코드를 더 간결하게 리팩터링하자.
+    // const animal = {
+    //   name: name,
+    //   age: age,
+    //   breed: breed
+    // };
+
+    // const animal = {name, age, breed };
+
+    // 2. 다음 코드의 올바른 출력은?
+    const name = 'myname';
+    const user = {
+      [name]: 'Alberto'
+    };
+    console.log(user.myname);
+
+    // 1) name
+    // 2) 'Alberto'  000
+    // 3) myname
+    // 4) 'name'
+
+    // 3. 다음 코드의 올바른 출력은?
+    const myname = 'myname';
+    const myage = 27;
+    const favoriteColor = 'Green';
+    const person = {
+      myname,
+      myage,
+      color // :favoriteColor
+    };
+    console.log(person.color);
+
+    // 1) 'Green'
+    // 2) color
+    // 3) color is not defined   000
+    // 4) favoriteColor
+
+
+
+  </script>
+</body>
+</html>
