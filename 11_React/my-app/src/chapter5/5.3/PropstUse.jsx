@@ -21,7 +21,7 @@ function PropstUse (){
     <Layout
     width = {2560}
     height = {1440}
-    // props로 다른 컴포넌트를 넘기는 것도 가능
+    // props로 다른 컴포넌트를 넘기는 것도 가능함
     header = {<Header/>}
     footer = {<Footer/>}
     />
