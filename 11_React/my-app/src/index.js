@@ -7,6 +7,10 @@ import JsxUse from './chapter3/3.4/JsxUse';
 import Library from './chapter3/Library';
 import Clock from './chapter4/Clock';
 import PropstUse from './chapter5/5.3/PropstUse';
+import CommentEx from './chapter5/5.6/CommentEx';
+import CommentList from './chapter5/CommentList';
+import Counter from './chapter7/7.2/Counter';
+
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -33,9 +37,32 @@ root.render(
 //     },1000)
 //     // <Clock />
 
-        // 5장예제
-        <PropstUse />
+// 5장예제
+// <PropstUse />
+    // <CommentEx  
+    // date = {new Date()} 
+    // text = "리액트를 즐길 수 있나"
+    // author=({
+    //   name : 'Hello world',
+    //   avatarUrl : 'http://placekitten.com/200/300'
+    // }
+    
+    // )
+    // />
 
+    // <CommentEx 
+    // user={{
+    //     name: 'Hello Kitty',
+    //     // avatarUrl: 'http://placekitten.com/50/50'
+    //     // avatarUrl: 'https://baconmockup.com/300/200'
+    //     avatarUrl: 'https://placedog.net/400x200'
+    //   }} 
+    //   date={new Date()} 
+    //   text="리액트를 즐기세요!" 
+    // />
+
+    // <CommentList />
+    <Counter />
 );
 
 //  // 4장 예제
@@ -49,12 +76,3 @@ root.render(
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
-
-
-root.render(
-    <div>
-      <Library />
-      <PropstUse />
-    </div>
-  );
-  
