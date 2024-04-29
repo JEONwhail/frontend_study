@@ -10,6 +10,11 @@ import PropstUse from './chapter5/5.3/PropstUse';
 import CommentEx from './chapter5/5.6/CommentEx';
 import CommentList from './chapter5/CommentList';
 import Counter from './chapter7/7.2/Counter';
+import Toggle from './chapter8/8.1/Toggle';
+import MyButton from './chapter8/8.2/MyButton';
+import ConfirmButton from './chapter8/ConfirmButton';
+import Greeting from './chapter9/9.1/Greeting';
+import LoginControl from './chapter9/9.2/LoginControl';
 
 
 
@@ -62,7 +67,13 @@ root.render(
     // />
 
     // <CommentList />
-    <Counter />
+    // <Counter />
+
+    // 8장예제
+    // <Toggle />
+    // <MyButton />
+    // <ConfirmButton />
+    <LoginControl />
 );
 
 //  // 4장 예제
