@@ -17,7 +17,7 @@ function LogoutButton(props) {
   );
 }
 
-function LoginControl(props) {
+function LoginControlRefactoring(props) {
 const [isLoggedIn,setIsLoggedIn] = useState(false);
 
 const handleLogin = () => {
@@ -26,13 +26,6 @@ const handleLogin = () => {
 
 const handleLoout = () => {
   setIsLoggedIn(false);
-}
-
-let button;
-if (isLoggedIn) {
- button =  <LogoutButton onClick={handleLoout} />
-}else{
-  button =  <LoginButton onClick={handleLogin} />
 }
 
 // 2단계 :if문 사용 + button 변수에 컴포넌트를 대입
@@ -44,9 +37,14 @@ if (isLoggedIn) {
     <>
     {/* Greeting 컴포넌트의 재사용 */}
       <Greeting isLoggedIn = {isLoggedIn} />;
-      {button}
+      {/* 삼항연산자로 if-else 구문을 JSX 내부에서 표현 */}
+      {/* 조건에 따라 각기 다른 엘리먼트를 렌더링 하고 싶을 때 사용 */}
+      {isLoggedIn
+      ? <LogoutButton onClick={handleLoout} />
+      : <LoginButton onClick={handleLogin}/>
+    }
     </>
   );
 }
 
-export default LoginControl;
+export default LoginControlRefactoring;
