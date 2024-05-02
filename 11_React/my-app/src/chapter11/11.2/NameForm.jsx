@@ -29,6 +29,8 @@ function NameForm() {
       <label>
         이름 :  
         <input type="text" value={value} onChange={handelChange} />
+        {/* <input type="text" onChange={handelChange} /> */}
+        {/* value를 지우면 사용자가 입력한 값은 그대로이지만 스테이트에선 대문자로 변경해줌 */}
         {/* <input type="text" /> */}
         {/* 인풋 제어컴포넌트로 바꾸기 */}
       </label>
