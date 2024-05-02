@@ -29,7 +29,7 @@ function ListKey() {
 
   return (
     <>
-      {/* 이것도...개발자 규칙인가? e = eve = event */}
+      {/* 이것도...개발자 관례임 e = evt = event */}
       <input type="text" value={value} onChange={(e)=>{setValue(e.target.value);}} /> 
       <button type="button" onClick={addToList}>추가</button>
       <ul>
