@@ -19,6 +19,8 @@ import Mailbox from './chapter9/9.3/Mailbox';
 import LoginControlRefactoring from './chapter9/9.3/LoginControlRefactoring';
 import MainPage from './chapter9/9.4/MainPage';
 import LandingPage from './chapter9/LandingPage';
+import NumberList from './chapter10/NumberList';
+import ListKey from './chapter10/10.2/ListKey';
 
 
 
@@ -81,7 +83,9 @@ root.render(
     // <Mailbox unreadMessages={[]} />
     // <LoginControlRefactoring/>
     // <MainPage/>
-    <LandingPage/>
+    // <LandingPage/>
+    // <NumberList/>
+    <ListKey/>
 );
 
 //  // 4장 예제
