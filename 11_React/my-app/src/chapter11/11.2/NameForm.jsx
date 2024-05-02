@@ -31,6 +31,7 @@ function NameForm() {
         <input type="text" value={value} onChange={handelChange} />
         {/* <input type="text" onChange={handelChange} /> */}
         {/* value를 지우면 사용자가 입력한 값은 그대로이지만 스테이트에선 대문자로 변경해줌 */}
+        {/* state에서 값을 가져다 넣어줌으로써 항상 state에 들어있는 값이 input에 표기댐 */}
         {/* <input type="text" /> */}
         {/* 인풋 제어컴포넌트로 바꾸기 */}
       </label>
