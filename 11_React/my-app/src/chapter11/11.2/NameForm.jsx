@@ -42,3 +42,10 @@ function NameForm() {
 };
 
 export default NameForm;
+
+// (참고) 리액트에서 submit이벤트를 이용하여 서버에 데이터를 전송하지는 않음
+// submit이벤트 = 동기식 = 응답이 올때까지 기다리는게 동기식
+// 비동기식은 응답이 올때까지 기다리지 않음
+// 일반적으로 state에 들어있는 데이터를 ajax로 서버에 전송
+// ajax는 다음에 배울거임
+// ajax 사용방법 = fetch - 함수, axios - 라이브러리
