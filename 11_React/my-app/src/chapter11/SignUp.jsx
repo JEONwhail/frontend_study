@@ -1,5 +1,10 @@
 // Quiz
 // 사용자의 정보를 입력받는 가입 양식 컴포넌트 만들기
+// 일단 객체 한번에 묶어버리기
+
+//  (선택 사항)
+//  1) form 태그 및 submit 이벤트를 사용해도 되고 button 태그의 click 이벤트를 사용해도 됨
+//  2) 각각의 state를 여러 개 만들어도 되고 객체 형태로 한번에 관리해도 됨
 
 import { useState } from "react";
 
@@ -7,6 +12,8 @@ function SignUp() {
   // 1. 이름 입력받기
 // 이름을 입력할 수 있는 input 태그와 입력된 값을 저장하기 위한 name이라는 state를 정의(초기값 '')
 // 값이 변경되면 이를 처리하기 위한 handleChangeName() 이라는 이벤트 핸들러 정의
+
+// handleChangeName() 쓰기
 const [formData, setFormData] = useState({
   name: '',
   gender: '남자'
@@ -39,7 +46,7 @@ const handleSubmit = (e) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      
+
       <label>
         이름:
         <input type="text" value={formData.name} onChange={handleChangeName} />
@@ -57,12 +64,11 @@ const handleSubmit = (e) => {
       <br />
 
       <button type="submit">가입하기</button>
+      {/* <button onClick={}></button> */}
+      {/* 1) form 태그 및 submit 이벤트를 사용해도 되고 button 태그의 click 이벤트를 사용해도 됨 */}
     </form>
   );
 };
 
 export default SignUp;
 
-//  (선택 사항)
-//  1) form 태그 및 submit 이벤트를 사용해도 되고 button 태그의 click 이벤트를 사용해도 됨
-//  2) 각각의 state를 여러 개 만들어도 되고 객체 형태로 한번에 관리해도 됨
