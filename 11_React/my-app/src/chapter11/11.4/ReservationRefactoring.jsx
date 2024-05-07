@@ -49,6 +49,7 @@ function ReservationRefactoring() {
       ...inputs,
       [name]:inputValue
     });
+    // ㅇ
 
     // 결론 : 리액트 상태에서 객체를 업데이트 할 때에는 기존 객체를 직접 수정하면 안되고
     // 새로운 객체(기존 객체의 복사본)을 만들고 그 객체에 변화를 주고
