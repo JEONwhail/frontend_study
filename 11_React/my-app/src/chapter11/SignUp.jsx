@@ -29,9 +29,19 @@ const handleChangeName = (e) => {
 // select 태그에는 총 두가지 옵션이 들어감(남자, 여자)
 // 값이 변경되면 이를 처리하기 위한 handleChangeGender() 라는 이벤트 핸들러 정의
 
+
 const handleChangeGender = (e) => {
   setFormData({ ...formData, gender: e.target.value });
 };
+
+// const handleChange = (e) => {
+//   const fieldName = e.target.name;
+//   const fieldValue = e.target.value;
+//   setFormData({ ...formData, [fieldName]: fieldValue });
+// };
+// handle로 합쳐진 코드를 시도했지만......
+// 이름은 따로 입력하지 못함
+// 성별은 선택도 ㅁ못함
 
 
 
