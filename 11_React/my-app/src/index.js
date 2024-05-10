@@ -36,6 +36,10 @@ import UnitInput from './chapter12/UnitInput';
 import FancyBorder from './chapter13/13.1.1.1/FancyBorder';
 import WelcomeDialog from './chapter13/13.1.1.1/WelcomeDialog';
 import SplitPaneSection from './chapter13/13.1.1.2/SplitPaneSection';
+import DialogContainer from './chapter13/13.1.2/DialogContainer';
+import SighUpDialog from './chapter13/13.1.3/SighUpDialog';
+import ProfileCard from './chapter13/ProfileCard';
+import StyledPage from './chapter15/StyledPage';
 
 
 
@@ -115,7 +119,12 @@ root.render(
     // <UnitInput/>
     // <FancyBorder/>
     // <WelcomeDialog/>
-    <SplitPaneSection/>
+    // <SplitPaneSection/>
+    // <DialogContainer/>
+    // <SighUpDialog/>
+    // <ProfileCard/>
+    //14 예제
+    <StyledPage/>
 );
 
 //  // 4장 예제
