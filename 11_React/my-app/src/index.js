@@ -40,6 +40,7 @@ import DialogContainer from './chapter13/13.1.2/DialogContainer';
 import SighUpDialog from './chapter13/13.1.3/SighUpDialog';
 import ProfileCard from './chapter13/ProfileCard';
 import StyledPage from './chapter15/StyledPage';
+import Blocks from './chapter15/theme/Blocks';
 
 
 
@@ -124,8 +125,11 @@ root.render(
     // <SighUpDialog/>
     // <ProfileCard/>
     //14 예제
-    <StyledPage/>
+    // <StyledPage/>
+    <Blocks/>
+
 );
+
 
 //  // 4장 예제
 //     // 1초마다 Clock 컴포넌트를 렌더린하는 코드
