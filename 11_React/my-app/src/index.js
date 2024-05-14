@@ -41,6 +41,7 @@ import SighUpDialog from './chapter13/13.1.3/SighUpDialog';
 import ProfileCard from './chapter13/ProfileCard';
 import StyledPage from './chapter15/StyledPage';
 import Blocks from './chapter15/theme/Blocks';
+import ComponentVariable from './chapter7/7.6/ComponentVariable';
 
 
 
@@ -126,7 +127,8 @@ root.render(
     // <ProfileCard/>
     //14 예제
     // <StyledPage/>
-    <Blocks/>
+    // <Blocks/>
+    <ComponentVariable/>
 
 );
 

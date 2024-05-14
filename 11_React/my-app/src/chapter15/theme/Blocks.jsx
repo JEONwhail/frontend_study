@@ -4,7 +4,8 @@ import styled from "styled-components";
 const Wrapper = styled.div`
   display: flex;
   padding: 1rem;
-  background-color: lightgray;
+  background-color: indigo;
+  /* background-color: ${props=> props.theme.indigo}; */
 `;
 
 const Block = styled.div`
