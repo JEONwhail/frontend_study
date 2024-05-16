@@ -4,7 +4,8 @@ import TodoTemplate from "./components/TodoTemplate";
 import TodoInsert from "./components/TodoInsert";
 import TodoListItem from "./components/TodoListItem";
 import TodoList from "./components/TodoList";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 
 // 패키지 설치
 // npm install styled-components styled-reset react-icons
@@ -38,9 +39,24 @@ function App(props) {
     {
       id: 3,
       text: '밍고 껴안기',
-      done: true
+      done: false
     },
   ]);
+
+  // 로컬 스토리지에서 가져오기
+  useEffect(() =>{
+    const dbTodos = JSON.parse(localStorage.getItem('todos')) || [];
+    // 'todos'가 없으면 null을 반환함
+    setTodos(dbTodos);
+  }, []);
+
+
+  // 로컬스토리지에 저장하기(주의! DB가 아님 DB처럼 쓰면 안됨)
+  // 추가,수정,식제 각 함수에 로직을 넣어도 되지만, useEffect()를 활용하면 한번에 처리 가능
+  // todos가 변경될 때 마다 실행해라!!
+  useEffect(()=>{
+    localStorage.setItem('todos', JSON.stringify(todos));
+  }, [todos]);
 
   // 새 객체를 만들 때 마다 id값에 1씩 더해줘야 하는데
   // id값은 렌더링되는 정보가 아님
@@ -53,7 +69,7 @@ function App(props) {
   // todos배열에 새 할 일 객체를 추가하기 위한 함수
   const handleInsert = (text) => {
     const todo ={
-      id : nextId.current,
+      id : uuidv4(),
       text,
       done:false
     };
@@ -86,6 +102,23 @@ function App(props) {
   // 배열의 내장 함수 이용
   setTodos(todos.filter(todo => todo.id !== id));
   };
+
+  // todos 배열의 특정 요소를 수정하기 위한 함수
+  const handleToggle = (id) => {
+
+    // 방법1
+    // const copyTodos = [...todos];
+    // const targetIndex = todos.findIndex(todo => todo.id === id);
+    // copyTodos[targetIndex].done = !copyTodos[targetIndex].done;
+    // setTodos(copyTodos);
+
+  // 방법2
+  // 배열의 내장 함수 이용
+  setTodos(todos.map((todo) => {
+    return todo.id === id ? { ...todo, done: !todo.done } : todo;
+  }));
+
+  };
   
 
   return (
@@ -95,7 +128,7 @@ function App(props) {
       <GlobalStyle />
       <TodoTemplate>
         <TodoInsert onInsert={handleInsert} />
-        <TodoList todos={todos} onRemove={handleRemove} />
+        <TodoList todos={todos} onRemove={handleRemove} onToggle={handleToggle} />
         {/* <div>투두 목록</div> */}
       </TodoTemplate>
     </>
@@ -103,3 +136,17 @@ function App(props) {
 }
 
 export default App;
+// HTML 웹 스토리지란?
+// 브라우저에서 제공하는 데이터 저장소
+// 사용자의 브라우저 내에 로컬로 데이터를 저장할 수 있음
+// key-value 형태로 저장
+// 최대 5MB까지 문자만 저장 가능
+// 콘솔 창에서 연습해보기
+
+// 웹 스토리지는 origin(도메인 및 프로토콜)당입니다. 
+// 같은 출처의 모든 페이지는 동일한 데이터를 저장하고 액세스할 수 있습니다.
+
+// HTML 웹 스토리지 객체
+// HTML 웹 스토리지는 클라이언트에 데이터를 저장하기 위한 두 가지 객체를 제공합니다.
+// window.localStorage - 만료 날짜 없이 데이터를 저장
+// window.sessionStorage - 한 세션에 대한 데이터 저장(브라우저 탭을 닫으면 데이터가 손실됨)
