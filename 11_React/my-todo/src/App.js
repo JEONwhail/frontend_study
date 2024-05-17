@@ -6,6 +6,7 @@ import TodoListItem from "./components/TodoListItem";
 import TodoList from "./components/TodoList";
 import { useEffect, useRef, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
+import Modal from "./components/Modal";
 
 // 패키지 설치
 // npm install styled-components styled-reset react-icons
@@ -42,6 +43,38 @@ function App(props) {
       done: false
     },
   ]);
+
+  // 0517
+  const [showNpdal, setShowNpdal] = useState(false);
+  // 모달상태
+  const [editTodo, setEditTodo] = useState({}); // 현재 수정할  todo 상태
+
+  const handleOpenModal = (id) => {
+    // 모달을 열면서 현재 수정할 todo를 state에 저장
+    //특정요소를 찾는 메소드 find
+    setEditTodo(todos.find(todo => todo.id === id));
+    setShowNpdal(true);
+  };
+
+  const handleCloseModal = () => {
+    setShowNpdal(false);
+  };
+
+  // 입력한 값으로 수정하기
+  const handleChange = (e) => { //제어 컴포넌트로 관리
+    setEditTodo( {
+      ...editTodo,
+      text: e.target.value
+    }); 
+  };
+
+  // 확인 눌렀을 때 수정 할 수 있게끔 만들기
+  const handleEdit = () => { //실제 수정
+    setTodos(todos.map((todo) => {
+      return todo.id === editTodo.id ? editTodo : todo;
+    }));
+    handleCloseModal();
+  };
 
   // 로컬 스토리지에서 가져오기
   useEffect(() =>{
@@ -128,9 +161,22 @@ function App(props) {
       <GlobalStyle />
       <TodoTemplate>
         <TodoInsert onInsert={handleInsert} />
-        <TodoList todos={todos} onRemove={handleRemove} onToggle={handleToggle} />
+        <TodoList todos={todos} onRemove={handleRemove} onToggle={handleToggle} onModal={handleOpenModal} />
         {/* <div>투두 목록</div> */}
       </TodoTemplate>
+
+      {/* 수정하기 모달 */}
+      { showNpdal && (
+        <Modal
+        title = "할 일 수정" 
+        onCloseModal = {handleCloseModal}   
+        onEdit = {handleEdit}  
+      >
+        <input type="text" value={editTodo.text} onChange={ handleChange } />
+
+      </Modal>
+      ) }
+
     </>
   );
 }

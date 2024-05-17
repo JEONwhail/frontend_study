@@ -46,6 +46,7 @@ import CounterEffect from './chapter7/7.3/ex1/CounterEffect';
 import TimerContainer from './chapter7/7.3/ex2/TimerContainer';
 import EffectSummary from './chapter7/7.3/ex3/EffectSummary';
 import EffectContainer from './chapter7/7.3/ex3/EffectContainer';
+import SimpleRouter from './chapter16/SimpleRouter';
 
 
 
@@ -136,7 +137,8 @@ root.render(
     // <CounterEffect/>
     // <TimerContainer/>
     // <EffectSummary/>
-    <EffectContainer/>
+    // <EffectContainer/>
+    <SimpleRouter/>
 
 );
 
