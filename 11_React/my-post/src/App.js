@@ -10,29 +10,48 @@ import PostDetail from './components/PostDetail';
 // D: Delete(삭제)
 
 function App() {
+  // 👻👻
+  // 1. 현재 배열 안에 글 제목만 있는 문자열 데이터를 
+  // 제목, 날짜, 작성자, 좋아요 수 등을 포함한 객체 형태로 처리해보기
+  // state에 글 제목만 저장되어 있는게 아니라 날짜같은 것도 저장해두고 보여주는 식이면 굿(글 등록 시 현재 날짜까지 같이 저장되도록 하면 나이스)
+  // => 로직을 많이 바꿔야 하므로 시간이 많을 때 하기를 권장(어차피 다른 예제에서 객체 형태로 된 state를 다룰 예정)
+  const [posts, setPosts] = useState([
+    { title: '리액트 잘 쓰려면?', date: '2023-01-20', author: 'JEON', likes: 0 },
+    { title: '자바스크립트 핵심 문법', date: '2023-01-21', author: 'JEON', likes: 0 },
+    { title: 'CSS 스타일링 가이드', date: '2023-01-22', author: 'JEON', likes: 0 }
+  ]);
   // 서버에서 가져온 데이터라고 가정
-  const [posts, setPosts] = useState(['리액트 잘 쓰려면?', '자바스크립트 핵심 문법', 'CSS 스타일링 가이드']);  
+  // 변경 전
+  // const [posts, setPosts] = useState(['리액트 잘 쓰려면?', '자바스크립트 핵심 문법', 'CSS 스타일링 가이드']);
 
   const [showPostDetail, setShowPostDetail] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(null);
   const [likeCount, setLikeCount] = useState([0, 0, 0]);
   const [newPost, setNewPost] = useState("");
+  const [newPostDate, setNewPostDate] = useState("");
 
   const plzLikeCount = (index) => {
-    const newLikeCount = [...likeCount];
-    newLikeCount[index] += 1;
-    setLikeCount(newLikeCount);
+    const newPosts = [...posts];
+    newPosts[index].likes += 1;
+    setPosts(newPosts);
   };
-
+  
+  // 4. 글 오름차순 정렬
   const handlePostSubmit = () => {
     if (newPost.trim() !== "") {
-      setPosts([newPost, ...posts]);
-      const updatedLikeCount = [...likeCount];
-      updatedLikeCount.unshift(0); 
-      setLikeCount(updatedLikeCount);
-      setNewPost(""); // 입력값 초기화
+      const currentDate = new Date().toISOString().split('T')[0];
+      const newPostObject = { title: newPost, date: currentDate, author: 'JEON', likes: 0 };
+      setPosts([newPostObject, ...posts].sort((a, b) => new Date(a.date) - new Date(b.date)));
+      setNewPost("");
     }
   };
+  // 👻👻
+  // const handlePostSubmit = () => {
+  //   if (newPost.trim() !== "") {
+  //     setPosts([newPost, ...posts]);
+  //     setNewPost(""); // 입력값 초기화
+  //   }
+  // };
 
   const handleClosePostDetail = () => {
     setShowPostDetail(false);
@@ -89,48 +108,60 @@ function App() {
           return (
             <div key={index} className='list' 
               onClick={() => {
-                setShowPostDetail(true);
-                setCurrentIndex(index);
-              }}
-            >
-              <h4>{post}</h4>
-              <p>2023년 1월 20일</p>
-              <p>by JEON</p>
-              <hr/>
-              <div className='toolbar'>
-              <span onClick={(e) => {
-                  e.stopPropagation(); // 이벤트 버블링 막기
-                  plzLikeCount(index);
-                }}> 
-                  {likeCount[index] > 0 ? '💖💖💖' : '💚💚💚'} {likeCount[index]} {likeCount[index] > 0 ? '💖💖💖' : '💚💚💚'}
-                </span> 
+            //     setShowPostDetail(true);
+            //     setCurrentIndex(index);
+            //   }}
+            // >
+            //   <h4>{post}</h4>
+            //   <p>2023년 1월 20일</p>
+            //   <p>by JEON</p>
+            //   <hr/>
+            //   <div className='toolbar'>
+            //   <span onClick={(e) => {
+            //       e.stopPropagation(); // 이벤트 버블링 막기
+            //       plzLikeCount(index);
+            //     }}> 
+            //       {likeCount[index] > 0 ? '💖💖💖' : '💚💚💚'} {likeCount[index]} {likeCount[index] > 0 ? '💖💖💖' : '💚💚💚'}
+            //     </span> 
+                    setShowPostDetail(true);
+                    setCurrentIndex(index);
+                    }}
+                  >
+                    <h4>{post.title}</h4>
+                    <p>{post.date}</p>
+                    <p>by {post.author}</p>
+                    <hr/>
+                    <div className='toolbar'>
+                      <span onClick={(e) => {
+                        e.stopPropagation();
+                        plzLikeCount(index);
+                      }}> 
+                        {post.likes > 0 ? '💖💖💖' : '💚💚💚'} {post.likes} {post.likes > 0 ? '💖💖💖' : '💚💚💚'}
+                      </span> 
                 
 
                 {/* 포스트 삭제하기 */}
                 {/* Quiz : 포스트마다삭제 버튼&기능 만들기 */}
 
-                <span style={{fontSize : 27}} onClick={()=>{
-                    // div 하나를 직접 제거하는 것 X
+                {/* <span style={{fontSize : 27}} onClick={()=>{ */}
+                    {/* // div 하나를 직접 제거하는 것 X
                    // posts state에서 제거하면 알아서 자동으로 렌더링
-
                    // splice사용법
                     // const deletePosts = [...posts];
                     // deletePosts.splice(index, 1); 
                     // setPosts(deletePosts); 
-
                     // (버그 수정) 삭제시 해당 포스트의 좋아요 카운트도 같이 삭제
-                    const deleteLikeCount = [...likeCount];
-                    deleteLikeCount.splice(index, 1); 
-                    setLikeCount(deleteLikeCount);
-
+                    // const deleteLikeCount = [...likeCount];
+                    // deleteLikeCount.splice(index, 1); 
+                    // setLikeCount(deleteLikeCount);
                     // 또는 배열의 filter()함수 사용
-                    const filteredPosts = posts.filter((value, idx)=>{
-                      return index !== idx;
-                    });
-                    setPosts(filteredPosts);
-
-
-                    
+                    // const filteredPosts = posts.filter((value, idx)=>{ */}
+                    {/* //   return index !== idx;
+                    // });
+                    // setPosts(filteredPosts); */}
+                    <span style={{fontSize : 27}} onClick={()=>{
+                      const newPosts = posts.filter((_, idx) => idx !== index);
+                      setPosts(newPosts);
                   }} >
                   🗑️
                 </span>
@@ -145,7 +176,7 @@ function App() {
         2) 등록 버튼 클릭 시 posts 상태의 맨 앞에 새로운 데이터 추가 */}
         {/* 수정사항 : 새로운 게시물이 추가가 되면 이전 like수가 넘어가게 끔 */}
         {/* 어라 NaN이 뜸.... */}
-        <div className = "post-form">
+        {/* <div className = "post-form">
           <input 
             type='text' 
             value={newPost} 
@@ -155,12 +186,34 @@ function App() {
           <button type='button' onClick={handlePostSubmit}>
             포스트 등록
           </button>
+        </div> */}
+
+        <div className="post-form">
+          <input 
+            type='text' 
+            value={newPost} 
+            onChange={(e) => setNewPost(e.target.value)}
+            placeholder="새로운 포스트 제목을 입력하세요" 
+          />
+           {/* 👻👻 */}
+           {/* 2. input에 아무것도 입력안하고 등록 버튼 누르는거 막기 */}
+           {/* 입력값이 없을 때 등록 버튼 비활성화를 위해 disabled 속성을 조건부로 설정 */}
+          <button type='button' onClick={handlePostSubmit} disabled={newPost.trim() === ""}>
+            포스트 등록
+          </button>
+
+          {/* 변경 전 */}
+          {/* <button type='button' onClick={handlePostSubmit}>
+            포스트 등록
+          </button> */}
         </div>
 
         {/* 포스트 상세보기 */}
         {/* Quiz: 조건부 렌더링 */}
+        {/* {showPostDetail && <PostDetail posts={posts} currentIndex={currentIndex} setPosts={setPosts} handleClosePostDetail={handleClosePostDetail} />} */}
         {showPostDetail && <PostDetail posts={posts} currentIndex={currentIndex} setPosts={setPosts} handleClosePostDetail={handleClosePostDetail} />}
       </div>
+      
     </>
   );
 }
@@ -173,6 +226,7 @@ export default App;
 // 새로고침 발생 시 DB에서 다시 읽어오면 됨
 
 // <추가 개선 과제>
+// 👻👻 이걸로 표시함
 // 1. 현재 배열 안에 글 제목만 있는 문자열 데이터를 
 // 제목, 날짜, 작성자, 좋아요 수 등을 포함한 객체 형태로 처리해보기
 // state에 글 제목만 저장되어 있는게 아니라 날짜같은 것도 저장해두고 보여주는 식이면 굿(글 등록 시 현재 날짜까지 같이 저장되도록 하면 나이스)
