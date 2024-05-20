@@ -35,7 +35,7 @@ function App() {
     newPosts[index].likes += 1;
     setPosts(newPosts);
   };
-  
+
   // 4. 글 오름차순 정렬
   const handlePostSubmit = () => {
     if (newPost.trim() !== "") {
@@ -193,7 +193,7 @@ function App() {
             type='text' 
             value={newPost} 
             onChange={(e) => setNewPost(e.target.value)}
-            placeholder="새로운 포스트 제목을 입력하세요" 
+            placeholder="새로운 포스트를 입력하세요" 
           />
            {/* 👻👻 */}
            {/* 2. input에 아무것도 입력안하고 등록 버튼 누르는거 막기 */}

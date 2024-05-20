@@ -11,25 +11,46 @@ function PostDetail(props) {
   const [editText, setEditText] = useState(posts[currentIndex].title);
   // 현재 수정 중인 포스트의 제목을 관리하는 상태
 
+  // 👻👻 ㅜ  수정날짜 나오게 수정
   const handleEdit = () => {
+    const currentDate = new Date().toISOString().split('T')[0];
     const updatedPosts = [...posts];
-    updatedPosts[currentIndex].title = editText;
+    updatedPosts[currentIndex] = { 
+      ...updatedPosts[currentIndex], 
+      title: editText, 
+      lastEditDate: currentDate 
+    };
     setPosts(updatedPosts);
     setEditMode(false);
   };
+
+
+  // const handleEdit = () => {
+  //   const updatedPosts = [...posts];
+  //   updatedPosts[currentIndex].title = editText;
+  //   setPosts(updatedPosts);
+  //   setEditMode(false);
+  // };
   
  // 👻👻
   return (
     <div className = "detail">
       <h4>제목: {posts[currentIndex].title}</h4>
       <p>날짜: {posts[currentIndex].date}</p>
+      <p>수정날짜: {posts[currentIndex].lastEditDate || '수정되지 않음'}</p>
       <p>작성자: {posts[currentIndex].author}</p>
       <p>... 상세내용 ...</p>
 
       {/* 수정 모드에서는 제목을 입력받을 수 있는 input 필드와 저장 버튼 따단 */}
       {editMode ? (
         <>
-          <input type="text" value={editText} onChange={(e) => setEditText(e.target.value)} />
+          {/* 👻👻 ㅜ  수정날짜 나오게 수정 */}
+          <input 
+            type="text" 
+            value={editText} 
+            onChange={(e) => setEditText(e.target.value)} 
+          />
+          {/* <input type="text" value={editText} onChange={(e) => setEditText(e.target.value)} /> */}
           <button onClick={handleEdit}>저장</button>
         </>
       ) : (
