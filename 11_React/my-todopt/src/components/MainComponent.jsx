@@ -9,7 +9,7 @@ const MainComponent = () => {
   const [todoList, setTodoList] = useState([]);
   const [completedList, setCompletedList] = useState([]);
   const [editingPost, setEditingPost] = useState(null);
-  const [showAddForm, setShowAddForm] = useState(false); 
+  const [showAddForm, setShowAddForm] = useState(false);
 
   useEffect(() => {
     const savedNewPosts = JSON.parse(localStorage.getItem('newPosts')) || [];
@@ -61,7 +61,6 @@ const MainComponent = () => {
     setFavorites(favorites.filter((p) => p.id !== post.id));
     setTodoList(todoList.filter((p) => p.id !== post.id));
   };
-
   const handleEdit = (post, newText) => {
     if (post.category === 'NEW') {
       setNewPosts(newPosts.map((p) => (p.id === post.id ? { ...p, text: newText } : p)));
@@ -83,10 +82,11 @@ const MainComponent = () => {
     };
     setNewPosts([...newPosts, newPost]);
     setTodoList([...todoList, { ...newPost, category: 'To Do List' }]);
+    setShowAddForm(false); // Hide the form after adding todo
   };
 
   const handleAddTodoClick = () => {
-    setShowAddForm(true); 
+    setShowAddForm(true);
   };
 
   return (

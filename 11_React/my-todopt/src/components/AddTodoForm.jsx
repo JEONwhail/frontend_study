@@ -1,34 +1,28 @@
 import React, { useState } from 'react';
 
 const AddTodoForm = ({ onAddTodo }) => {
-  const [title, setTitle] = useState('');
-  const [category, setCategory] = useState('');
+  const [text, setText] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onAddTodo({
-      title,
-      category
-    });
-    setTitle('');
-    setCategory('');
+    if (!text.trim()) return;
+    onAddTodo(text);
+    setText('');
+  };
+
+  const handleChange = (e) => {
+    setText(e.target.value);
   };
 
   return (
     <form onSubmit={handleSubmit}>
       <input
         type="text"
-        placeholder="제목"
-        value={title}
-        onChange={(e) => setTitle(e.target.value)}
+        placeholder="할 일을 입력하세요"
+        value={text}
+        onChange={handleChange}
       />
-      <input
-        type="text"
-        placeholder="카테고리"
-        value={category}
-        onChange={(e) => setCategory(e.target.value)}
-      />
-      <button type="submit">추가하기</button>
+      <button type="submit">추가</button>
     </form>
   );
 };
