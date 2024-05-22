@@ -1,25 +1,33 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import './App.css';
+import MainComponent from './components/MainComponent';
+import OtherComponent from './components/OtherComponent';
 
 function App() {
+  const [showMain, setShowMain] = useState(false);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {showMain ? (
+        <Router>
+          <Routes>
+            <Route path="/" element={<MainComponent />} />
+            <Route path="/finish" element={<OtherComponent />} />
+          </Routes>
+        </Router>
+      ) : (
+        <div className="start-screen">
+          <h1>🍀To Do List🍀</h1>
+          <button className="start-button" onClick={() => setShowMain(true)}>
+            START
+          </button>
+        </div>
+      )}
     </div>
   );
 }
 
 export default App;
+
+// 🍀To Do List🍀
