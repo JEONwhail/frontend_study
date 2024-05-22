@@ -30,7 +30,7 @@ function PostItemList(props) {
   const navigate =  useNavigate();
 
   return (
-    <Wrapper onClick={() => navigate('/post/${id}') }>
+    <Wrapper onClick={() => navigate(`/post/${id}`) }>
       <TitleText>
         {title}
       </TitleText>
