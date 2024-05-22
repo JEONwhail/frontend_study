@@ -24,7 +24,7 @@ const OtherComponent = () => {
         ))
       )}
       <Link to="/">
-        <button className="todo-button">메인 컴포넌트로 돌아가기</button>
+        <button className="todo-button">뒤로 돌아가기</button>
       </Link>
     </div>
   );

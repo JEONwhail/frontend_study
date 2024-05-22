@@ -15,10 +15,10 @@ function App() {
             <Route path="/" element={<MainComponent />} />
             <Route path="/finish" element={<OtherComponent />} />
           </Routes>
-        </Router>
+        </Router>       
       ) : (
         <div className="start-screen">
-          <h1>🍀To Do List🍀</h1>
+          <h1>🍀To Do List1🍀</h1>
           <button className="start-button" onClick={() => setShowMain(true)}>
             START
           </button>

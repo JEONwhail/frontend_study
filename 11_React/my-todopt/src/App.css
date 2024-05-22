@@ -26,9 +26,6 @@ body {
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
-}
 
 .background {
   background-color: #b0f2b4;
@@ -113,6 +110,22 @@ body {
 .todo-item .actions span {
   cursor: pointer;
   margin-left: 5px;
+}
+
+.to-doSubmit{
+  align-items: center;
+  justify-content: center;
+  width: 70%;
+  margin-right: 10px;
+
+}
+
+.add_todo{
+  background-color: transparent;
+  color: black;
+  border-radius: 4px;
+  border: none;
+  font-family: 'BagelFatOne-Regular';
 }
 
 .buttons {
