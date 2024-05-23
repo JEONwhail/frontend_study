@@ -42,6 +42,7 @@ const AddTodoComponent = ({ onAddTodo }) => {
           value={task}
           onChange={(e) => setTask(e.target.value)}
         />
+        <p className='deadline_todo'>마감일을 입력해주세요.</p>
         <input
           type="date"
           placeholder="마감일"

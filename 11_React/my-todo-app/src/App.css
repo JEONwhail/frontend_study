@@ -1,3 +1,4 @@
+/* 폰트 설정 */
 @font-face {
   font-family: 'BagelFatOne-Regular';
   src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_JAMO@1.0/BagelFatOne-Regular.woff2') format('woff2');
@@ -5,6 +6,14 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'Giants-Inline';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-1@1.1/Giants-Inline.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* 기본 설정 */
 body {
   background-color: #d3fcd4;
   font-family: 'BagelFatOne-Regular', sans-serif;
@@ -18,11 +27,13 @@ input {
   font-family: 'BagelFatOne-Regular';
 }
 
+/* 헤더 설정 */
 .App-header {
   text-align: center;
   margin: 20px;
 }
 
+/* 메인 컨테이너 설정 */
 .main-container {
   display: flex;
   flex-direction: column;
@@ -31,6 +42,7 @@ input {
   width: 100%;
 }
 
+/* 헤더 섹션 */
 .header {
   display: flex;
   justify-content: space-between;
@@ -39,6 +51,7 @@ input {
   max-width: 1200px;
 }
 
+/* 메인 콘텐츠 설정 */
 .main-content {
   display: flex;
   width: 100%;
@@ -51,6 +64,12 @@ input {
   margin-right: 20px;
 }
 
+/* 긴급 마감 텍스트 설정 */
+.fast_deadline {
+  font-family: 'Giants-Inline';
+}
+
+/* 할 일 리스트 설정 */
 .todo-list {
   margin-top: 20px;
 }
@@ -66,16 +85,18 @@ input {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.todo-item span{
-  margin:  0 20px;
+.todo-item span {
+  margin: 0 20px;
 }
 
+/* 사이드바 설정 */
 .sidebar {
   display: flex;
   flex-direction: column;
   flex: 1;
 }
 
+/* 할 일 추가 컴포넌트 설정 */
 .add-todo-component {
   background-color: #fff;
   padding: 20px;
@@ -108,6 +129,12 @@ input {
   background-color: #218838;
 }
 
+/* 마감일 텍스트 설정 */
+.deadline_todo {
+  margin: 0 0 5px 0;
+}
+
+/* 카테고리 뷰 컴포넌트 설정 */
 .category-view-component {
   background-color: #fff;
   padding: 20px;
@@ -128,6 +155,7 @@ input {
   text-decoration: underline;
 }
 
+/* 시작 화면 설정 */
 .start-container {
   display: flex;
   flex-direction: column;
@@ -159,6 +187,7 @@ input {
   color: green;
 }
 
+/* 완료 화면 설정 */
 .finish-container {
   display: flex;
   flex-direction: column;
@@ -190,6 +219,7 @@ input {
   background-color: #218838;
 }
 
+/* 카테고리 페이지 설정 */
 .category-page {
   padding: 20px;
 }

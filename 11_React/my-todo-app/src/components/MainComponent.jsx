@@ -108,7 +108,7 @@ const MainComponent = ({ todos, setTodos, completedTodos, setCompletedTodos }) =
       </div>
       <div className="main-content">
         <div className="main-component">
-          <h2>💣해야지..너...?💣</h2>
+          <h2 className='fast_deadline'>💣안해..너...?💣</h2>
           <div className="todo-list">
             {urgentTodos.map((todo, index) => (
               <div key={index} className="todo-item">
