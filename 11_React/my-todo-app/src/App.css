@@ -1,0 +1,205 @@
+@font-face {
+  font-family: 'BagelFatOne-Regular';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_JAMO@1.0/BagelFatOne-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  background-color: #d3fcd4;
+  font-family: 'BagelFatOne-Regular', sans-serif;
+}
+
+button {
+  font-family: 'BagelFatOne-Regular';
+}
+
+input {
+  font-family: 'BagelFatOne-Regular';
+}
+
+.App-header {
+  text-align: center;
+  margin: 20px;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  width: 100%;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.main-content {
+  display: flex;
+  width: 100%;
+  max-width: 1200px;
+  justify-content: space-between;
+}
+
+.main-component {
+  flex: 2;
+  margin-right: 20px;
+}
+
+.todo-list {
+  margin-top: 20px;
+}
+
+.todo-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  margin: 10px 0;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.add-todo-component {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+
+.add-todo-component form {
+  display: flex;
+  flex-direction: column;
+}
+
+.add-todo-component input {
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.add-todo-component button {
+  padding: 10px;
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.add-todo-component button:hover {
+  background-color: #218838;
+}
+
+.category-view-component {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.category-view-component .category {
+  margin-bottom: 20px;
+}
+
+.category-view-component h3 a {
+  text-decoration: none;
+  color: #000;
+}
+
+.category-view-component h3 a:hover {
+  text-decoration: underline;
+}
+
+.start-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #d3fcd4;
+  font-family: 'BagelFatOne-Regular', sans-serif;
+}
+
+.start-container h1 {
+  font-size: 3rem;
+  margin-bottom: 2rem;
+}
+
+.start-container h2 {
+  font-size: 2rem;
+}
+
+.start-button {
+  font-size: 2rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: 'BagelFatOne-Regular';
+}
+
+.start-button:hover {
+  color: green;
+}
+
+.finish-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.view-completed-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.back-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.back-button:hover {
+  background-color: #218838;
+}
+
+.category-page {
+  padding: 20px;
+}
+
+.category-page h2 {
+  margin-bottom: 20px;
+}
+
+.category-page .todo-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  margin: 10px 0;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
