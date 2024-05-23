@@ -66,6 +66,10 @@ input {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+.todo-item span{
+  margin:  0 20px;
+}
+
 .sidebar {
   display: flex;
   flex-direction: column;
