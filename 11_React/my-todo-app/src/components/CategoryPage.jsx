@@ -19,7 +19,7 @@ const CategoryPage = ({ todos }) => {
           </div>
         ))
       ) : (
-        <p>No tasks in this category</p>
+        <p>해당 카테고리에 To Do List가 존재하지 않습니다</p>
       )}
     </div>
   );
