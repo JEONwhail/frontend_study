@@ -80,7 +80,7 @@ const MainComponent = ({ todos, setTodos, completedTodos, setCompletedTodos }) =
   };
 
   const handleAddTodo = (newTodo) => {
-    setNewTodos([...newTodos, newTodo]);
+    setTodos([...todos, newTodo]);
   };
 
   const handleViewCompleted = () => {
@@ -96,7 +96,10 @@ const MainComponent = ({ todos, setTodos, completedTodos, setCompletedTodos }) =
     return diffDays <= 3;
   };
 
-  const urgentTodos = [...newTodos, ...todos, ...favorites].filter(todo => checkDeadline(todo.deadline));
+  const urgentTodos = [...newTodos.map(todo => ({ ...todo, listType: 'newTodos' })), 
+                        ...todos.map(todo => ({ ...todo, listType: 'todos' })), 
+                        ...favorites.map(todo => ({ ...todo, listType: 'favorites' }))]
+                        .filter(todo => checkDeadline(todo.deadline));
   const nonUrgentNewTodos = newTodos.filter(todo => !checkDeadline(todo.deadline));
   const nonUrgentTodos = todos.filter(todo => !checkDeadline(todo.deadline));
   const nonUrgentFavorites = favorites.filter(todo => !checkDeadline(todo.deadline));
@@ -108,24 +111,27 @@ const MainComponent = ({ todos, setTodos, completedTodos, setCompletedTodos }) =
       </div>
       <div className="main-content">
         <div className="main-component">
-          <h2 className='fast_deadline'>💣안해..너...?💣</h2>
+          <h2>💣❗긴급긴급❗💣</h2>
           <div className="todo-list">
             {urgentTodos.map((todo, index) => (
               <div key={index} className="todo-item">
                 <span>{todo.category}</span>
                 <span>{todo.task}</span>
-                <span>{todo.date}</span>
                 <span>{todo.deadline} 💣</span>
+                <span>
+                  <button onClick={() => handleComplete(index, todo.listType)}>✔️</button>
+                  <button onClick={() => handleDelete(index, todo.listType)}>❌</button>
+                </span>
               </div>
             ))}
           </div>
-          <h2>NEW</h2>
+          <hr />
+          {/* <h2>NEW</h2>
           <div className="todo-list">
             {nonUrgentNewTodos.map((todo, index) => (
               <div key={index} className="todo-item">
                 <span>{todo.category}</span>
                 <span>{todo.task}</span>
-                <span>{todo.date}</span>
                 <span>{todo.deadline || '없음'}</span>
                 <span>
                   <button onClick={() => handleFavorite(index, 'newTodos')}>📌</button>
@@ -135,13 +141,13 @@ const MainComponent = ({ todos, setTodos, completedTodos, setCompletedTodos }) =
               </div>
             ))}
           </div>
+          <hr /> */}
           <h2>즐겨찾기 목록 📌</h2>
           <div className="todo-list">
             {nonUrgentFavorites.map((todo, index) => (
               <div key={index} className="todo-item">
                 <span>{todo.category}</span>
                 <span>{todo.task}</span>
-                <span>{todo.date}</span>
                 <span>{todo.deadline || '없음'}</span>
                 <span>
                   <button onClick={() => handleFavorite(index, 'favorites')}>☆</button>
@@ -151,13 +157,13 @@ const MainComponent = ({ todos, setTodos, completedTodos, setCompletedTodos }) =
               </div>
             ))}
           </div>
+          <hr />
           <h2>To Do List</h2>
           <div className="todo-list">
             {nonUrgentTodos.map((todo, index) => (
               <div key={index} className="todo-item">
                 <span>{todo.category}</span>
                 <span>{todo.task}</span>
-                <span>{todo.date}</span>
                 <span>{todo.deadline || '없음'}</span>
                 <span>
                   <button onClick={() => handleFavorite(index, 'todos')}>📌</button>

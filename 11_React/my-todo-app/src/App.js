@@ -7,26 +7,17 @@ import FinishComponent from './components/FinishComponent';
 import './App.css';
 
 const App = () => {
-  const loadTodos = () => {
+  const loadFromLocalStorage = (key, defaultValue = []) => {
     try {
-      const savedTodos = localStorage.getItem('todos');
-      return savedTodos ? JSON.parse(savedTodos) : [];
+      const savedData = localStorage.getItem(key);
+      return savedData ? JSON.parse(savedData) : defaultValue;
     } catch (e) {
-      return [];
+      return defaultValue;
     }
   };
 
-  const loadCompletedTodos = () => {
-    try {
-      const savedCompletedTodos = localStorage.getItem('completedTodos');
-      return savedCompletedTodos ? JSON.parse(savedCompletedTodos) : [];
-    } catch (e) {
-      return [];
-    }
-  };
-
-  const [todos, setTodos] = React.useState(loadTodos);
-  const [completedTodos, setCompletedTodos] = React.useState(loadCompletedTodos);
+  const [todos, setTodos] = React.useState(() => loadFromLocalStorage('todos'));
+  const [completedTodos, setCompletedTodos] = React.useState(() => loadFromLocalStorage('completedTodos'));
 
   React.useEffect(() => {
     localStorage.setItem('todos', JSON.stringify(todos));
@@ -39,7 +30,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<StartComponent />} />
           <Route path="/main" element={<MainComponent todos={todos} setTodos={setTodos} completedTodos={completedTodos} setCompletedTodos={setCompletedTodos} />} />
-          <Route path="/category/:category" element={<CategoryPage todos={[...todos, ...completedTodos]} />} />
+          <Route path="/category/:category" element={<CategoryPage todos={[...todos, ...completedTodos]} setTodos={setTodos} setCompletedTodos={setCompletedTodos} />} />
           <Route path="/finish" element={<FinishComponent todos={completedTodos} setCompletedTodos={setCompletedTodos} />} />
         </Routes>
       </div>

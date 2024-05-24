@@ -4,7 +4,7 @@ import '../App.css';
 
 const FinishComponent = ({ todos, setCompletedTodos }) => {
   const navigate = useNavigate();
-  const completedTodos = todos.filter(todo => todo.done);
+  const completedTodos = todos.filter(todo => todo && todo.done);
 
   const handleDelete = (index) => {
     const newCompletedTodos = [...completedTodos];
@@ -13,6 +13,7 @@ const FinishComponent = ({ todos, setCompletedTodos }) => {
   };
 
   const checkDeadline = (deadline) => {
+    if (!deadline) return false;
     const currentDate = new Date();
     const deadlineDate = new Date(deadline);
     const diffTime = Math.abs(deadlineDate - currentDate);
@@ -37,11 +38,10 @@ const FinishComponent = ({ todos, setCompletedTodos }) => {
         <p>완료된 To Do List가 없습니다😢</p>
       )}
       <button onClick={() => navigate('/main')} className="back-button">
-      To Do List로 돌아가기
+        To Do List로 돌아가기
       </button>
     </div>
   );
 };
 
 export default FinishComponent;
-
