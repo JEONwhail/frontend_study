@@ -132,7 +132,7 @@ const MainComponent = ({ todos, setTodos, completedTodos, setCompletedTodos }) =
               <div key={index} className="todo-item">
                 <span>{todo.category}</span>
                 <span>{todo.task}</span>
-                <span>{todo.deadline || '없음'}</span>
+                <span>{todo.deadline || '없음'}</span>000
                 <span>
                   <button onClick={() => handleFavorite(index, 'newTodos')}>📌</button>
                   <button onClick={() => handleComplete(index, 'newTodos')}>✔️</button>
