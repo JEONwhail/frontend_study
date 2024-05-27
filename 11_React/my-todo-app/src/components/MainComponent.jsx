@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import AddTodoComponent from './AddTodoComponent';
 import CategoryViewComponent from './CategoryViewComponent';
 import '../App.css';
 
-const MainComponent = ({ todos, setTodos, completedTodos, setCompletedTodos }) => {
+const MainComponent = ({ font, todos, setTodos, completedTodos, setCompletedTodos }) => {
   const navigate = useNavigate();
   const [favorites, setFavorites] = useState(() => {
     const savedFavorites = localStorage.getItem('favorites');
@@ -14,13 +14,32 @@ const MainComponent = ({ todos, setTodos, completedTodos, setCompletedTodos }) =
     const savedNewTodos = localStorage.getItem('newTodos');
     return savedNewTodos ? JSON.parse(savedNewTodos) : [];
   });
+  const [sortOption, setSortOption] = useState('');
 
-  React.useEffect(() => {
+  useEffect(() => {
     localStorage.setItem('favorites', JSON.stringify(favorites));
     localStorage.setItem('newTodos', JSON.stringify(newTodos));
     localStorage.setItem('todos', JSON.stringify(todos));
     localStorage.setItem('completedTodos', JSON.stringify(completedTodos));
   }, [favorites, newTodos, todos, completedTodos]);
+
+  const handleSort = (option) => {
+    setSortOption(option);
+    const sortFunction = (a, b) => {
+      if (option === 'alphabetical') {
+        return a.task.localeCompare(b.task);
+      } else if (option === 'recent') {
+        return new Date(b.date) - new Date(a.date);
+      } else if (option === 'deadline') {
+        return new Date(a.deadline) - new Date(b.deadline);
+      }
+      return 0;
+    };
+
+    setTodos([...todos].sort(sortFunction));
+    setFavorites([...favorites].sort(sortFunction));
+    setNewTodos([...newTodos].sort(sortFunction));
+  };
 
   const handleDelete = (index, listType) => {
     if (listType === 'todos') {
@@ -79,8 +98,29 @@ const MainComponent = ({ todos, setTodos, completedTodos, setCompletedTodos }) =
     }
   };
 
+  const handleEdit = (index, listType, newTask, newDeadline) => {
+    if ((newTask === null || newTask.trim() === '') && (newDeadline === null || newDeadline.trim() === '')) return;
+    if (listType === 'todos') {
+      const newTodos = [...todos];
+      if (newTask) newTodos[index].task = newTask;
+      if (newDeadline) newTodos[index].deadline = newDeadline;
+      setTodos(newTodos);
+    } else if (listType === 'favorites') {
+      const newFavorites = [...favorites];
+      if (newTask) newFavorites[index].task = newTask;
+      if (newDeadline) newFavorites[index].deadline = newDeadline;
+      setFavorites(newFavorites);
+    } else if (listType === 'newTodos') {
+      const newTodosList = [...newTodos];
+      if (newTask) newTodosList[index].task = newTask;
+      if (newDeadline) newTodosList[index].deadline = newDeadline;
+      setNewTodos(newTodosList);
+    }
+  };
+
   const handleAddTodo = (newTodo) => {
-    setTodos([...todos, newTodo]);
+    const newTodoWithDate = { ...newTodo, date: new Date().toISOString() };
+    setTodos([...todos, newTodoWithDate]);
   };
 
   const handleViewCompleted = () => {
@@ -104,10 +144,22 @@ const MainComponent = ({ todos, setTodos, completedTodos, setCompletedTodos }) =
   const nonUrgentTodos = todos.filter(todo => !checkDeadline(todo.deadline));
   const nonUrgentFavorites = favorites.filter(todo => !checkDeadline(todo.deadline));
 
+  // Merge all todos for CategoryViewComponent
+  const allTodos = [...urgentTodos, ...nonUrgentNewTodos, ...nonUrgentTodos, ...nonUrgentFavorites];
+
   return (
-    <div className="main-container">
+    <div className="main-container" style={{ fontFamily: font }}>
       <div className="header">
         <h1>JEON's To Do List 🍀</h1>
+        <div>
+          <label>정렬하기:</label>
+          <select onChange={(e) => handleSort(e.target.value)} value={sortOption}>
+            <option value="">선택</option>
+            <option value="alphabetical">가나다 순</option>
+            <option value="recent">최근 추가 순</option>
+            <option value="deadline">마감일 순</option>
+          </select>
+        </div>
       </div>
       <div className="main-content">
         <div className="main-component">
@@ -115,45 +167,42 @@ const MainComponent = ({ todos, setTodos, completedTodos, setCompletedTodos }) =
           <div className="todo-list">
             {urgentTodos.map((todo, index) => (
               <div key={index} className="todo-item">
-                <span>{todo.category}</span>
-                <span>{todo.task}</span>
-                <span>{todo.deadline} 💣</span>
-                <span>
-                  <button onClick={() => handleComplete(index, todo.listType)}>✔️</button>
-                  <button onClick={() => handleDelete(index, todo.listType)}>❌</button>
-                </span>
+                <div className="todo-item-top">
+                  <span>{todo.category}</span>
+                  <span>{todo.task}</span>
+                  <span>
+                    <button onClick={() => handleComplete(index, todo.listType)}>✔️</button>
+                    <button onClick={() => handleDelete(index, todo.listType)}>❌</button>
+                    <button onClick={() => handleFavorite(index, todo.listType)}>📌</button>
+                    <button onClick={() => handleEdit(index, todo.listType, prompt('수정할 To Do List를 입력하세요:', todo.task), prompt('마감 날짜를 수정하세요 (YYYY-MM-DD):', todo.deadline))}>✏️</button>
+                  </span>
+                </div>
+                <div className="todo-item-bottom">
+                  <span>마감일: {todo.deadline} 💣</span>
+                  <span>생성일: {new Date(todo.date).toLocaleDateString()}</span>
+                </div>
               </div>
             ))}
           </div>
           <hr />
-          {/* <h2>NEW</h2>
-          <div className="todo-list">
-            {nonUrgentNewTodos.map((todo, index) => (
-              <div key={index} className="todo-item">
-                <span>{todo.category}</span>
-                <span>{todo.task}</span>
-                <span>{todo.deadline || '없음'}</span>000
-                <span>
-                  <button onClick={() => handleFavorite(index, 'newTodos')}>📌</button>
-                  <button onClick={() => handleComplete(index, 'newTodos')}>✔️</button>
-                  <button onClick={() => handleDelete(index, 'newTodos')}>❌</button>
-                </span>
-              </div>
-            ))}
-          </div>
-          <hr /> */}
           <h2>즐겨찾기 목록 📌</h2>
           <div className="todo-list">
             {nonUrgentFavorites.map((todo, index) => (
               <div key={index} className="todo-item">
-                <span>{todo.category}</span>
-                <span>{todo.task}</span>
-                <span>{todo.deadline || '없음'}</span>
-                <span>
-                  <button onClick={() => handleFavorite(index, 'favorites')}>☆</button>
-                  <button onClick={() => handleComplete(index, 'favorites')}>✔️</button>
-                  <button onClick={() => handleDelete(index, 'favorites')}>❌</button>
-                </span>
+                <div className="todo-item-top">
+                  <span>{todo.category}</span>
+                  <span>{todo.task}</span>
+                  <span>
+                    <button onClick={() => handleFavorite(index, 'favorites')}>☆</button>
+                    <button onClick={() => handleComplete(index, 'favorites')}>✔️</button>
+                    <button onClick={() => handleDelete(index, 'favorites')}>❌</button>
+                    <button onClick={() => handleEdit(index, 'favorites', prompt('수정할 To Do List를 입력하세요:', todo.task), prompt('마감 날짜를 수정하세요 (YYYY-MM-DD):', todo.deadline))}>✏️</button>
+                  </span>
+                </div>
+                <div className="todo-item-bottom">
+                  <span>마감일: {todo.deadline || '없음'}</span>
+                  <span>생성일: {new Date(todo.date).toLocaleDateString()}</span>
+                </div>
               </div>
             ))}
           </div>
@@ -162,22 +211,28 @@ const MainComponent = ({ todos, setTodos, completedTodos, setCompletedTodos }) =
           <div className="todo-list">
             {nonUrgentTodos.map((todo, index) => (
               <div key={index} className="todo-item">
-                <span>{todo.category}</span>
-                <span>{todo.task}</span>
-                <span>{todo.deadline || '없음'}</span>
-                <span>
-                  <button onClick={() => handleFavorite(index, 'todos')}>📌</button>
-                  <button onClick={() => handleComplete(index, 'todos')}>✔️</button>
-                  <button onClick={() => handleDelete(index, 'todos')}>❌</button>
-                </span>
+                <div className="todo-item-top">
+                  <span>{todo.category}</span>
+                  <span>{todo.task}</span>
+                  <span>
+                    <button onClick={() => handleFavorite(index, 'todos')}>📌</button>
+                    <button onClick={() => handleComplete(index, 'todos')}>✔️</button>
+                    <button onClick={() => handleDelete(index, 'todos')}>❌</button>
+                    <button onClick={() => handleEdit(index, 'todos', prompt('수정할 To Do List를 입력하세요:', todo.task), prompt('마감 날짜를 수정하세요 (YYYY-MM-DD):', todo.deadline))}>✏️</button>
+                  </span>
+                </div>
+                <div className="todo-item-bottom">
+                  <span>마감일: {todo.deadline || '없음'}</span>
+                  <span>생성일: {new Date(todo.date).toLocaleDateString()}</span>
+                </div>
               </div>
             ))}
           </div>
           <button className="view-completed-button" onClick={handleViewCompleted}>완료된 리스트 확인하기</button>
         </div>
         <div className="sidebar">
-          <CategoryViewComponent todos={[...todos, ...newTodos, ...favorites]} />
-          <AddTodoComponent onAddTodo={handleAddTodo} />
+          <CategoryViewComponent todos={allTodos} font={font} />
+          <AddTodoComponent onAddTodo={handleAddTodo} font={font} />
         </div>
       </div>
     </div>

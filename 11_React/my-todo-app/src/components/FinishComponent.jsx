@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../App.css';
 
-const FinishComponent = ({ todos, setCompletedTodos }) => {
+const FinishComponent = ({ font, todos, setCompletedTodos }) => {
   const navigate = useNavigate();
   const completedTodos = todos.filter(todo => todo && todo.done);
 
@@ -22,8 +22,8 @@ const FinishComponent = ({ todos, setCompletedTodos }) => {
   };
 
   return (
-    <div className="finish-container">
-      <h2>Finished To Do List 🍀</h2>
+    <div className="finish-container" style={{ fontFamily: font }}>
+      <h2>🍀 To Do List를 이만큼이나 완료했어요! 🍀</h2>
       {completedTodos.length > 0 ? (
         completedTodos.map((todo, index) => (
           <div key={index} className="todo-item">

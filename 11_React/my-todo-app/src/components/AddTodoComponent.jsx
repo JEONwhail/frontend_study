@@ -1,52 +1,59 @@
 import React, { useState } from 'react';
+import { LocalizationProvider, DatePicker } from '@mui/x-date-pickers';
+import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
+import TextField from '@mui/material/TextField';
+import Box from '@mui/material/Box';
+import '../App.css';
 
-const AddTodoComponent = ({ onAddTodo, category: initialCategory }) => {
+const AddTodoComponent = ({ onAddTodo, font }) => {
   const [task, setTask] = useState('');
-  const [deadline, setDeadline] = useState('');
-  const [category, setCategory] = useState(initialCategory || '');
+  const [category, setCategory] = useState('');
+  const [deadline, setDeadline] = useState(null);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    onAddTodo({
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const newTodo = {
       task,
-      deadline,
       category,
-      done: false,
-      favorite: false,
-    });
+      deadline: deadline ? deadline.toISOString().split('T')[0] : null,
+    };
+    onAddTodo(newTodo);
     setTask('');
-    setDeadline('');
-    if (!initialCategory) {
-      setCategory('');
-    }
+    setCategory('');
+    setDeadline(null);
   };
 
   return (
-    <div className="add-todo-component">
-      <h2>새로운 할 일 추가</h2>
+    <div className="add-todo-component" style={{ fontFamily: font }}>
+      <h2>할 일 추가하기</h2>
       <form onSubmit={handleSubmit}>
-        {!initialCategory && (
-          <input
-            type="text"
-            placeholder="카테고리"
-            value={category}
-            onChange={(e) => setCategory(e.target.value)}
-            required
-          />
-        )}
         <input
           type="text"
-          placeholder="할 일"
-          value={task}
-          onChange={(e) => setTask(e.target.value)}
+          name="category"
+          value={category}
+          onChange={(e) => setCategory(e.target.value)}
+          placeholder="카테고리"
           required
         />
         <input
-          type="date"
-          placeholder="마감일"
-          value={deadline}
-          onChange={(e) => setDeadline(e.target.value)}
+          type="text"
+          name="task"
+          value={task}
+          onChange={(e) => setTask(e.target.value)}
+          placeholder="할 일"
+          required
         />
+        <p className='deadline-choice'>마감일을 설정해주세요. (선택사항)</p>
+        <LocalizationProvider dateAdapter={AdapterDateFns}>
+          <DatePicker
+            value={deadline}
+            onChange={(newValue) => setDeadline(newValue)}
+            inputFormat="yyyy-MM-dd"
+            renderInput={(params) => (
+              <TextField {...params} variant="outlined" fullWidth placeholder="마감일" margin="normal" />
+            )}
+          />
+        </LocalizationProvider>
         <button type="submit">추가</button>
       </form>
     </div>

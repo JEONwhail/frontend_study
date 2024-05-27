@@ -41,6 +41,92 @@
 }
 
 
+/* 팝업 스타일 */
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 20px;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  display: none;
+  z-index: 1000;
+}
+
+.popup.show {
+  display: block;
+}
+
+.popup p {
+  margin: 10px 0;
+}
+
+.popup-buttons {
+  display: flex;
+  justify-content: space-around;
+}
+
+.popup button {
+  margin: 10px;
+  padding: 10px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.popup button:hover {
+  background-color: #218838;
+}
+
+/* 폰트 모달 스타일 */
+.font-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 20px;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.font-modal h2 {
+  margin-bottom: 20px;
+}
+
+.font-buttons {
+  display: flex;
+  justify-content: space-around;
+}
+
+.font-modal button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;
+  padding: 10px;
+  background: none;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.font-modal button:hover {
+  border-color: #28a745;
+}
+
+.font-modal div {
+  margin-top: 5px;
+  font-size: 1rem;
+  color: #333;
+}
+
+
 /* 기본 설정 */
 body {
   background-color: #d3fcd4;
@@ -76,8 +162,24 @@ input {
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  max-width: 1200px;
+  max-width: 1200px; 
+  margin: 0 auto; 
+  padding: 10px;
 }
+
+.header select {
+  padding: 5px;
+  border-radius: 5px;
+  border: none;
+  background-color: #aeeec3;
+  font-family: 'MaplestoryOTFBold';
+}
+
+.header label {
+  margin-right: 10px;
+  font-weight: bold;
+}
+
 
 /* 메인 콘텐츠 설정 */
 .main-content {
@@ -99,17 +201,35 @@ input {
 
 .todo-item {
   display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+.todo-item-top {
+  display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px;
-  margin: 10px 0;
-  background-color: #fff;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.todo-item-bottom {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 5px;
 }
 
 .todo-item span {
-  margin: 0 20px;
+  margin-right: 10px;
+  flex-grow: 1;
+  word-break: break-word;
+}
+
+.todo-item button {
+  margin-left: 5px;
 }
 
 /* 사이드바 설정 */
@@ -125,6 +245,15 @@ input {
   padding: 20px;
   border-radius: 5px;
   margin-top: 20px;
+  font-family: inherit;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.add-todo-component h2 {
+  margin-bottom: 20px;
+  font-size: 1.5rem;
 }
 
 .add-todo-component form {
@@ -139,6 +268,10 @@ input {
   border-radius: 5px;
 }
 
+.add-todo-component .MuiFormControl-root {
+  margin-bottom: 10px;
+}
+
 .add-todo-component button {
   padding: 10px;
   background-color: #28a745;
@@ -146,15 +279,29 @@ input {
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  margin-top: -11px;
 }
 
 .add-todo-component button:hover {
   background-color: #218838;
 }
 
+.css-1q04gal-MuiDateCalendar-root{
+  color: #1a1a1a;
+  background: #9ff19f;
+}
+
+.css-o9k5xi-MuiInputBase-root-MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline{
+  border: none;
+}
+
+.css-o9k5xi-MuiInputBase-root-MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline{
+  border: none;
+}
+
 /* 마감일 텍스트 설정 */
-.deadline_todo {
-  margin: 0 0 5px 0;
+.deadline-choice {
+  margin: 0;
 }
 
 /* 카테고리 뷰 컴포넌트 설정 */
