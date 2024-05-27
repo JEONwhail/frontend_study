@@ -1,23 +1,58 @@
 /* 폰트 설정 */
+/* 기본 폰트 */
 @font-face {
-  font-family: 'BagelFatOne-Regular';
-  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_JAMO@1.0/BagelFatOne-Regular.woff2') format('woff2');
+  font-family: 'MaplestoryOTFBold';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/MaplestoryOTFBold.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
 
+/* 변경 폰트 02 */
+@font-face {
+  font-family: 'DungGeunMo';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/DungGeunMo.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* 변경 폰트 03 */
+@font-face {
+  font-family: 'GmarketSansMedium';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.start-container {
+  /* 기본 폰트 */
+  font-family: 'MaplestoryOTFBold';
+}
+
+.font-change button {
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin: 10px 5px 0 0;
+}
+
+.font-change button:hover {
+  color: green;
+}
+
+
 /* 기본 설정 */
 body {
   background-color: #d3fcd4;
-  font-family: 'BagelFatOne-Regular', sans-serif;
+  font-family: 'MaplestoryOTFBold';
 }
 
 button {
-  font-family: 'BagelFatOne-Regular';
+    font-family: 'MaplestoryOTFBold';
 }
 
 input {
-  font-family: 'BagelFatOne-Regular';
+    font-family: 'MaplestoryOTFBold';
 }
 
 /* 헤더 설정 */
@@ -151,7 +186,7 @@ input {
   align-items: center;
   height: 100vh;
   background-color: #d3fcd4;
-  font-family: 'BagelFatOne-Regular', sans-serif;
+  font-family: 'MaplestoryOTFBold';
 }
 
 .start-container h1 {
@@ -168,7 +203,7 @@ input {
   background: none;
   border: none;
   cursor: pointer;
-  font-family: 'BagelFatOne-Regular';
+  font-family: 'MaplestoryOTFBold';
 }
 
 .start-button:hover {
