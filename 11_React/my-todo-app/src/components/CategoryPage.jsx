@@ -8,21 +8,25 @@ const CategoryPage = ({ todos, setTodos, completedTodos, setCompletedTodos, font
   const decodedCategory = decodeURIComponent(category);
   const filteredTodos = todos.filter(todo => todo.category === decodedCategory);
 
-  const handleDelete = (index) => {
-    const newTodos = todos.filter((todo, todoIndex) => todo.category !== decodedCategory || todoIndex !== index);
+  const handleDelete = (todoId) => {
+    const newTodos = todos.filter(todo => todo.id !== todoId);
     setTodos(newTodos);
   };
 
-  const handleComplete = (index) => {
-    const newTodos = todos.filter((todo, todoIndex) => todo.category !== decodedCategory || todoIndex !== index);
-    const completedItem = { ...filteredTodos[index], done: true };
+  const handleComplete = (todoId) => {
+    const newTodos = todos.map(todo => {
+      if (todo.id === todoId) {
+        return { ...todo, done: true, completedDate: new Date().toISOString() };
+      }
+      return todo;
+    });
     setTodos(newTodos);
-    setCompletedTodos([...completedTodos, completedItem]);
+    setCompletedTodos([...completedTodos, newTodos.find(todo => todo.id === todoId)]);
   };
 
-  const handleFavorite = (index) => {
-    const newTodos = todos.map((todo, todoIndex) => {
-      if (todo.category === decodedCategory && todoIndex === index) {
+  const handleFavorite = (todoId) => {
+    const newTodos = todos.map(todo => {
+      if (todo.id === todoId) {
         return { ...todo, favorite: !todo.favorite };
       }
       return todo;
@@ -30,10 +34,10 @@ const CategoryPage = ({ todos, setTodos, completedTodos, setCompletedTodos, font
     setTodos(newTodos);
   };
 
-  const handleEdit = (index, newTask, newDeadline) => {
+  const handleEdit = (todoId, newTask, newDeadline) => {
     if ((newTask === null || newTask.trim() === '') && (newDeadline === null || newDeadline.trim() === '')) return;
-    const newTodos = todos.map((todo, todoIndex) => {
-      if (todo.category === decodedCategory && todoIndex === index) {
+    const newTodos = todos.map(todo => {
+      if (todo.id === todoId) {
         if (newTask) todo.task = newTask;
         if (newDeadline) todo.deadline = newDeadline;
       }
@@ -43,7 +47,7 @@ const CategoryPage = ({ todos, setTodos, completedTodos, setCompletedTodos, font
   };
 
   const handleAddTodo = (newTodo) => {
-    setTodos([...todos, { ...newTodo, category: decodedCategory, date: new Date().toISOString() }]);
+    setTodos([...todos, { ...newTodo, category: decodedCategory, date: new Date().toISOString(), id: Date.now() }]);
   };
 
   return (
@@ -52,16 +56,16 @@ const CategoryPage = ({ todos, setTodos, completedTodos, setCompletedTodos, font
       <div className="main-content">
         <div className="main-component">
           {filteredTodos.length > 0 ? (
-            filteredTodos.map((todo, index) => (
-              <div key={index} className="todo-item">
+            filteredTodos.map((todo) => (
+              <div key={todo.id} className={`todo-item ${todo.favorite ? 'favorite' : ''}`}>
                 <div className="todo-item-top">
                   <span>{todo.task}</span>
                   <span>{todo.deadline || '없음'}</span>
                   <span>
-                    <button onClick={() => handleFavorite(index)}>📌</button>
-                    <button onClick={() => handleComplete(index)}>✔️</button>
-                    <button onClick={() => handleDelete(index)}>❌</button>
-                    <button onClick={() => handleEdit(index, prompt('수정할 To Do List를 입력하세요:', todo.task), prompt('마감 날짜를 수정하세요 (YYYY-MM-DD):', todo.deadline))}>✏️</button>
+                    <button onClick={() => handleFavorite(todo.id)}>📌</button>
+                    <button onClick={() => handleComplete(todo.id)}>✔️</button>
+                    <button onClick={() => handleDelete(todo.id)}>❌</button>
+                    <button onClick={() => handleEdit(todo.id, prompt('수정할 To Do List를 입력하세요:', todo.task), prompt('마감 날짜를 수정하세요 (YYYY-MM-DD):', todo.deadline))}>✏️</button>
                   </span>
                 </div>
                 <div className="todo-item-bottom">

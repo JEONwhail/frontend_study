@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../App.css';
 
-const FinishComponent = ({ font, todos, setCompletedTodos }) => {
+const FinishComponent = ({ font, todos, setTodos, setCompletedTodos }) => {
   const navigate = useNavigate();
   const completedTodos = todos.filter(todo => todo && todo.done);
 
@@ -12,26 +12,22 @@ const FinishComponent = ({ font, todos, setCompletedTodos }) => {
     setCompletedTodos(newCompletedTodos);
   };
 
-  const checkDeadline = (deadline) => {
-    if (!deadline) return false;
-    const currentDate = new Date();
-    const deadlineDate = new Date(deadline);
-    const diffTime = Math.abs(deadlineDate - currentDate);
-    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-    return diffDays <= 3;
-  };
-
   return (
     <div className="finish-container" style={{ fontFamily: font }}>
       <h2>🍀 To Do List를 이만큼이나 완료했어요! 🍀</h2>
       {completedTodos.length > 0 ? (
         completedTodos.map((todo, index) => (
-          <div key={index} className="todo-item">
-            <span>{todo.category}</span>
-            <span>{todo.task}</span>
-            <span>{todo.date}</span>
-            <span>{todo.deadline} {checkDeadline(todo.deadline) && '💣'}</span>
-            <button onClick={() => handleDelete(index)}>❌</button>
+          <div key={index} className="todo-item" style={{ textDecoration: 'line-through', width: '30%' }}>
+            <div className="todo-item-top">
+              <span className="category">{todo.category}</span>
+              <span className="task">{todo.task}</span>
+              <span>
+                <button onClick={() => handleDelete(index)}>❌</button>
+              </span>
+            </div>
+            <div className="todo-item-bottom">
+              <span>완료일: {new Date(todo.completedDate).toLocaleDateString()}</span>
+            </div>
           </div>
         ))
       ) : (

@@ -61,17 +61,17 @@ const MainComponent = ({ font, todos, setTodos, completedTodos, setCompletedTodo
     let completedItem;
     if (listType === 'todos') {
       const newTodos = [...todos];
-      completedItem = { ...newTodos[index], done: true };
+      completedItem = { ...newTodos[index], done: true, completedDate: new Date().toISOString() };
       newTodos.splice(index, 1);
       setTodos(newTodos);
     } else if (listType === 'favorites') {
       const newFavorites = [...favorites];
-      completedItem = { ...newFavorites[index], done: true };
+      completedItem = { ...newFavorites[index], done: true, completedDate: new Date().toISOString() };
       newFavorites.splice(index, 1);
       setFavorites(newFavorites);
     } else if (listType === 'newTodos') {
       const newTodosList = [...newTodos];
-      completedItem = { ...newTodosList[index], done: true };
+      completedItem = { ...newTodosList[index], done: true, completedDate: new Date().toISOString() };
       newTodosList.splice(index, 1);
       setNewTodos(newTodosList);
     }
@@ -104,22 +104,25 @@ const MainComponent = ({ font, todos, setTodos, completedTodos, setCompletedTodo
       const newTodos = [...todos];
       if (newTask) newTodos[index].task = newTask;
       if (newDeadline) newTodos[index].deadline = newDeadline;
+      newTodos[index].updatedDate = new Date().toISOString();
       setTodos(newTodos);
     } else if (listType === 'favorites') {
       const newFavorites = [...favorites];
       if (newTask) newFavorites[index].task = newTask;
       if (newDeadline) newFavorites[index].deadline = newDeadline;
+      newFavorites[index].updatedDate = new Date().toISOString();
       setFavorites(newFavorites);
     } else if (listType === 'newTodos') {
       const newTodosList = [...newTodos];
       if (newTask) newTodosList[index].task = newTask;
       if (newDeadline) newTodosList[index].deadline = newDeadline;
+      newTodosList[index].updatedDate = new Date().toISOString();
       setNewTodos(newTodosList);
     }
   };
 
   const handleAddTodo = (newTodo) => {
-    const newTodoWithDate = { ...newTodo, date: new Date().toISOString() };
+    const newTodoWithDate = { ...newTodo, date: new Date().toISOString(), updatedDate: new Date().toISOString() };
     setTodos([...todos, newTodoWithDate]);
   };
 
@@ -144,7 +147,6 @@ const MainComponent = ({ font, todos, setTodos, completedTodos, setCompletedTodo
   const nonUrgentTodos = todos.filter(todo => !checkDeadline(todo.deadline));
   const nonUrgentFavorites = favorites.filter(todo => !checkDeadline(todo.deadline));
 
-  // Merge all todos for CategoryViewComponent
   const allTodos = [...urgentTodos, ...nonUrgentNewTodos, ...nonUrgentTodos, ...nonUrgentFavorites];
 
   return (
@@ -168,18 +170,18 @@ const MainComponent = ({ font, todos, setTodos, completedTodos, setCompletedTodo
             {urgentTodos.map((todo, index) => (
               <div key={index} className="todo-item">
                 <div className="todo-item-top">
-                  <span>{todo.category}</span>
-                  <span>{todo.task}</span>
+                  <span className="category">{todo.category}</span>
+                  <span className="task">{todo.task}</span>
                   <span>
                     <button onClick={() => handleComplete(index, todo.listType)}>✔️</button>
                     <button onClick={() => handleDelete(index, todo.listType)}>❌</button>
-                    <button onClick={() => handleFavorite(index, todo.listType)}>📌</button>
                     <button onClick={() => handleEdit(index, todo.listType, prompt('수정할 To Do List를 입력하세요:', todo.task), prompt('마감 날짜를 수정하세요 (YYYY-MM-DD):', todo.deadline))}>✏️</button>
                   </span>
                 </div>
                 <div className="todo-item-bottom">
                   <span>마감일: {todo.deadline} 💣</span>
                   <span>생성일: {new Date(todo.date).toLocaleDateString()}</span>
+                  {todo.updatedDate && <span>수정일: {new Date(todo.updatedDate).toLocaleDateString()}</span>}
                 </div>
               </div>
             ))}
@@ -190,8 +192,8 @@ const MainComponent = ({ font, todos, setTodos, completedTodos, setCompletedTodo
             {nonUrgentFavorites.map((todo, index) => (
               <div key={index} className="todo-item">
                 <div className="todo-item-top">
-                  <span>{todo.category}</span>
-                  <span>{todo.task}</span>
+                  <span className="category">{todo.category}</span>
+                  <span className="task">{todo.task}</span>
                   <span>
                     <button onClick={() => handleFavorite(index, 'favorites')}>☆</button>
                     <button onClick={() => handleComplete(index, 'favorites')}>✔️</button>
@@ -202,6 +204,7 @@ const MainComponent = ({ font, todos, setTodos, completedTodos, setCompletedTodo
                 <div className="todo-item-bottom">
                   <span>마감일: {todo.deadline || '없음'}</span>
                   <span>생성일: {new Date(todo.date).toLocaleDateString()}</span>
+                  {todo.updatedDate && <span>수정일: {new Date(todo.updatedDate).toLocaleDateString()}</span>}
                 </div>
               </div>
             ))}
@@ -212,8 +215,8 @@ const MainComponent = ({ font, todos, setTodos, completedTodos, setCompletedTodo
             {nonUrgentTodos.map((todo, index) => (
               <div key={index} className="todo-item">
                 <div className="todo-item-top">
-                  <span>{todo.category}</span>
-                  <span>{todo.task}</span>
+                  <span className="category">{todo.category}</span>
+                  <span className="task">{todo.task}</span>
                   <span>
                     <button onClick={() => handleFavorite(index, 'todos')}>📌</button>
                     <button onClick={() => handleComplete(index, 'todos')}>✔️</button>
@@ -224,6 +227,7 @@ const MainComponent = ({ font, todos, setTodos, completedTodos, setCompletedTodo
                 <div className="todo-item-bottom">
                   <span>마감일: {todo.deadline || '없음'}</span>
                   <span>생성일: {new Date(todo.date).toLocaleDateString()}</span>
+                  {todo.updatedDate && <span>수정일: {new Date(todo.updatedDate).toLocaleDateString()}</span>}
                 </div>
               </div>
             ))}
