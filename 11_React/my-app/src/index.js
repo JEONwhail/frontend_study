@@ -3,6 +3,11 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { Provider } from 'react-redux';
+
+
+
+
 import JsxUse from './chapter3/3.4/JsxUse';
 import Library from './chapter3/Library';
 import Clock from './chapter4/Clock';
@@ -48,6 +53,7 @@ import EffectSummary from './chapter7/7.3/ex3/EffectSummary';
 import EffectContainer from './chapter7/7.3/ex3/EffectContainer';
 import SimpleRouter from './chapter16/SimpleRouter';
 import ApiRequest from './chpter17/ApiRequest';
+import ReduxTextApp from './chapter18/ReduxTextApp,jsx';
 
 
 
@@ -140,7 +146,16 @@ root.render(
     // <EffectSummary/>
     // <EffectContainer/>
     // <SimpleRouter/>
-    <ApiRequest/>
+    // <ApiRequest/>
+
+    // 18장예제
+    // 2. 리액트에 Redux Store 제공하기 (index.js)
+    // ReduxTextApp 컴포넌트와 그 하위 자식들은 Redux Store에 접근 가능
+    // 저장된 state들을 마음대로 꺼내 쓸 수 있음
+    <provider store={store}>
+        <ReduxTextApp/>
+    </provider>
+
 
 );
 
