@@ -1,12 +1,16 @@
+import Counter from "./features/counter/Counter";
+import ProductList from "./features/product/ProductList";
+
 function ReduxTextApp() {
   return (
     <>
+      <Counter />
+      <ProductList/>
     </>
   );
 };
 
 export default ReduxTextApp;
-
 // 리액트 입문자가 가장 많이 포기하는 구간
 // 리덕스 다룰줄 알면 나머지 상태 관리 라이브러리는 비슷하거나 더 쉬움..
 // (그 외 MobX, Recoil, Jotai, Zustand 등)
