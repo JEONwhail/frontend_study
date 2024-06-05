@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addToProductList } from './ProductSlice';
+import { addToProductList, removeFirstProduct } from './ProductSlice';
 
 function ProductList() {
   const [productName, setProductName] = useState('');
@@ -11,6 +11,12 @@ function ProductList() {
     if (productName.trim() !== '') {
       dispatch(addToProductList(productName));
       setProductName('');
+    }
+  };
+
+  const handleRemoveFirstProduct = () => {
+    if (productList.length > 0) {
+      dispatch(removeFirstProduct());
     }
   };
 
@@ -28,6 +34,12 @@ function ProductList() {
           onClick={handleAddProduct}
         >
           추가
+        </button>
+        <button 
+          type="button"
+          onClick={handleRemoveFirstProduct}
+        >
+          첫번째삭제
         </button>
       </p>
       <p>상품목록</p>
