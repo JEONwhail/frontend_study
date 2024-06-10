@@ -1,19 +1,23 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
+
+const initialState = {
+  productList: [],
+};
 
 const productSlice = createSlice({
   name: 'product',
-  initialState: {
-    productList: [],
-  },
+  initialState,
   reducers: {
-    addToProductList: (state, action) => {
-      state.productList.push(action.payload);
+    addToProductList: (state, { payload: productName }) => {
+      console.log(action);
+      // state.productList.push(action.payload);
+      state.productList.push(productName);
     },
-    removeFirstProduct: (state) => {
-      state.productList.shift();
-    },
-  },
+  }
 });
 
-export const { addToProductList, removeFirstProduct } = productSlice.actions;
+export const { addToProductList } = productSlice.actions;
+
+export const selectProductList = (state) => state.product.productList;
+
 export default productSlice.reducer;
