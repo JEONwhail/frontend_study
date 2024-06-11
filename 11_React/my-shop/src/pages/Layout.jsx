@@ -1,17 +1,19 @@
 import { Container, Nav, Navbar } from "react-bootstrap";
-import { Outlet } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 
 function Layout() {
+
+  const navigate = useNavigate();
   return (
     <>
       {/* 헤더 */}
       <header>
         <Navbar bg="dark" data-bs-theme="dark">
           <Container>
-            <Navbar.Brand>밍고네🐶</Navbar.Brand>
+            <Navbar.Brand href="#" onClick={()=>navigate('/')}>밍고네🐶</Navbar.Brand>
             <Nav className="me-auto">
-              <Nav.Link >홈</Nav.Link>
-              <Nav.Link>장바구니</Nav.Link>
+              <Nav.Link onClick={()=>navigate('/')} >홈</Nav.Link>
+              <Nav.Link onClick={()=>navigate('/cart')}>장바구니</Nav.Link>
             </Nav>
           </Container>
         </Navbar>
