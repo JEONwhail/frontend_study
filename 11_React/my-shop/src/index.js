@@ -4,9 +4,14 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css' // Bootstrap css 적용
 // index.js 또는 app.js에 넣어도 상관없음
+import 'react-toastify/dist/ReactToastify.css'; // ReactToastify.css 추가
+// index.js 또는 app.js에 넣어도 상관없음
 import { Provider } from "react-redux";
 import { store } from './app/store';
 import { BrowserRouter } from "react-router-dom";
+
+import { ToastContainer, toast } from 'react-toastify';
+
 
 
 
