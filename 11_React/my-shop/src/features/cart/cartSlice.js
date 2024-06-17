@@ -34,6 +34,9 @@ const cartSlice = createSlice({
       const item = state.cartList.find(product => product.id === action.payload);
       if (item && item.count > 0) {
         item.count -= 1;
+      },
+      addItemToCart :(state, action) => {
+        
       }
     }
   }
