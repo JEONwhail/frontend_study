@@ -46,11 +46,16 @@ const cartSlice = createSlice({
       } else {
         state.cartList.push(product);
       }
+    },
+
+    // QUIZ: 장바구니에서 삭제하는 리듀서 만들기
+    removeItemFromCart: (state, { payload: id }) => {
+      state.cartList = state.cartList.filter(item => item.id !== id);
     }
   }
 });
 
-export const { increaseCount, decreaseCount, addItemToCart  } = cartSlice.actions;
+export const { increaseCount, decreaseCount, addItemToCart, removeItemFromCart   } = cartSlice.actions;
 export const selectCartList = state => state.cart.cartList;
 
 export default cartSlice.reducer;

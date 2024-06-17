@@ -1,6 +1,6 @@
 import { Table, Button } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
-import { selectCartList, increaseCount, decreaseCount } from "../features/cart/cartSlice";
+import { selectCartList, increaseCount, decreaseCount,removeItemFromCart } from "../features/cart/cartSlice";
 
 function Cart() {
   const dispatch = useDispatch();
@@ -19,6 +19,7 @@ function Cart() {
             <th>상품명</th>
             <th>수량</th>
             <th>가격</th>
+            <th>삭재</th>
           </tr>
         </thead>
         <tbody>
@@ -55,6 +56,14 @@ function Cart() {
                   </Button>
                 </td>
                 <td>{formatter.format(cart.price * cart.count)}원</td>
+
+                <Button
+                    variant="outline-danger"
+                    size="sm"
+                    onClick={() => dispatch(removeItemFromCart(cart.id))}
+                  >
+                    X
+                  </Button>
               </tr>
             );
           })}

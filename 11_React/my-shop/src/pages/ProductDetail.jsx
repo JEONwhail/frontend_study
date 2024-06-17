@@ -2,8 +2,9 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Alert, Button, Col, Container, Form, Nav, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import styled, { keyframes } from "styled-components";
+import Modal from 'react-bootstrap/Modal';
 
 import { clearSelectedProduct, getSelectedProduct, selectSelectedProduct } from "../features/product/productSlice";
 import { toast } from "react-toastify";
@@ -31,6 +32,10 @@ function ProductDetail() {
   const [orderCount, setOrderCount] = useState(1); // 주문수량 상태
   const [currentTabIndex, setCurrentTabIndex] = useState(0); // 현재 탭 상태
   const [currentTab, setCurrentTab] = useState('detail'); // 현재 탭 상태
+  const [showModal, setShowModal] = useState(false); // 모달 상태
+  const handleCloseModal = () => setShowModal(false);
+  const handleOpenModal = () => setShowModal(true);
+  const navigate =  useNavigate();
 
   // 처음 마운트 됐을 때 서버에 상품 id를 이용하여 데이터를 요청하고
   // 그 결과를 리덕스 스토어에 저장
@@ -80,6 +85,7 @@ function ProductDetail() {
       dispatch(addItemToCart({ ...product, count: orderCount }));
       toast.success('🛒 장바구니에 추가되었습니다!');
     }
+    handleOpenModal();
   };
 
 
@@ -175,8 +181,26 @@ function ProductDetail() {
         'qa': <div>탭 내용3</div>,
         'exchange': <div>탭 내용4</div>
       }[currentTab]}
+
+      {/* 장바구니 모달 =>  추후 범용적인 공통 모달로ㅠ만들고 구체화하여 사용하는것이 좋음 */}
+      <Modal show={showModal} onHide={handleCloseModal}>
+              <Modal.Header closeButton>
+                <Modal.Title>멍멍</Modal.Title>
+              </Modal.Header>
+              <Modal.Body>멍멍! <br/>
+                          장바구니에 담았어 언니! <br/>
+                          보러갈래? 웡!</Modal.Body>
+              <Modal.Footer>
+                <Button variant="secondary" onClick={handleCloseModal}>
+                  안돼!
+                </Button>
+                <Button variant="primary" onClick={()=> navigate('/cart')}>
+                  가자!
+                </Button>
+              </Modal.Footer>
+        </Modal>
     </Container>
   );
-};
+}; 
 
 export default ProductDetail;
