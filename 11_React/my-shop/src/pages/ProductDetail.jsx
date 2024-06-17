@@ -8,6 +8,7 @@ import styled, { keyframes } from "styled-components";
 import { clearSelectedProduct, getSelectedProduct, selectSelectedProduct } from "../features/product/productSlice";
 import { toast } from "react-toastify";
 import TabContents from "../components/TabContents";
+import { addItemToCart } from "../features/cart/cartSlice";
 
 // 스타일드 컴포넌트를 이용한 애니메이션 속성 적용
 const highlight = keyframes`
@@ -73,6 +74,16 @@ function ProductDetail() {
     setOrderCount(Number(e.target.value));
   };
 
+
+  const handleAddToCart = () => {
+    if (product) {
+      dispatch(addItemToCart({ ...product, count: orderCount }));
+      toast.success('🛒 장바구니에 추가되었습니다!');
+    }
+  };
+
+
+
   if (!product) {
     return null;
   }
@@ -107,7 +118,7 @@ function ProductDetail() {
           </Col>
 
           <Button variant="primary">주문하기</Button>
-          <Button variant="warning">장바구니</Button>
+          <Button variant="warning" onClick={handleAddToCart}>장바구니</Button>
         </Col>
       </Row>
 
