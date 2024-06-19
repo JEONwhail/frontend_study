@@ -111,7 +111,7 @@ branch: 독립적인 작업을 위한 프로젝트의 가지
   - main(master): 기준이 되는 브랜치로 제품을 배포(출시)하는 브랜치
   - develop: 개발 브랜치, 각자 작업한 기능들을 여기에 합친다. 즉, 다음 버전을 개발하는 브랜치
   - feature: 단위 기능을 개발하는 브랜치, 기능 개발이 완료되면 develop 브랜치에 병합한다. (feature/, feature-)
-  
+
 
 
   - release: 배포를 위해 main 브랜치로 보내기 전에 QA(품질검사)를 하기 위한 브랜치
@@ -120,8 +120,8 @@ branch: 독립적인 작업을 위한 프로젝트의 가지
 ## git 브랜치 연습 - (README.md에 연습하기)
 1. 작업 전 브랜치를 가장 최신으로 (git pull)
 - 그래야 충돌을 최소화 할 수 있음(습관화하기), 했는지 안했는지 기억이 안나면 무조건하기!
-2. 기능 브랜치 만들기 (git branch)
-3. 브랜치 이동 (git checkout)
+2. 기능 브랜치 만들기 (git branch) git branch feature/login
+3. 브랜치 이동 (g it checkout) git checkout feature/login
 4. 작업 하기 -> 커밋 만들기 -> 푸쉬하기
 5. 깃헙에서 pull request 만들기
 6. 리뷰 후 머지하기
