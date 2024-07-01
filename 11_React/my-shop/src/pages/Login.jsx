@@ -43,11 +43,15 @@ function Login() {
 
         // 로그인 성공 시 서버가 내려준 토큰(JMT)과 사용자 정보
         // const { token, user } = result.data;
+        const user = { name: 'jiyeon', nickname:'JEON', role:'member' }
 
         // 전역 상태에 사용자 정보 저장
         dispatch(loginSuccess({ name: 'jiyeon', nickname:'JEON', role:'member' }));
         // 발급받은 토큰 저장
         localStorage.setItem('token' , result.data);
+        // 로그인 상태를 유지하기 위해 로컬 스토리지 사용
+        localStorage.setItem('user' , JSON.stringify(user));
+
 
         navigate('/');
       } catch (error) {
