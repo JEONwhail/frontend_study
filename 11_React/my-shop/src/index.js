@@ -16,6 +16,11 @@ import { ToastContainer, toast } from 'react-toastify';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
+// index.js에 로그인 유지하기 구현
+// 로그인 시 사용자 정보를 로컬 스토리지에도 저장
+// 새로고침 될 때 로컬 스토리지에 사용자 정보가 들어있다면 그 값을 스토어에 넣기
+
 root.render(
   <Provider store={store}>
     <BrowserRouter>

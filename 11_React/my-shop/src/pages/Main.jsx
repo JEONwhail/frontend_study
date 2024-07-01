@@ -15,6 +15,8 @@ import ProductListItem from '../components/ProductListItem';
 // 1) src 폴더 안 이미지(상대 경로로 import해서 사용)
 import minggomanggo from "../images/minggomanggo.jpg";
 import { getMoreProducts } from "../api/productAPI";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 // 2) public 폴도 안 이미지(root 경로로 바로 접근)
 // 빌드 시 src 폴더에 있는 코드와 파일은 압축이 되지만 public 폴더에 있는 것들은 그대로 보존
 // 이미지 같은 수정이 필요없는 static 파일의 경우 public에 보관하기도 함
@@ -31,6 +33,7 @@ const MainBackground = styled.div`
 `
 
 function Main() {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const productList = useSelector(selectProductList)
   // (state) => state.product.productList; < - ../features/product/productSlice
@@ -134,6 +137,28 @@ function Main() {
         <Button variant="secondary" className="mb-4" onClick={handleGetMoreProductsAsync}>
           더보기{status}
         </Button>
+
+          {/* (테스트용) 게시물 목록 조회 */}
+          <Button variant="secondary" className="mb-4" onClick={async () => {
+          try {
+            const token = localStorage.getItem('token');
+            const response = await axios.get('http://ec2-13-209-77-178.ap-northeast-2.compute.amazonaws.com:8080/board/list', {
+              headers:{
+                Authorization : token
+              }
+            });
+            console.log(response.data);
+          } catch (error) {
+            console.error(error);
+            toast.error(error.response.data.message, {
+              position: 'top-center'
+            });
+            navigate('/login')
+          }
+        }}>
+          게시물조회
+        </Button>
+
       </section>
     </>
   );
