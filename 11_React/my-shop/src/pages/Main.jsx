@@ -145,8 +145,8 @@ function Main() {
             const token = localStorage.getItem('token');
             const response = await axios.get('http://ec2-13-209-77-178.ap-northeast-2.compute.amazonaws.com:8080/board/list', {
               headers:{
-                // Authorization : token
-                Authorization : 1
+                Authorization : token
+                // Authorization : '1'
               }
             });
             console.log(response.data);
@@ -157,6 +157,8 @@ function Main() {
             });
 
             // 토큰이 잘못되었을 때, 로그인 페이지 이동
+            // 토큰이 유효하지 않아서 403오류가 떴을 경우에는
+            // 로그인 페이지로 가라
             if(error.response.data.code === '403') {
               dispatch(logoutSuccess());
 
