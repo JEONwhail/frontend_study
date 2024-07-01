@@ -145,7 +145,8 @@ function Main() {
             const token = localStorage.getItem('token');
             const response = await axios.get('http://ec2-13-209-77-178.ap-northeast-2.compute.amazonaws.com:8080/board/list', {
               headers:{
-                Authorization : token
+                // Authorization : token
+                Authorization : 1
               }
             });
             console.log(response.data);
@@ -154,10 +155,15 @@ function Main() {
             toast.error(error.response.data.message, {
               position: 'top-center'
             });
-            
-            dispatch(logoutSuccess());
 
-            navigate('/login')
+            // 토큰이 잘못되었을 때, 로그인 페이지 이동
+            if(error.response.data.code === '403') {
+              dispatch(logoutSuccess());
+
+              navigate('/login')
+            }
+
+            
           }
         }}>
           게시물조회
